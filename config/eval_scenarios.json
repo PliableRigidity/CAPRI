@@ -1,0 +1,8 @@
+[
+  {"name":"eval_easy_top_left_heldout","group":"easy","player":[0.371231,0.778769,2.406194],"opponent":[0.236881,0.913119,2.356194]},
+  {"name":"eval_easy_bottom_right_heldout","group":"easy","player":[0.778769,0.371231,-0.835398],"opponent":[0.913119,0.236881,-0.785398]},
+  {"name":"default_spawn","group":"normal","player":[0.575,0.180,1.5707963267948966],"opponent":[0.575,0.970,-1.5707963267948966]},
+  {"name":"player_left_opponent_right","group":"normal","player":[0.410,0.220,1.3962634015954636],"opponent":[0.740,0.930,-1.7453292519943295]},
+  {"name":"player_right_opponent_left","group":"normal","player":[0.740,0.220,1.7453292519943295],"opponent":[0.410,0.930,-1.3962634015954636]},
+  {"name":"opposed_diagonal","group":"normal","player":[0.360,0.350,0.7853981633974483],"opponent":[0.790,0.800,-2.356194490192345]}
+]

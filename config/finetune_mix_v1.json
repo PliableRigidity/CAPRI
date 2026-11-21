@@ -1,0 +1,1709 @@
+{
+ "schema": "finetune_mix_v1",
+ "seed": 11,
+ "description": "Clone fine-tuning pilot: half the episodes are ladder training starts that need a turn (16-90 degrees, no warm-up rung), half are new ordinary starts. One stage, no gating.",
+ "stages": [
+  {
+   "name": "mix",
+   "until_episode": null,
+   "group_weights": {
+    "turn_needed": 0.5,
+    "ordinary": 0.5
+   }
+  }
+ ],
+ "groups": {
+  "turn_needed": [
+   {
+    "name": "ladder_train_top_left_d0.34_h+16",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.34,
+    "heading_offset_deg": 16.0,
+    "player": [
+     0.367696,
+     0.782304,
+     2.635447
+    ],
+    "opponent": [
+     0.240416,
+     0.909584,
+     -0.785398
+    ],
+    "rung": 1
+   },
+   {
+    "name": "ladder_train_top_left_d0.34_h-16",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.34,
+    "heading_offset_deg": -16.0,
+    "player": [
+     0.367696,
+     0.782304,
+     2.076942
+    ],
+    "opponent": [
+     0.240416,
+     0.909584,
+     -0.785398
+    ],
+    "rung": 1
+   },
+   {
+    "name": "ladder_train_top_left_d0.46_h+16",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.46,
+    "heading_offset_deg": 16.0,
+    "player": [
+     0.452548,
+     0.697452,
+     2.635447
+    ],
+    "opponent": [
+     0.325269,
+     0.824731,
+     -0.785398
+    ],
+    "rung": 1
+   },
+   {
+    "name": "ladder_train_top_left_d0.58_h+16",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.58,
+    "heading_offset_deg": 16.0,
+    "player": [
+     0.537401,
+     0.612599,
+     2.635447
+    ],
+    "opponent": [
+     0.410122,
+     0.739878,
+     -0.785398
+    ],
+    "rung": 1
+   },
+   {
+    "name": "ladder_train_top_left_d0.58_h-16",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.58,
+    "heading_offset_deg": -16.0,
+    "player": [
+     0.537401,
+     0.612599,
+     2.076942
+    ],
+    "opponent": [
+     0.410122,
+     0.739878,
+     -0.785398
+    ],
+    "rung": 1
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.34_h+16",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.34,
+    "heading_offset_deg": 16.0,
+    "player": [
+     0.782304,
+     0.367696,
+     -0.506145
+    ],
+    "opponent": [
+     0.909584,
+     0.240416,
+     2.356194
+    ],
+    "rung": 1
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.34_h-16",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.34,
+    "heading_offset_deg": -16.0,
+    "player": [
+     0.782304,
+     0.367696,
+     -1.064651
+    ],
+    "opponent": [
+     0.909584,
+     0.240416,
+     2.356194
+    ],
+    "rung": 1
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.46_h+16",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.46,
+    "heading_offset_deg": 16.0,
+    "player": [
+     0.697452,
+     0.452548,
+     -0.506145
+    ],
+    "opponent": [
+     0.824731,
+     0.325269,
+     2.356194
+    ],
+    "rung": 1
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.46_h-16",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.46,
+    "heading_offset_deg": -16.0,
+    "player": [
+     0.697452,
+     0.452548,
+     -1.064651
+    ],
+    "opponent": [
+     0.824731,
+     0.325269,
+     2.356194
+    ],
+    "rung": 1
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.58_h-16",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.58,
+    "heading_offset_deg": -16.0,
+    "player": [
+     0.612599,
+     0.537401,
+     -1.064651
+    ],
+    "opponent": [
+     0.739878,
+     0.410122,
+     2.356194
+    ],
+    "rung": 1
+   },
+   {
+    "name": "ladder_train_top_left_d0.34_h+24",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.34,
+    "heading_offset_deg": 24.0,
+    "player": [
+     0.367696,
+     0.782304,
+     2.775074
+    ],
+    "opponent": [
+     0.240416,
+     0.909584,
+     -0.785398
+    ],
+    "rung": 2
+   },
+   {
+    "name": "ladder_train_top_left_d0.34_h-24",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.34,
+    "heading_offset_deg": -24.0,
+    "player": [
+     0.367696,
+     0.782304,
+     1.937315
+    ],
+    "opponent": [
+     0.240416,
+     0.909584,
+     -0.785398
+    ],
+    "rung": 2
+   },
+   {
+    "name": "ladder_train_top_left_d0.46_h+24",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.46,
+    "heading_offset_deg": 24.0,
+    "player": [
+     0.452548,
+     0.697452,
+     2.775074
+    ],
+    "opponent": [
+     0.325269,
+     0.824731,
+     -0.785398
+    ],
+    "rung": 2
+   },
+   {
+    "name": "ladder_train_top_left_d0.46_h-24",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.46,
+    "heading_offset_deg": -24.0,
+    "player": [
+     0.452548,
+     0.697452,
+     1.937315
+    ],
+    "opponent": [
+     0.325269,
+     0.824731,
+     -0.785398
+    ],
+    "rung": 2
+   },
+   {
+    "name": "ladder_train_top_left_d0.58_h-24",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.58,
+    "heading_offset_deg": -24.0,
+    "player": [
+     0.537401,
+     0.612599,
+     1.937315
+    ],
+    "opponent": [
+     0.410122,
+     0.739878,
+     -0.785398
+    ],
+    "rung": 2
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.34_h+24",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.34,
+    "heading_offset_deg": 24.0,
+    "player": [
+     0.782304,
+     0.367696,
+     -0.366519
+    ],
+    "opponent": [
+     0.909584,
+     0.240416,
+     2.356194
+    ],
+    "rung": 2
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.46_h+24",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.46,
+    "heading_offset_deg": 24.0,
+    "player": [
+     0.697452,
+     0.452548,
+     -0.366519
+    ],
+    "opponent": [
+     0.824731,
+     0.325269,
+     2.356194
+    ],
+    "rung": 2
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.46_h-24",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.46,
+    "heading_offset_deg": -24.0,
+    "player": [
+     0.697452,
+     0.452548,
+     -1.204277
+    ],
+    "opponent": [
+     0.824731,
+     0.325269,
+     2.356194
+    ],
+    "rung": 2
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.58_h+24",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.58,
+    "heading_offset_deg": 24.0,
+    "player": [
+     0.612599,
+     0.537401,
+     -0.366519
+    ],
+    "opponent": [
+     0.739878,
+     0.410122,
+     2.356194
+    ],
+    "rung": 2
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.58_h-24",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.58,
+    "heading_offset_deg": -24.0,
+    "player": [
+     0.612599,
+     0.537401,
+     -1.204277
+    ],
+    "opponent": [
+     0.739878,
+     0.410122,
+     2.356194
+    ],
+    "rung": 2
+   },
+   {
+    "name": "ladder_train_top_left_d0.34_h+34",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.34,
+    "heading_offset_deg": 34.0,
+    "player": [
+     0.367696,
+     0.782304,
+     2.949606
+    ],
+    "opponent": [
+     0.240416,
+     0.909584,
+     -0.785398
+    ],
+    "rung": 3
+   },
+   {
+    "name": "ladder_train_top_left_d0.46_h+34",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.46,
+    "heading_offset_deg": 34.0,
+    "player": [
+     0.452548,
+     0.697452,
+     2.949606
+    ],
+    "opponent": [
+     0.325269,
+     0.824731,
+     -0.785398
+    ],
+    "rung": 3
+   },
+   {
+    "name": "ladder_train_top_left_d0.46_h-34",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.46,
+    "heading_offset_deg": -34.0,
+    "player": [
+     0.452548,
+     0.697452,
+     1.762783
+    ],
+    "opponent": [
+     0.325269,
+     0.824731,
+     -0.785398
+    ],
+    "rung": 3
+   },
+   {
+    "name": "ladder_train_top_left_d0.58_h+34",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.58,
+    "heading_offset_deg": 34.0,
+    "player": [
+     0.537401,
+     0.612599,
+     2.949606
+    ],
+    "opponent": [
+     0.410122,
+     0.739878,
+     -0.785398
+    ],
+    "rung": 3
+   },
+   {
+    "name": "ladder_train_top_left_d0.58_h-34",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.58,
+    "heading_offset_deg": -34.0,
+    "player": [
+     0.537401,
+     0.612599,
+     1.762783
+    ],
+    "opponent": [
+     0.410122,
+     0.739878,
+     -0.785398
+    ],
+    "rung": 3
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.34_h+34",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.34,
+    "heading_offset_deg": 34.0,
+    "player": [
+     0.782304,
+     0.367696,
+     -0.191986
+    ],
+    "opponent": [
+     0.909584,
+     0.240416,
+     2.356194
+    ],
+    "rung": 3
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.34_h-34",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.34,
+    "heading_offset_deg": -34.0,
+    "player": [
+     0.782304,
+     0.367696,
+     -1.37881
+    ],
+    "opponent": [
+     0.909584,
+     0.240416,
+     2.356194
+    ],
+    "rung": 3
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.46_h-34",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.46,
+    "heading_offset_deg": -34.0,
+    "player": [
+     0.697452,
+     0.452548,
+     -1.37881
+    ],
+    "opponent": [
+     0.824731,
+     0.325269,
+     2.356194
+    ],
+    "rung": 3
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.58_h+34",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.58,
+    "heading_offset_deg": 34.0,
+    "player": [
+     0.612599,
+     0.537401,
+     -0.191986
+    ],
+    "opponent": [
+     0.739878,
+     0.410122,
+     2.356194
+    ],
+    "rung": 3
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.58_h-34",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.58,
+    "heading_offset_deg": -34.0,
+    "player": [
+     0.612599,
+     0.537401,
+     -1.37881
+    ],
+    "opponent": [
+     0.739878,
+     0.410122,
+     2.356194
+    ],
+    "rung": 3
+   },
+   {
+    "name": "ladder_train_top_left_d0.34_h+45",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.34,
+    "heading_offset_deg": 45.0,
+    "player": [
+     0.367696,
+     0.782304,
+     3.141593
+    ],
+    "opponent": [
+     0.240416,
+     0.909584,
+     -0.785398
+    ],
+    "rung": 4
+   },
+   {
+    "name": "ladder_train_top_left_d0.34_h-45",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.34,
+    "heading_offset_deg": -45.0,
+    "player": [
+     0.367696,
+     0.782304,
+     1.570796
+    ],
+    "opponent": [
+     0.240416,
+     0.909584,
+     -0.785398
+    ],
+    "rung": 4
+   },
+   {
+    "name": "ladder_train_top_left_d0.46_h-45",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.46,
+    "heading_offset_deg": -45.0,
+    "player": [
+     0.452548,
+     0.697452,
+     1.570796
+    ],
+    "opponent": [
+     0.325269,
+     0.824731,
+     -0.785398
+    ],
+    "rung": 4
+   },
+   {
+    "name": "ladder_train_top_left_d0.58_h+45",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.58,
+    "heading_offset_deg": 45.0,
+    "player": [
+     0.537401,
+     0.612599,
+     3.141593
+    ],
+    "opponent": [
+     0.410122,
+     0.739878,
+     -0.785398
+    ],
+    "rung": 4
+   },
+   {
+    "name": "ladder_train_top_left_d0.58_h-45",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.58,
+    "heading_offset_deg": -45.0,
+    "player": [
+     0.537401,
+     0.612599,
+     1.570796
+    ],
+    "opponent": [
+     0.410122,
+     0.739878,
+     -0.785398
+    ],
+    "rung": 4
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.34_h+45",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.34,
+    "heading_offset_deg": 45.0,
+    "player": [
+     0.782304,
+     0.367696,
+     0.0
+    ],
+    "opponent": [
+     0.909584,
+     0.240416,
+     2.356194
+    ],
+    "rung": 4
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.34_h-45",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.34,
+    "heading_offset_deg": -45.0,
+    "player": [
+     0.782304,
+     0.367696,
+     -1.570796
+    ],
+    "opponent": [
+     0.909584,
+     0.240416,
+     2.356194
+    ],
+    "rung": 4
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.46_h+45",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.46,
+    "heading_offset_deg": 45.0,
+    "player": [
+     0.697452,
+     0.452548,
+     0.0
+    ],
+    "opponent": [
+     0.824731,
+     0.325269,
+     2.356194
+    ],
+    "rung": 4
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.46_h-45",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.46,
+    "heading_offset_deg": -45.0,
+    "player": [
+     0.697452,
+     0.452548,
+     -1.570796
+    ],
+    "opponent": [
+     0.824731,
+     0.325269,
+     2.356194
+    ],
+    "rung": 4
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.58_h+45",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.58,
+    "heading_offset_deg": 45.0,
+    "player": [
+     0.612599,
+     0.537401,
+     0.0
+    ],
+    "opponent": [
+     0.739878,
+     0.410122,
+     2.356194
+    ],
+    "rung": 4
+   },
+   {
+    "name": "ladder_train_top_left_d0.34_h+60",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.34,
+    "heading_offset_deg": 60.0,
+    "player": [
+     0.367696,
+     0.782304,
+     -2.879793
+    ],
+    "opponent": [
+     0.240416,
+     0.909584,
+     -0.785398
+    ],
+    "rung": 5
+   },
+   {
+    "name": "ladder_train_top_left_d0.34_h-60",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.34,
+    "heading_offset_deg": -60.0,
+    "player": [
+     0.367696,
+     0.782304,
+     1.308997
+    ],
+    "opponent": [
+     0.240416,
+     0.909584,
+     -0.785398
+    ],
+    "rung": 5
+   },
+   {
+    "name": "ladder_train_top_left_d0.46_h+60",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.46,
+    "heading_offset_deg": 60.0,
+    "player": [
+     0.452548,
+     0.697452,
+     -2.879793
+    ],
+    "opponent": [
+     0.325269,
+     0.824731,
+     -0.785398
+    ],
+    "rung": 5
+   },
+   {
+    "name": "ladder_train_top_left_d0.46_h-60",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.46,
+    "heading_offset_deg": -60.0,
+    "player": [
+     0.452548,
+     0.697452,
+     1.308997
+    ],
+    "opponent": [
+     0.325269,
+     0.824731,
+     -0.785398
+    ],
+    "rung": 5
+   },
+   {
+    "name": "ladder_train_top_left_d0.58_h+60",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.58,
+    "heading_offset_deg": 60.0,
+    "player": [
+     0.537401,
+     0.612599,
+     -2.879793
+    ],
+    "opponent": [
+     0.410122,
+     0.739878,
+     -0.785398
+    ],
+    "rung": 5
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.34_h-60",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.34,
+    "heading_offset_deg": -60.0,
+    "player": [
+     0.782304,
+     0.367696,
+     -1.832596
+    ],
+    "opponent": [
+     0.909584,
+     0.240416,
+     2.356194
+    ],
+    "rung": 5
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.46_h+60",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.46,
+    "heading_offset_deg": 60.0,
+    "player": [
+     0.697452,
+     0.452548,
+     0.261799
+    ],
+    "opponent": [
+     0.824731,
+     0.325269,
+     2.356194
+    ],
+    "rung": 5
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.46_h-60",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.46,
+    "heading_offset_deg": -60.0,
+    "player": [
+     0.697452,
+     0.452548,
+     -1.832596
+    ],
+    "opponent": [
+     0.824731,
+     0.325269,
+     2.356194
+    ],
+    "rung": 5
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.58_h+60",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.58,
+    "heading_offset_deg": 60.0,
+    "player": [
+     0.612599,
+     0.537401,
+     0.261799
+    ],
+    "opponent": [
+     0.739878,
+     0.410122,
+     2.356194
+    ],
+    "rung": 5
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.58_h-60",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.58,
+    "heading_offset_deg": -60.0,
+    "player": [
+     0.612599,
+     0.537401,
+     -1.832596
+    ],
+    "opponent": [
+     0.739878,
+     0.410122,
+     2.356194
+    ],
+    "rung": 5
+   },
+   {
+    "name": "ladder_train_top_left_d0.34_h-90",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.34,
+    "heading_offset_deg": -90.0,
+    "player": [
+     0.367696,
+     0.782304,
+     0.785398
+    ],
+    "opponent": [
+     0.240416,
+     0.909584,
+     -0.785398
+    ],
+    "rung": 6
+   },
+   {
+    "name": "ladder_train_top_left_d0.46_h+90",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.46,
+    "heading_offset_deg": 90.0,
+    "player": [
+     0.452548,
+     0.697452,
+     -2.356194
+    ],
+    "opponent": [
+     0.325269,
+     0.824731,
+     -0.785398
+    ],
+    "rung": 6
+   },
+   {
+    "name": "ladder_train_top_left_d0.46_h-90",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.46,
+    "heading_offset_deg": -90.0,
+    "player": [
+     0.452548,
+     0.697452,
+     0.785398
+    ],
+    "opponent": [
+     0.325269,
+     0.824731,
+     -0.785398
+    ],
+    "rung": 6
+   },
+   {
+    "name": "ladder_train_top_left_d0.58_h+90",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.58,
+    "heading_offset_deg": 90.0,
+    "player": [
+     0.537401,
+     0.612599,
+     -2.356194
+    ],
+    "opponent": [
+     0.410122,
+     0.739878,
+     -0.785398
+    ],
+    "rung": 6
+   },
+   {
+    "name": "ladder_train_top_left_d0.58_h-90",
+    "group": "turn_needed",
+    "pit": "top_left",
+    "distance_m": 0.58,
+    "heading_offset_deg": -90.0,
+    "player": [
+     0.537401,
+     0.612599,
+     0.785398
+    ],
+    "opponent": [
+     0.410122,
+     0.739878,
+     -0.785398
+    ],
+    "rung": 6
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.34_h+90",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.34,
+    "heading_offset_deg": 90.0,
+    "player": [
+     0.782304,
+     0.367696,
+     0.785398
+    ],
+    "opponent": [
+     0.909584,
+     0.240416,
+     2.356194
+    ],
+    "rung": 6
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.34_h-90",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.34,
+    "heading_offset_deg": -90.0,
+    "player": [
+     0.782304,
+     0.367696,
+     -2.356194
+    ],
+    "opponent": [
+     0.909584,
+     0.240416,
+     2.356194
+    ],
+    "rung": 6
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.46_h+90",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.46,
+    "heading_offset_deg": 90.0,
+    "player": [
+     0.697452,
+     0.452548,
+     0.785398
+    ],
+    "opponent": [
+     0.824731,
+     0.325269,
+     2.356194
+    ],
+    "rung": 6
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.58_h+90",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.58,
+    "heading_offset_deg": 90.0,
+    "player": [
+     0.612599,
+     0.537401,
+     0.785398
+    ],
+    "opponent": [
+     0.739878,
+     0.410122,
+     2.356194
+    ],
+    "rung": 6
+   },
+   {
+    "name": "ladder_train_bottom_right_d0.58_h-90",
+    "group": "turn_needed",
+    "pit": "bottom_right",
+    "distance_m": 0.58,
+    "heading_offset_deg": -90.0,
+    "player": [
+     0.612599,
+     0.537401,
+     -2.356194
+    ],
+    "opponent": [
+     0.739878,
+     0.410122,
+     2.356194
+    ],
+    "rung": 6
+   }
+  ],
+  "ordinary": [
+   {
+    "name": "mix_train_default_0",
+    "group": "ordinary",
+    "derived_from": "train_default",
+    "player": [
+     0.5304,
+     0.1799,
+     1.6215
+    ],
+    "opponent": [
+     0.5184,
+     0.9278,
+     -1.3567
+    ]
+   },
+   {
+    "name": "mix_train_default_1",
+    "group": "ordinary",
+    "derived_from": "train_default",
+    "player": [
+     0.5235,
+     0.1356,
+     1.795
+    ],
+    "opponent": [
+     0.5896,
+     0.9543,
+     -1.5651
+    ]
+   },
+   {
+    "name": "mix_train_default_2",
+    "group": "ordinary",
+    "derived_from": "train_default",
+    "player": [
+     0.5945,
+     0.153,
+     1.3898
+    ],
+    "opponent": [
+     0.6096,
+     0.9904,
+     -1.5646
+    ]
+   },
+   {
+    "name": "mix_train_default_3",
+    "group": "ordinary",
+    "derived_from": "train_default",
+    "player": [
+     0.613,
+     0.1859,
+     1.8113
+    ],
+    "opponent": [
+     0.5395,
+     0.9764,
+     -1.579
+    ]
+   },
+   {
+    "name": "mix_train_default_4",
+    "group": "ordinary",
+    "derived_from": "train_default",
+    "player": [
+     0.5574,
+     0.191,
+     1.4384
+    ],
+    "opponent": [
+     0.6113,
+     1.0141,
+     -1.7564
+    ]
+   },
+   {
+    "name": "mix_train_default_5",
+    "group": "ordinary",
+    "derived_from": "train_default",
+    "player": [
+     0.571,
+     0.1533,
+     1.3624
+    ],
+    "opponent": [
+     0.6225,
+     0.9616,
+     -1.747
+    ]
+   },
+   {
+    "name": "mix_train_default_6",
+    "group": "ordinary",
+    "derived_from": "train_default",
+    "player": [
+     0.5958,
+     0.1443,
+     1.7715
+    ],
+    "opponent": [
+     0.5411,
+     0.914,
+     -1.7204
+    ]
+   },
+   {
+    "name": "mix_train_default_7",
+    "group": "ordinary",
+    "derived_from": "train_default",
+    "player": [
+     0.5565,
+     0.1763,
+     1.7739
+    ],
+    "opponent": [
+     0.5987,
+     0.9507,
+     -1.8124
+    ]
+   },
+   {
+    "name": "mix_train_default_8",
+    "group": "ordinary",
+    "derived_from": "train_default",
+    "player": [
+     0.5342,
+     0.2396,
+     1.5507
+    ],
+    "opponent": [
+     0.5979,
+     0.9166,
+     -1.8038
+    ]
+   },
+   {
+    "name": "mix_train_default_9",
+    "group": "ordinary",
+    "derived_from": "train_default",
+    "player": [
+     0.6165,
+     0.1905,
+     1.4752
+    ],
+    "opponent": [
+     0.5531,
+     0.9207,
+     -1.7345
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_left_0",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_left",
+    "player": [
+     0.323,
+     0.2807,
+     1.3332
+    ],
+    "opponent": [
+     0.6753,
+     0.9287,
+     -1.9322
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_left_1",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_left",
+    "player": [
+     0.3274,
+     0.2518,
+     1.5479
+    ],
+    "opponent": [
+     0.6632,
+     0.9366,
+     -1.9349
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_left_2",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_left",
+    "player": [
+     0.3311,
+     0.1822,
+     1.2465
+    ],
+    "opponent": [
+     0.7473,
+     0.8992,
+     -1.6035
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_left_3",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_left",
+    "player": [
+     0.3461,
+     0.2178,
+     1.2291
+    ],
+    "opponent": [
+     0.7774,
+     0.9529,
+     -1.8597
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_left_4",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_left",
+    "player": [
+     0.3723,
+     0.2177,
+     1.4733
+    ],
+    "opponent": [
+     0.6648,
+     0.8481,
+     -1.828
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_left_5",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_left",
+    "player": [
+     0.3494,
+     0.2814,
+     1.4709
+    ],
+    "opponent": [
+     0.7255,
+     0.9194,
+     -1.6839
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_left_6",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_left",
+    "player": [
+     0.4137,
+     0.2913,
+     1.1749
+    ],
+    "opponent": [
+     0.7351,
+     0.8572,
+     -1.8084
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_left_7",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_left",
+    "player": [
+     0.4144,
+     0.2874,
+     1.4796
+    ],
+    "opponent": [
+     0.6642,
+     0.8831,
+     -1.9485
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_left_8",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_left",
+    "player": [
+     0.4399,
+     0.1973,
+     1.2222
+    ],
+    "opponent": [
+     0.7029,
+     0.8473,
+     -1.5948
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_left_9",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_left",
+    "player": [
+     0.3964,
+     0.1992,
+     1.3491
+    ],
+    "opponent": [
+     0.6694,
+     0.9133,
+     -1.9142
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_right_0",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_right",
+    "player": [
+     0.7046,
+     0.2138,
+     1.8276
+    ],
+    "opponent": [
+     0.4464,
+     0.869,
+     -1.2583
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_right_1",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_right",
+    "player": [
+     0.7422,
+     0.2157,
+     1.7076
+    ],
+    "opponent": [
+     0.4174,
+     0.9395,
+     -1.5222
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_right_2",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_right",
+    "player": [
+     0.7103,
+     0.2674,
+     2.0317
+    ],
+    "opponent": [
+     0.4789,
+     0.914,
+     -1.5466
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_right_3",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_right",
+    "player": [
+     0.7968,
+     0.282,
+     1.622
+    ],
+    "opponent": [
+     0.4258,
+     0.8359,
+     -1.1791
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_right_4",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_right",
+    "player": [
+     0.7862,
+     0.2966,
+     1.9302
+    ],
+    "opponent": [
+     0.4021,
+     0.9248,
+     -1.4554
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_right_5",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_right",
+    "player": [
+     0.7165,
+     0.2468,
+     1.7989
+    ],
+    "opponent": [
+     0.4043,
+     0.9027,
+     -1.2787
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_right_6",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_right",
+    "player": [
+     0.7288,
+     0.2747,
+     1.7286
+    ],
+    "opponent": [
+     0.4582,
+     0.8649,
+     -1.1806
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_right_7",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_right",
+    "player": [
+     0.7498,
+     0.2664,
+     1.8867
+    ],
+    "opponent": [
+     0.4322,
+     0.8609,
+     -1.0903
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_right_8",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_right",
+    "player": [
+     0.7115,
+     0.239,
+     1.8246
+    ],
+    "opponent": [
+     0.3734,
+     0.8486,
+     -1.1804
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_right_9",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_right",
+    "player": [
+     0.7941,
+     0.2764,
+     2.0009
+    ],
+    "opponent": [
+     0.4607,
+     0.8659,
+     -1.2576
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_diagonal_0",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_diagonal",
+    "player": [
+     0.3108,
+     0.4,
+     0.8424
+    ],
+    "opponent": [
+     0.7584,
+     0.8252,
+     -2.1548
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_diagonal_1",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_diagonal",
+    "player": [
+     0.3594,
+     0.3772,
+     1.0415
+    ],
+    "opponent": [
+     0.7937,
+     0.7879,
+     -2.4687
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_diagonal_2",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_diagonal",
+    "player": [
+     0.3366,
+     0.4078,
+     1.0028
+    ],
+    "opponent": [
+     0.8364,
+     0.7795,
+     -2.0593
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_diagonal_3",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_diagonal",
+    "player": [
+     0.283,
+     0.4151,
+     0.8356
+    ],
+    "opponent": [
+     0.7509,
+     0.7943,
+     -2.2726
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_diagonal_4",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_diagonal",
+    "player": [
+     0.3214,
+     0.4122,
+     0.7189
+    ],
+    "opponent": [
+     0.814,
+     0.7697,
+     -2.2359
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_diagonal_5",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_diagonal",
+    "player": [
+     0.3299,
+     0.3261,
+     0.906
+    ],
+    "opponent": [
+     0.8435,
+     0.7405,
+     -2.4943
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_diagonal_6",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_diagonal",
+    "player": [
+     0.2781,
+     0.3652,
+     1.1372
+    ],
+    "opponent": [
+     0.7453,
+     0.8389,
+     -2.232
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_diagonal_7",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_diagonal",
+    "player": [
+     0.2844,
+     0.3602,
+     0.7537
+    ],
+    "opponent": [
+     0.8257,
+     0.785,
+     -2.356
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_diagonal_8",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_diagonal",
+    "player": [
+     0.3007,
+     0.414,
+     1.0331
+    ],
+    "opponent": [
+     0.7923,
+     0.7687,
+     -2.1313
+    ]
+   },
+   {
+    "name": "mix_train_ordinary_diagonal_9",
+    "group": "ordinary",
+    "derived_from": "train_ordinary_diagonal",
+    "player": [
+     0.3865,
+     0.3196,
+     0.7295
+    ],
+    "opponent": [
+     0.7835,
+     0.7809,
+     -2.4643
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "turn_needed": "training starts of the gated rungs of config/heading_ladder_v1.json",
+  "ordinary": "10 seeded offsets (+-0.06 m, +-0.25 rad) of each ordinary start of the frozen training curriculum; none repeats a held-out case",
+  "same_case_tolerance": {
+   "position_m": 0.02,
+   "yaw_rad": 0.05
+  }
+ }
+}

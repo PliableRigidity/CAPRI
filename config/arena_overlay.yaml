@@ -1,0 +1,136 @@
+# Arena overlay + ArUco bot-pose tool configuration.
+# Used by:  python -m control_center.tools.arena_overlay --camera 0
+# READ-ONLY VISION: this tool never opens the robot link and never sends motor commands.
+#
+# Everything marked PLACEHOLDER is a nominal or guessed value that has NOT been measured.
+# The tool lists the placeholder groups still in use on screen and in every report.
+#
+# ---------------------------------------------------------------------------------------
+# Coordinate frame (ARENA-FIXED, identical to the simulator's `arena:` block in config/sim.yaml)
+#   * Origin (0, 0) is the PLAIN corner: the one with neither a pit nor the flipper.
+#   * The flipper corner is diagonally opposite at (1.150, 1.150).
+#   * Stand at the plain corner facing the flipper corner: +x runs along the wall on your RIGHT,
+#     +y along the wall on your LEFT. (Seen from above, +x to +y is counter-clockwise.)
+#   * Pits are the quarter circles centred on the other two corners, (0, 1.150) and (1.150, 0).
+#   * Heading is degrees counter-clockwise from +x, as seen from above.
+# This frame does not depend on where the camera stands. It is NOT the camera-relative
+# "near-left corner" frame described in config/control_center.yaml.
+# ---------------------------------------------------------------------------------------
+
+# Source of the arena numbers: "Arena Floor" technical drawing, rev 1, Alex Chung, 11/11/2025, millimetres
+# (file "Arena Floor Technical Drawing.pdf", sha256 c6f59bdf...aeda0, checked 2026-11-18). Every value below
+# equals the drawing: 1150 x 1150 floor, R250 quarter-circle cut-outs at two opposite corners (rim meets
+# the walls 900 from the plain corner and 250 from each pit corner), and a 335 x 335 diagonal cut at 135 deg
+# in the corner opposite the plain one (so it meets the walls at 815). The drawing shows the FLOOR PANEL
+# outline; it does not show the walls. It is a drawing, not a measurement of the arena as built.
+arena:
+  measured: false            # From the drawing, NOT tape-measured. Set true once checked at the arena.
+  width_m: 1.150
+  height_m: 1.150
+  pit_radius_m: 0.250
+  pit_centres_m: [[0.0, 1.150], [1.150, 0.0]]
+  # FIXED flipper boundary (the static triangle on the floor), not the moving flipper surface.
+  flipper_vertices_m: [[0.815, 1.150], [1.150, 1.150], [1.150, 0.815]]
+
+# Floor-level reference points. `arena_m` is the tape-measured floor position in the frame above.
+# `role: fit` points are used to fit the image-to-floor mapping (at least 4 must be clicked).
+# `role: check` points are NOT used in the fit; the tool reports the mapping error at each one.
+# Points you do not click are simply skipped. Every point must be AT FLOOR LEVEL: click where a
+# feature meets the floor, never the top edge of a wall. Points at the foot of the wall nearest the
+# camera are usually hidden behind that wall; skip them (key n) or use taped floor marks instead.
+# In the tool, key t swaps the current point between fit and check for that camera set-up.
+reference_points:
+  - {name: corner_origin,          arena_m: [0.000, 0.000], role: fit,   measured: false,
+     note: "plain corner, floor level"}
+  - {name: pitA_rim_x0_wall,       arena_m: [0.000, 0.900], role: fit,   measured: false,
+     note: "pit at (0,1.15): where the rim meets the x=0 wall"}
+  - {name: pitB_rim_y0_wall,       arena_m: [0.900, 0.000], role: fit,   measured: false,
+     note: "pit at (1.15,0): where the rim meets the y=0 wall"}
+  - {name: flipper_edge_ymax_wall, arena_m: [0.815, 1.150], role: fit,   measured: false,
+     note: "fixed flipper boundary: end on the y=1.15 wall"}
+  - {name: flipper_edge_xmax_wall, arena_m: [1.150, 0.815], role: fit,   measured: false,
+     note: "fixed flipper boundary: end on the x=1.15 wall"}
+  - {name: pitA_rim_ymax_wall,     arena_m: [0.250, 1.150], role: check, measured: false,
+     note: "pit at (0,1.15): where the rim meets the y=1.15 wall"}
+  - {name: pitB_rim_xmax_wall,     arena_m: [1.150, 0.250], role: check, measured: false,
+     note: "pit at (1.15,0): where the rim meets the x=1.15 wall"}
+  # Taped floor marks. PLACEHOLDER positions: put a small tape cross anywhere convenient,
+  # measure it from the x=0 and y=0 walls, and enter the measured values here.
+  - {name: tape_centre,            arena_m: [0.575, 0.575], role: check, measured: false,
+     note: "taped cross near the arena centre"}
+  - {name: tape_1,                 arena_m: [0.300, 0.300], role: check, measured: false,
+     note: "taped cross"}
+  - {name: tape_2,                 arena_m: [0.850, 0.300], role: check, measured: false,
+     note: "taped cross"}
+  - {name: tape_3,                 arena_m: [0.300, 0.850], role: check, measured: false,
+     note: "taped cross"}
+  - {name: tape_4,                 arena_m: [0.750, 0.750], role: check, measured: false,
+     note: "taped cross"}
+
+mapping:
+  warn_check_error_mm: 10.0      # held-out check error above this is flagged on screen
+  max_fit_residual_mm: 30.0      # a fit worse than this is rejected as invalid
+  # A valid fit is still shown as WEAK (never silently accepted) when any of these holds:
+  weak_predicted_error_mm: 25.0  # a 1 px click error would move the map by more than this somewhere
+  min_hull_fraction: 0.25        # the fit points span less than this share of the arena
+  # ... or no check point was clicked, or a check point is off by more than warn_check_error_mm.
+
+# Calibration profiles (python -m control_center.tools.arena_overlay --profile NAME):
+#   live (default)  your own camera; points in config/arena_overlay_clicks.json. Start it fresh with
+#                   --camera N --calibrate. Redo it whenever the camera moves or its resolution changes.
+#   anything else   config/overlay_profiles/NAME/clicks.json. A profile made from recorded footage is
+#                   marked historical, carries that recording's own lens, and is refused for --camera.
+# Nothing in a footage profile (camera position, crop, pixels, lens) is used for the live profile.
+
+camera:
+  # Lens position in the arena frame, metres: [x, y, height above the floor].
+  # Measure with a tape and a plumb line dropped from the lens to the floor (or to the bench
+  # beside the arena). null = not measured; the tool then derives it from the floor mapping.
+  position_m: null               # MEASURE at the arena
+  # Optional lens intrinsics from a checkerboard calibration. null = ideal pinhole assumed
+  # (principal point at the image centre, square pixels, no lens distortion).
+  matrix: null                   # 3x3 camera matrix
+  distortion: null               # OpenCV distortion coefficients
+
+pose:
+  # auto     : use camera.position_m when measured, otherwise derive it from the floor mapping,
+  #            otherwise fall back to the uncorrected floor projection labelled APPROXIMATE.
+  # measured : require camera.position_m;  derived : always derive;  off : never correct.
+  height_correction: auto
+  max_position_disagreement_m: 0.020   # visible markers must agree on the bot centre within this
+  max_heading_disagreement_deg: 10.0   # ... and on the nose heading within this
+  max_marker_size_error_fraction: 0.30 # apparent marker size vs marker_size_m; null disables
+  max_detection_age_s: 0.25            # a pose older than this is shown as unknown
+
+bot:
+  measured: false                # PLACEHOLDER: every value in this block. Set true once measured.
+  # THE project marker dictionary and the ONE place it is chosen (control_center/backend/marker_settings.py explains the rest).
+  # The printed markers are ArUco 4x4 ids 0-8 (the real camera decoded them as DICT_4X4_50: artifacts/marker-survey). Do not change
+  # it without reprinting markers. Not a placeholder; `measured: false` above refers to the sizes/heights/offsets below.
+  dictionary: DICT_4X4_50
+  marker_size_m: 0.040           # PLACEHOLDER: side of the black square, metres
+  # Height of the marker surface above the FLOOR while that face is the one facing up.
+  marker_height_m: {top: 0.034, bottom: 0.034}   # PLACEHOLDER
+  # One entry per marker. Proposed layout: IDs 0-3 on the top face, 4-7 on the bottom face.
+  # For each marker, look straight down on the face it is stuck to, with the bot's nose pointing
+  # away from you (for bottom-face markers: with the bot lying upside down):
+  #   forward_m : marker centre, distance toward the nose from the bot centre
+  #   left_m    : marker centre, distance to your left from the bot centre
+  #   yaw_deg   : direction of the marker's top edge relative to the nose, counter-clockwise.
+  #               0 = the marker's top edge faces the nose.
+  # Optional per-marker overrides: size_m, height_m.
+  markers:
+    - {id: 0, face: top,    forward_m:  0.035, left_m:  0.030, yaw_deg: 0.0}   # PLACEHOLDER
+    - {id: 1, face: top,    forward_m:  0.035, left_m: -0.030, yaw_deg: 0.0}   # PLACEHOLDER
+    - {id: 2, face: top,    forward_m: -0.035, left_m: -0.030, yaw_deg: 0.0}   # PLACEHOLDER
+    - {id: 3, face: top,    forward_m: -0.035, left_m:  0.030, yaw_deg: 0.0}   # PLACEHOLDER
+    - {id: 4, face: bottom, forward_m:  0.035, left_m:  0.030, yaw_deg: 0.0}   # PLACEHOLDER
+    - {id: 5, face: bottom, forward_m:  0.035, left_m: -0.030, yaw_deg: 0.0}   # PLACEHOLDER
+    - {id: 6, face: bottom, forward_m: -0.035, left_m: -0.030, yaw_deg: 0.0}   # PLACEHOLDER
+    - {id: 7, face: bottom, forward_m: -0.035, left_m:  0.030, yaw_deg: 0.0}   # PLACEHOLDER
+    # Marker id 8 (a REAR marker, on the vertical rear face) is NOT configured here: no measured value for it exists. The real camera
+    # has decoded an id 8 (artifacts/marker-survey), so until it is added it shows as an UNKNOWN ID on the TRACKING screen and is ignored.
+    # To add it, measure every number (never copy the fixture's, control_center/tools/track_fixture.py) and append, e.g.:
+    #   - {id: 8, face: rear, forward_m: <rear face, toward the nose from the centre: negative>, left_m: <>, yaw_deg: <>, size_m: <>,
+    #      height_m: <marker CENTRE above the floor, upright>, height_inverted_m: <the same upside down>}
+    # A rear marker also needs the camera position (camera.position_m measured, or derived); see tools/chassis_tracker.py.

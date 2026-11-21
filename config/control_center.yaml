@@ -1,5 +1,6 @@
 # Logitech C525 / OpenCV capture. Override index at launch with --camera-index.
-camera_index: 0
+# The C525 has been index 1 on the bench PC (0 is usually the laptop's own webcam).
+camera_index: 1
 camera_width: 1280
 camera_height: 720
 camera_fps: 30
@@ -9,8 +10,13 @@ camera_apply_requested_settings: true
 camera_enable_backend_fallbacks: true
 vision_result_max_age_ms: 250
 
-# AprilTag settings retained from april_test.py. Self tag ID may be changed here.
-april_tag_family: DICT_APRILTAG_36h11
+# MARKER DICTIONARY: there is no dictionary key in this file any more. The robot's markers are DICT_4X4_50 and that is
+# chosen in ONE place, `bot.dictionary` in config/arena_overlay.yaml; the legacy window reads it from there. (This file used
+# to say april_tag_family: DICT_APRILTAG_36h11, the first dashboard's guess, which cannot decode the printed markers.
+# If an april_tag_family / april_tag.family key is put back and differs, the legacy window logs a warning and still uses
+# the project dictionary.)
+# Legacy window only: the single marker id it draws a heading arrow for. The Command Centre tracks the whole layout
+# (bot.markers in config/arena_overlay.yaml), not one id.
 self_tag_id: 0
 
 # World frame: origin is the near-left arena corner; +x right, +y away from camera.
@@ -55,8 +61,7 @@ vision:
   calibration_file: config/arena_calibration.npz
   background_file: config/arena_background.png
 
-april_tag:
-  family: DICT_APRILTAG_36h11
+april_tag:                     # legacy window's solvePnP inputs only (no `family` here: see MARKER DICTIONARY above)
   tag_size_m: null  # TODO-MEASURE before enabling solvePnP pose
   camera_matrix: null
   distortion_coefficients: null
@@ -68,3 +73,13 @@ homography_points_file: config/homography_points.yaml
 
 ui_refresh_hz: 30
 state_refresh_hz: 10
+
+# --- Command Centre (redesigned dashboard) ---
+# One folder per recorded round is written here (docs/round-recording-format.md).
+rounds_dir: rounds
+# MJPG (.avi): every frame independent, exact seeking, about 3 MB/s at 720p.
+# mp4v (.mp4): several times smaller, seeking is less exact.
+recording_codec: MJPG
+# Serial port to LISTEN to for controller status (never written to). null = not connected.
+# While the PC drive client holds the port, start the dashboard with --controller-log instead.
+controller_port: null

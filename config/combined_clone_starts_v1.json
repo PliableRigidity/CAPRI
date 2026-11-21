@@ -1,0 +1,2413 @@
+{
+ "schema": "combined_clone_starts_v1",
+ "seed": 97017,
+ "provenance": "seeded offsets (+-0.06 m, +-0.25 rad) of the four ordinary starts of the frozen training curriculum; none is within the same-case tolerance of a held-out start",
+ "same_case_tolerance": {
+  "position_m": 0.02,
+  "yaw_rad": 0.05
+ },
+ "train": [
+  {
+   "name": "demo_train_default_0",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5406,
+    0.1829,
+    1.6612
+   ],
+   "opponent": [
+    0.6183,
+    0.9364,
+    -1.4615
+   ]
+  },
+  {
+   "name": "demo_train_default_1",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5408,
+    0.1764,
+    1.4333
+   ],
+   "opponent": [
+    0.6111,
+    1.0286,
+    -1.6588
+   ]
+  },
+  {
+   "name": "demo_train_default_2",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5339,
+    0.152,
+    1.706
+   ],
+   "opponent": [
+    0.6261,
+    1.0035,
+    -1.3735
+   ]
+  },
+  {
+   "name": "demo_train_default_3",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5886,
+    0.2001,
+    1.8204
+   ],
+   "opponent": [
+    0.5608,
+    0.9702,
+    -1.5058
+   ]
+  },
+  {
+   "name": "demo_train_default_4",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5381,
+    0.1786,
+    1.3952
+   ],
+   "opponent": [
+    0.6076,
+    0.9608,
+    -1.7026
+   ]
+  },
+  {
+   "name": "demo_train_default_5",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.6223,
+    0.1562,
+    1.7648
+   ],
+   "opponent": [
+    0.5317,
+    0.918,
+    -1.3347
+   ]
+  },
+  {
+   "name": "demo_train_default_6",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.527,
+    0.2072,
+    1.3508
+   ],
+   "opponent": [
+    0.5318,
+    1.0073,
+    -1.4753
+   ]
+  },
+  {
+   "name": "demo_train_default_7",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.6271,
+    0.1774,
+    1.5137
+   ],
+   "opponent": [
+    0.5257,
+    0.9971,
+    -1.6843
+   ]
+  },
+  {
+   "name": "demo_train_default_8",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.57,
+    0.1335,
+    1.4679
+   ],
+   "opponent": [
+    0.5469,
+    0.9897,
+    -1.346
+   ]
+  },
+  {
+   "name": "demo_train_default_9",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.6329,
+    0.1831,
+    1.45
+   ],
+   "opponent": [
+    0.5884,
+    0.9161,
+    -1.5009
+   ]
+  },
+  {
+   "name": "demo_train_default_10",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5357,
+    0.1485,
+    1.4036
+   ],
+   "opponent": [
+    0.6183,
+    1.0192,
+    -1.4677
+   ]
+  },
+  {
+   "name": "demo_train_default_11",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5397,
+    0.1996,
+    1.6512
+   ],
+   "opponent": [
+    0.6138,
+    1.0134,
+    -1.7911
+   ]
+  },
+  {
+   "name": "demo_train_default_12",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5721,
+    0.2083,
+    1.3951
+   ],
+   "opponent": [
+    0.5461,
+    0.9109,
+    -1.4383
+   ]
+  },
+  {
+   "name": "demo_train_default_13",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5955,
+    0.1886,
+    1.6539
+   ],
+   "opponent": [
+    0.6026,
+    0.9621,
+    -1.6775
+   ]
+  },
+  {
+   "name": "demo_train_default_14",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.6137,
+    0.1383,
+    1.6828
+   ],
+   "opponent": [
+    0.6201,
+    0.9802,
+    -1.6945
+   ]
+  },
+  {
+   "name": "demo_train_default_15",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.6315,
+    0.2366,
+    1.4424
+   ],
+   "opponent": [
+    0.5929,
+    1.0147,
+    -1.4301
+   ]
+  },
+  {
+   "name": "demo_train_default_16",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5494,
+    0.1558,
+    1.5096
+   ],
+   "opponent": [
+    0.5284,
+    0.9209,
+    -1.6769
+   ]
+  },
+  {
+   "name": "demo_train_default_17",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5923,
+    0.1291,
+    1.6232
+   ],
+   "opponent": [
+    0.5203,
+    1.0148,
+    -1.4709
+   ]
+  },
+  {
+   "name": "demo_train_default_18",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.6002,
+    0.1231,
+    1.3564
+   ],
+   "opponent": [
+    0.6235,
+    0.9723,
+    -1.4839
+   ]
+  },
+  {
+   "name": "demo_train_default_19",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5999,
+    0.1357,
+    1.5439
+   ],
+   "opponent": [
+    0.5591,
+    1.0067,
+    -1.5524
+   ]
+  },
+  {
+   "name": "demo_train_default_20",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5622,
+    0.2304,
+    1.6608
+   ],
+   "opponent": [
+    0.6308,
+    0.9104,
+    -1.7872
+   ]
+  },
+  {
+   "name": "demo_train_default_21",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5905,
+    0.1366,
+    1.6309
+   ],
+   "opponent": [
+    0.6015,
+    1.0161,
+    -1.6844
+   ]
+  },
+  {
+   "name": "demo_train_default_22",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.6279,
+    0.1564,
+    1.5173
+   ],
+   "opponent": [
+    0.6116,
+    1.0084,
+    -1.5433
+   ]
+  },
+  {
+   "name": "demo_train_default_23",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5564,
+    0.1915,
+    1.4976
+   ],
+   "opponent": [
+    0.5181,
+    0.9666,
+    -1.7014
+   ]
+  },
+  {
+   "name": "demo_train_default_24",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5998,
+    0.1808,
+    1.4221
+   ],
+   "opponent": [
+    0.5912,
+    0.9667,
+    -1.6836
+   ]
+  },
+  {
+   "name": "demo_train_default_25",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5971,
+    0.1708,
+    1.7421
+   ],
+   "opponent": [
+    0.6188,
+    1.0236,
+    -1.5153
+   ]
+  },
+  {
+   "name": "demo_train_default_26",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5841,
+    0.1787,
+    1.358
+   ],
+   "opponent": [
+    0.5211,
+    0.9153,
+    -1.8023
+   ]
+  },
+  {
+   "name": "demo_train_default_27",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5527,
+    0.2324,
+    1.5564
+   ],
+   "opponent": [
+    0.5642,
+    0.9786,
+    -1.3964
+   ]
+  },
+  {
+   "name": "demo_train_default_28",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5585,
+    0.2147,
+    1.7714
+   ],
+   "opponent": [
+    0.5899,
+    1.0252,
+    -1.4987
+   ]
+  },
+  {
+   "name": "demo_train_default_29",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_default",
+   "player": [
+    0.5497,
+    0.183,
+    1.3635
+   ],
+   "opponent": [
+    0.5299,
+    1.0245,
+    -1.4737
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_0",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3439,
+    0.2057,
+    1.4977
+   ],
+   "opponent": [
+    0.7642,
+    0.9085,
+    -1.7758
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_1",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.4098,
+    0.246,
+    1.5714
+   ],
+   "opponent": [
+    0.7314,
+    0.9269,
+    -1.831
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_2",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3996,
+    0.2675,
+    1.4786
+   ],
+   "opponent": [
+    0.7176,
+    0.8752,
+    -1.6585
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_3",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3482,
+    0.2212,
+    1.2696
+   ],
+   "opponent": [
+    0.7258,
+    0.904,
+    -1.6161
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_4",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3445,
+    0.2796,
+    1.5435
+   ],
+   "opponent": [
+    0.7487,
+    0.8952,
+    -1.8411
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_5",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.4183,
+    0.27,
+    1.537
+   ],
+   "opponent": [
+    0.7413,
+    0.8898,
+    -1.8148
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_6",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3793,
+    0.197,
+    1.1154
+   ],
+   "opponent": [
+    0.7153,
+    0.9272,
+    -1.8295
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_7",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3611,
+    0.2053,
+    1.5241
+   ],
+   "opponent": [
+    0.7031,
+    0.9387,
+    -1.887
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_8",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3522,
+    0.2541,
+    1.5272
+   ],
+   "opponent": [
+    0.6943,
+    0.8497,
+    -1.7749
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_9",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.4188,
+    0.2003,
+    1.3716
+   ],
+   "opponent": [
+    0.6929,
+    0.9145,
+    -1.7814
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_10",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3979,
+    0.2696,
+    1.3232
+   ],
+   "opponent": [
+    0.7173,
+    0.842,
+    -1.9743
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_11",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.4267,
+    0.2322,
+    1.2735
+   ],
+   "opponent": [
+    0.7071,
+    0.9394,
+    -1.9866
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_12",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3581,
+    0.2296,
+    1.2169
+   ],
+   "opponent": [
+    0.7341,
+    0.8548,
+    -1.6834
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_13",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3384,
+    0.2662,
+    1.2571
+   ],
+   "opponent": [
+    0.689,
+    0.9319,
+    -1.7525
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_14",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3651,
+    0.295,
+    1.5198
+   ],
+   "opponent": [
+    0.7334,
+    0.9563,
+    -1.9673
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_15",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.4144,
+    0.2518,
+    1.2426
+   ],
+   "opponent": [
+    0.7126,
+    0.9096,
+    -1.5543
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_16",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3241,
+    0.27,
+    1.4411
+   ],
+   "opponent": [
+    0.7598,
+    0.841,
+    -2.0206
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_17",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3688,
+    0.1987,
+    1.4211
+   ],
+   "opponent": [
+    0.7197,
+    0.8732,
+    -2.0131
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_18",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.4019,
+    0.2132,
+    1.5
+   ],
+   "opponent": [
+    0.7352,
+    0.8998,
+    -1.9091
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_19",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3377,
+    0.2154,
+    1.4757
+   ],
+   "opponent": [
+    0.6669,
+    0.9304,
+    -1.5637
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_20",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3441,
+    0.2929,
+    1.4691
+   ],
+   "opponent": [
+    0.7533,
+    0.9566,
+    -2.0057
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_21",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.4214,
+    0.2093,
+    1.4555
+   ],
+   "opponent": [
+    0.6643,
+    0.9224,
+    -1.9126
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_22",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3214,
+    0.2158,
+    1.1999
+   ],
+   "opponent": [
+    0.6692,
+    0.8808,
+    -2.0127
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_23",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3241,
+    0.2554,
+    1.1302
+   ],
+   "opponent": [
+    0.7069,
+    0.9327,
+    -1.9088
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_24",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.4128,
+    0.2475,
+    1.3138
+   ],
+   "opponent": [
+    0.6783,
+    0.9521,
+    -1.7574
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_25",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3606,
+    0.2304,
+    1.5574
+   ],
+   "opponent": [
+    0.6764,
+    0.8899,
+    -1.8086
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_26",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.4242,
+    0.2298,
+    1.3401
+   ],
+   "opponent": [
+    0.6645,
+    0.8479,
+    -1.8716
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_27",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3778,
+    0.2144,
+    1.5331
+   ],
+   "opponent": [
+    0.687,
+    0.8429,
+    -1.6929
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_28",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.367,
+    0.2686,
+    1.4435
+   ],
+   "opponent": [
+    0.728,
+    0.9469,
+    -1.5543
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_left_29",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.4028,
+    0.2298,
+    1.3425
+   ],
+   "opponent": [
+    0.6981,
+    0.9143,
+    -1.9852
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_0",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.8023,
+    0.2544,
+    1.5949
+   ],
+   "opponent": [
+    0.4608,
+    0.8958,
+    -1.3757
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_1",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7577,
+    0.2066,
+    1.9819
+   ],
+   "opponent": [
+    0.4461,
+    0.9212,
+    -1.2058
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_2",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7551,
+    0.2084,
+    1.7919
+   ],
+   "opponent": [
+    0.4432,
+    0.9309,
+    -1.2998
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_3",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7612,
+    0.2533,
+    2.0312
+   ],
+   "opponent": [
+    0.4254,
+    0.8811,
+    -1.2708
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_4",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7978,
+    0.2678,
+    2.0351
+   ],
+   "opponent": [
+    0.3987,
+    0.9323,
+    -1.1366
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_5",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7036,
+    0.265,
+    1.7427
+   ],
+   "opponent": [
+    0.3956,
+    0.8989,
+    -1.118
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_6",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7522,
+    0.2795,
+    1.8699
+   ],
+   "opponent": [
+    0.4148,
+    0.8699,
+    -1.218
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_7",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7793,
+    0.2767,
+    1.9723
+   ],
+   "opponent": [
+    0.3786,
+    0.9169,
+    -1.0969
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_8",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7216,
+    0.2594,
+    1.8756
+   ],
+   "opponent": [
+    0.4107,
+    0.9455,
+    -1.4734
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_9",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7508,
+    0.2999,
+    1.9632
+   ],
+   "opponent": [
+    0.4655,
+    0.8455,
+    -1.4917
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_10",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.8053,
+    0.2739,
+    2.0311
+   ],
+   "opponent": [
+    0.472,
+    0.9085,
+    -1.4982
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_11",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7722,
+    0.2839,
+    1.6392
+   ],
+   "opponent": [
+    0.4291,
+    0.9321,
+    -1.3202
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_12",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7712,
+    0.2071,
+    1.6527
+   ],
+   "opponent": [
+    0.3991,
+    0.8594,
+    -1.5345
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_13",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7067,
+    0.2725,
+    1.7751
+   ],
+   "opponent": [
+    0.4068,
+    0.8952,
+    -1.5004
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_14",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7983,
+    0.2034,
+    1.9342
+   ],
+   "opponent": [
+    0.4222,
+    0.8728,
+    -1.4198
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_15",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.8087,
+    0.2653,
+    1.7257
+   ],
+   "opponent": [
+    0.4183,
+    0.8714,
+    -1.1772
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_16",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7021,
+    0.2644,
+    1.8177
+   ],
+   "opponent": [
+    0.45,
+    0.9239,
+    -1.3568
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_17",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7862,
+    0.2469,
+    1.7323
+   ],
+   "opponent": [
+    0.4301,
+    0.9444,
+    -1.4768
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_18",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7687,
+    0.3088,
+    1.9474
+   ],
+   "opponent": [
+    0.4316,
+    0.8569,
+    -1.3997
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_19",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.8117,
+    0.2302,
+    1.8866
+   ],
+   "opponent": [
+    0.4214,
+    0.904,
+    -1.3264
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_20",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7971,
+    0.2581,
+    1.8003
+   ],
+   "opponent": [
+    0.3713,
+    0.8336,
+    -1.192
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_21",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7522,
+    0.3111,
+    1.5931
+   ],
+   "opponent": [
+    0.4025,
+    0.8977,
+    -1.4805
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_22",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.786,
+    0.2164,
+    1.7531
+   ],
+   "opponent": [
+    0.395,
+    0.9214,
+    -1.2489
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_23",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7811,
+    0.2967,
+    1.5619
+   ],
+   "opponent": [
+    0.4628,
+    0.9314,
+    -1.1194
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_24",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7339,
+    0.2967,
+    1.7744
+   ],
+   "opponent": [
+    0.3795,
+    0.9361,
+    -1.1095
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_25",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7665,
+    0.298,
+    1.6867
+   ],
+   "opponent": [
+    0.4099,
+    0.8536,
+    -1.5744
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_26",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.8074,
+    0.3118,
+    1.9426
+   ],
+   "opponent": [
+    0.4078,
+    0.9446,
+    -1.3568
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_27",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7604,
+    0.2883,
+    2.0261
+   ],
+   "opponent": [
+    0.4244,
+    0.8993,
+    -1.1754
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_28",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.731,
+    0.2654,
+    1.6182
+   ],
+   "opponent": [
+    0.3932,
+    0.8645,
+    -1.4971
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_right_29",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7721,
+    0.2013,
+    2.017
+   ],
+   "opponent": [
+    0.4217,
+    0.9191,
+    -1.4469
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_0",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3475,
+    0.3739,
+    1.032
+   ],
+   "opponent": [
+    0.8548,
+    0.8019,
+    -2.3799
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_1",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3897,
+    0.3494,
+    0.9698
+   ],
+   "opponent": [
+    0.7941,
+    0.7956,
+    -2.4194
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_2",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3615,
+    0.3151,
+    1.0858
+   ],
+   "opponent": [
+    0.8266,
+    0.7899,
+    -2.3225
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_3",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3666,
+    0.4022,
+    0.7544
+   ],
+   "opponent": [
+    0.847,
+    0.7461,
+    -2.375
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_4",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3679,
+    0.3292,
+    1.0016
+   ],
+   "opponent": [
+    0.7536,
+    0.7249,
+    -2.1494
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_5",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.366,
+    0.3702,
+    0.7953
+   ],
+   "opponent": [
+    0.759,
+    0.8389,
+    -2.4859
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_6",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.2932,
+    0.3729,
+    0.6752
+   ],
+   "opponent": [
+    0.8114,
+    0.7632,
+    -2.293
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_7",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.2756,
+    0.3129,
+    0.7681
+   ],
+   "opponent": [
+    0.7855,
+    0.8068,
+    -2.0185
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_8",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.371,
+    0.3182,
+    0.7926
+   ],
+   "opponent": [
+    0.8159,
+    0.7468,
+    -2.2021
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_9",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3448,
+    0.4244,
+    0.9028
+   ],
+   "opponent": [
+    0.7716,
+    0.7594,
+    -2.1504
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_10",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3797,
+    0.3863,
+    0.7281
+   ],
+   "opponent": [
+    0.7492,
+    0.7332,
+    -2.2094
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_11",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3402,
+    0.3308,
+    0.8982
+   ],
+   "opponent": [
+    0.8502,
+    0.7961,
+    -2.4944
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_12",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.301,
+    0.3526,
+    0.6763
+   ],
+   "opponent": [
+    0.8417,
+    0.7415,
+    -2.1322
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_13",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3106,
+    0.3403,
+    0.9769
+   ],
+   "opponent": [
+    0.8586,
+    0.7218,
+    -2.3954
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_14",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.294,
+    0.3465,
+    0.8392
+   ],
+   "opponent": [
+    0.782,
+    0.7958,
+    -2.156
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_15",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.2837,
+    0.3434,
+    0.9192
+   ],
+   "opponent": [
+    0.7908,
+    0.7836,
+    -2.4396
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_16",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3353,
+    0.3444,
+    0.958
+   ],
+   "opponent": [
+    0.8454,
+    0.729,
+    -2.1744
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_17",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.2754,
+    0.3117,
+    0.7914
+   ],
+   "opponent": [
+    0.8208,
+    0.7592,
+    -2.1531
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_18",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3449,
+    0.3585,
+    0.9544
+   ],
+   "opponent": [
+    0.8249,
+    0.7997,
+    -2.4135
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_19",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3307,
+    0.415,
+    1.0264
+   ],
+   "opponent": [
+    0.7526,
+    0.7338,
+    -2.4547
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_20",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.2796,
+    0.4191,
+    1.043
+   ],
+   "opponent": [
+    0.8417,
+    0.7941,
+    -2.2713
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_21",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.2816,
+    0.3922,
+    1.0592
+   ],
+   "opponent": [
+    0.7667,
+    0.7605,
+    -2.3573
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_22",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3331,
+    0.3934,
+    0.9864
+   ],
+   "opponent": [
+    0.7826,
+    0.7338,
+    -2.3751
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_23",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3327,
+    0.39,
+    0.8926
+   ],
+   "opponent": [
+    0.8134,
+    0.7338,
+    -2.0101
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_24",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.324,
+    0.4166,
+    1.1444
+   ],
+   "opponent": [
+    0.8231,
+    0.8113,
+    -2.2065
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_25",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3776,
+    0.3239,
+    0.9665
+   ],
+   "opponent": [
+    0.7851,
+    0.7596,
+    -2.1055
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_26",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.306,
+    0.4246,
+    0.9294
+   ],
+   "opponent": [
+    0.8205,
+    0.728,
+    -2.1661
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_27",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3211,
+    0.3993,
+    1.0534
+   ],
+   "opponent": [
+    0.7779,
+    0.732,
+    -2.4889
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_28",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3179,
+    0.3143,
+    0.7723
+   ],
+   "opponent": [
+    0.8233,
+    0.74,
+    -2.4696
+   ]
+  },
+  {
+   "name": "demo_train_ordinary_diagonal_29",
+   "group": "ordinary_demonstration",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3058,
+    0.3302,
+    1.0951
+   ],
+   "opponent": [
+    0.8227,
+    0.7853,
+    -2.1835
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "name": "demo_validation_train_default_0",
+   "group": "ordinary_validation",
+   "derived_from": "train_default",
+   "player": [
+    0.5308,
+    0.1784,
+    1.3453
+   ],
+   "opponent": [
+    0.6114,
+    0.949,
+    -1.4576
+   ]
+  },
+  {
+   "name": "demo_validation_train_default_1",
+   "group": "ordinary_validation",
+   "derived_from": "train_default",
+   "player": [
+    0.58,
+    0.1383,
+    1.8025
+   ],
+   "opponent": [
+    0.5491,
+    0.9506,
+    -1.5167
+   ]
+  },
+  {
+   "name": "demo_validation_train_default_2",
+   "group": "ordinary_validation",
+   "derived_from": "train_default",
+   "player": [
+    0.52,
+    0.208,
+    1.6692
+   ],
+   "opponent": [
+    0.5232,
+    1.0139,
+    -1.3696
+   ]
+  },
+  {
+   "name": "demo_validation_train_default_3",
+   "group": "ordinary_validation",
+   "derived_from": "train_default",
+   "player": [
+    0.5631,
+    0.2362,
+    1.6438
+   ],
+   "opponent": [
+    0.5781,
+    0.9445,
+    -1.5783
+   ]
+  },
+  {
+   "name": "demo_validation_train_default_4",
+   "group": "ordinary_validation",
+   "derived_from": "train_default",
+   "player": [
+    0.6025,
+    0.1479,
+    1.5309
+   ],
+   "opponent": [
+    0.5924,
+    1.0292,
+    -1.7791
+   ]
+  },
+  {
+   "name": "demo_validation_train_default_5",
+   "group": "ordinary_validation",
+   "derived_from": "train_default",
+   "player": [
+    0.5374,
+    0.1428,
+    1.6951
+   ],
+   "opponent": [
+    0.5528,
+    0.9939,
+    -1.7902
+   ]
+  },
+  {
+   "name": "demo_validation_train_default_6",
+   "group": "ordinary_validation",
+   "derived_from": "train_default",
+   "player": [
+    0.526,
+    0.1983,
+    1.8172
+   ],
+   "opponent": [
+    0.5882,
+    0.9353,
+    -1.6802
+   ]
+  },
+  {
+   "name": "demo_validation_train_default_7",
+   "group": "ordinary_validation",
+   "derived_from": "train_default",
+   "player": [
+    0.5632,
+    0.2252,
+    1.539
+   ],
+   "opponent": [
+    0.5364,
+    0.9246,
+    -1.8099
+   ]
+  },
+  {
+   "name": "demo_validation_train_default_8",
+   "group": "ordinary_validation",
+   "derived_from": "train_default",
+   "player": [
+    0.6035,
+    0.1857,
+    1.7004
+   ],
+   "opponent": [
+    0.5278,
+    1.012,
+    -1.5179
+   ]
+  },
+  {
+   "name": "demo_validation_train_default_9",
+   "group": "ordinary_validation",
+   "derived_from": "train_default",
+   "player": [
+    0.5502,
+    0.1589,
+    1.4508
+   ],
+   "opponent": [
+    0.6058,
+    0.9226,
+    -1.747
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_left_0",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.4065,
+    0.2329,
+    1.3601
+   ],
+   "opponent": [
+    0.7619,
+    0.9205,
+    -1.871
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_left_1",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3617,
+    0.1961,
+    1.2997
+   ],
+   "opponent": [
+    0.6772,
+    0.9505,
+    -1.8876
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_left_2",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3531,
+    0.2934,
+    1.1697
+   ],
+   "opponent": [
+    0.6778,
+    0.926,
+    -1.7209
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_left_3",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.4174,
+    0.1857,
+    1.5886
+   ],
+   "opponent": [
+    0.7354,
+    0.9113,
+    -1.5315
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_left_4",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.408,
+    0.1811,
+    1.5684
+   ],
+   "opponent": [
+    0.686,
+    0.8856,
+    -1.5676
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_left_5",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.4382,
+    0.2151,
+    1.1846
+   ],
+   "opponent": [
+    0.7526,
+    0.9457,
+    -1.9799
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_left_6",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3964,
+    0.2844,
+    1.1466
+   ],
+   "opponent": [
+    0.6973,
+    0.9499,
+    -1.6346
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_left_7",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3775,
+    0.2443,
+    1.1093
+   ],
+   "opponent": [
+    0.7434,
+    0.8836,
+    -1.6983
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_left_8",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.399,
+    0.2586,
+    1.5861
+   ],
+   "opponent": [
+    0.7244,
+    0.949,
+    -1.6252
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_left_9",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_left",
+   "player": [
+    0.3524,
+    0.1821,
+    1.2332
+   ],
+   "opponent": [
+    0.7038,
+    0.898,
+    -1.9001
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_right_0",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.789,
+    0.2864,
+    1.6924
+   ],
+   "opponent": [
+    0.3898,
+    0.9458,
+    -1.226
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_right_1",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7931,
+    0.3028,
+    1.999
+   ],
+   "opponent": [
+    0.4584,
+    0.908,
+    -1.3093
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_right_2",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.718,
+    0.2226,
+    2.0214
+   ],
+   "opponent": [
+    0.3799,
+    0.8891,
+    -1.4711
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_right_3",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.708,
+    0.3136,
+    1.6847
+   ],
+   "opponent": [
+    0.4228,
+    0.9043,
+    -1.104
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_right_4",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.8028,
+    0.3073,
+    1.6215
+   ],
+   "opponent": [
+    0.4066,
+    0.877,
+    -1.1946
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_right_5",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.8088,
+    0.3076,
+    1.62
+   ],
+   "opponent": [
+    0.4443,
+    0.8694,
+    -1.5577
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_right_6",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7376,
+    0.2257,
+    1.7823
+   ],
+   "opponent": [
+    0.412,
+    0.9407,
+    -1.4812
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_right_7",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7888,
+    0.3039,
+    1.9807
+   ],
+   "opponent": [
+    0.4557,
+    0.9083,
+    -1.1533
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_right_8",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7618,
+    0.2966,
+    1.8645
+   ],
+   "opponent": [
+    0.4369,
+    0.9072,
+    -1.1399
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_right_9",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_right",
+   "player": [
+    0.7623,
+    0.297,
+    1.8057
+   ],
+   "opponent": [
+    0.45,
+    0.8842,
+    -1.4734
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_diagonal_0",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3371,
+    0.4007,
+    0.8025
+   ],
+   "opponent": [
+    0.8019,
+    0.7477,
+    -2.3325
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_diagonal_1",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3414,
+    0.3395,
+    0.7684
+   ],
+   "opponent": [
+    0.8171,
+    0.8229,
+    -2.3761
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_diagonal_2",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3699,
+    0.4059,
+    0.9847
+   ],
+   "opponent": [
+    0.7745,
+    0.8227,
+    -2.2273
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_diagonal_3",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3706,
+    0.3642,
+    1.0184
+   ],
+   "opponent": [
+    0.8147,
+    0.8116,
+    -2.3933
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_diagonal_4",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3141,
+    0.3828,
+    0.9384
+   ],
+   "opponent": [
+    0.7553,
+    0.7835,
+    -2.1235
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_diagonal_5",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3251,
+    0.3659,
+    1.1389
+   ],
+   "opponent": [
+    0.741,
+    0.7567,
+    -2.305
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_diagonal_6",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3327,
+    0.3477,
+    1.0014
+   ],
+   "opponent": [
+    0.8131,
+    0.7743,
+    -2.2313
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_diagonal_7",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3072,
+    0.3164,
+    0.8949
+   ],
+   "opponent": [
+    0.8005,
+    0.7467,
+    -2.2318
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_diagonal_8",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3037,
+    0.4217,
+    0.9147
+   ],
+   "opponent": [
+    0.827,
+    0.774,
+    -2.0937
+   ]
+  },
+  {
+   "name": "demo_validation_train_ordinary_diagonal_9",
+   "group": "ordinary_validation",
+   "derived_from": "train_ordinary_diagonal",
+   "player": [
+    0.3286,
+    0.3685,
+    1.1286
+   ],
+   "opponent": [
+    0.7571,
+    0.7383,
+    -2.0308
+   ]
+  }
+ ]
+}

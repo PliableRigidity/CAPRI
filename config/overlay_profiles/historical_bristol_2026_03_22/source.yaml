@@ -1,0 +1,47 @@
+# HISTORICAL footage profile: Bristol University Antweight Robot Wars, 22 March 2026 (360p recording).
+# Shot from the videographer's reserved position. NOTHING in this folder applies to a live camera:
+# a different camera position needs its own fresh calibration
+# (python -m control_center.tools.arena_overlay --camera N --calibrate).
+#
+# Used by:  python -m control_center.tools.footage_reference --video <the mp4> --profile historical_bristol_2026_03_22
+profile_kind: historical
+reference_time_s: 438          # 7:18, the clearest of the three frames inspected (0:15, 7:18, 15:50)
+check_times_s: [30, 950, 1500, 2100, 2700]   # 0:30 (a median around 0:15 would need frames before 0:00), 15:50, then later
+# Static floor paint (logo and blue squares). Used only to see whether the picture moved between
+# times; its arena coordinates are unknown and never used.
+stability_crop_px: [130, 85, 540, 175]
+median_window_s: 24
+
+# Pixels (x, y) on clean floor, used only to recognise the floor colour in this recording.
+floor_samples_px: [[300, 250], [250, 150], [400, 120], [450, 280], [200, 300], [330, 60], [520, 180], [150, 200], [500, 100]]
+chroma_tolerance: 7.0
+
+# Where each visible floor edge lies in this recording (pixel boxes x0, y0, x1, y1) and which
+# boundary of the drawing it is compared with. Arena frame: origin = plain corner (bottom-left of
+# the picture, cropped), flipper corner = top-right, pit 0 at (0, 1.15) = top-left of the picture,
+# pit 1 at (1.15, 0) = bottom-right.
+edges:
+  left:     {type: line, along: y, boxes: [[85, 74, 160, 272]],   drawing: "x=0"}
+  top:      {type: line, along: x, boxes: [[244, 6, 380, 26]],    drawing: "y=H"}
+  diagonal: {type: line, along: x, boxes: [[388, 10, 502, 70]],   drawing: "flipper"}
+  right:    {type: line, along: y, boxes: [[508, 74, 578, 230]],  drawing: "x=W"}
+  pitA:     {type: arc,            boxes: [[163, 20, 240, 72]],   drawing: "pit:0"}
+  pitB:     {type: arc,            boxes: [[514, 234, 577, 356]], drawing: "pit:1"}
+
+# Landmarks = where two traced edges meet. near_px is my by-eye pick on a zoomed crop; the tool
+# refines it to the intersection of the fitted edges. Four well-spread landmarks fit the map; the
+# fifth is held out as an independent check.
+landmarks:
+  pitA_rim_x0_wall:       {from: [left, pitA],      near_px: [160, 69],  role: fit}
+  pitA_rim_ymax_wall:     {from: [top, pitA],       near_px: [240, 20],  role: fit}
+  flipper_edge_ymax_wall: {from: [top, diagonal],   near_px: [385, 12],  role: check}
+  flipper_edge_xmax_wall: {from: [diagonal, right], near_px: [506, 71],  role: fit}
+  pitB_rim_xmax_wall:     {from: [right, pitB],     near_px: [576, 234], role: fit}
+
+not_visible:
+  corner_origin: "near-left corner is cropped out of the picture and a large robot sits in it"
+  pitB_rim_y0_wall: "the near edge of the arena is below the bottom of the picture"
+  tape_points: "no taped or measured floor marks exist in this recording"
+not_used:
+  blue_squares_and_logo: "painted on the floor but their coordinates are unknown"
+  wall_tops_and_flipper_surface: "not at floor level"

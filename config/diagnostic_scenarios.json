@@ -1,0 +1,9 @@
+[
+  {"name":"diag_normal_default","group":"normal","player":[0.575,0.180,1.5707963268],"opponent":[0.575,0.970,-1.5707963268]},
+  {"name":"diag_normal_heading_offset","group":"normal_heading","player":[0.575,0.180,1.2207963268],"opponent":[0.575,0.970,-1.5707963268]},
+  {"name":"diag_normal_distance_shorter","group":"normal_distance","player":[0.575,0.300,1.5707963268],"opponent":[0.575,0.850,-1.5707963268]},
+  {"name":"diag_intermediate_top_left_distance","group":"intermediate_distance","player":[0.459619,0.690381,2.356194],"opponent":[0.247487,0.902513,2.356194]},
+  {"name":"diag_intermediate_bottom_right_distance","group":"intermediate_distance","player":[0.690381,0.459619,-0.785398],"opponent":[0.902513,0.247487,-0.785398]},
+  {"name":"diag_intermediate_top_left_heading","group":"intermediate_heading","player":[0.381838,0.768162,2.006194],"opponent":[0.247487,0.902513,2.356194]},
+  {"name":"diag_intermediate_bottom_right_heading","group":"intermediate_heading","player":[0.768162,0.381838,-0.435398],"opponent":[0.902513,0.247487,-0.785398]}
+]

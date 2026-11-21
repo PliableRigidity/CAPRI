@@ -1,0 +1,3509 @@
+{
+ "schema": "heading_ladder_v1",
+ "seed": 7,
+ "standoff_m": 0.18,
+ "review_fraction": 0.4,
+ "training_pits": [
+  "bottom_right"
+ ],
+ "rung_offsets_deg": [
+  10.0,
+  16.0,
+  24.0,
+  34.0,
+  45.0,
+  60.0
+ ],
+ "train_distances_m": [
+  0.34,
+  0.46,
+  0.58
+ ],
+ "validation_distances_m": [
+  0.4,
+  0.52
+ ],
+ "holdout_distances_m": [
+  0.37,
+  0.43,
+  0.55,
+  0.64
+ ],
+ "holdout_offsets_deg": [
+  20,
+  29,
+  39,
+  52,
+  75,
+  120
+ ],
+ "rungs": [
+  {
+   "index": 0,
+   "abs_heading_offset_deg": 10.0,
+   "warmup": true,
+   "train": [
+    {
+     "name": "ladder_train_bottom_right_d0.34_h+10",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.34,
+     "heading_offset_deg": 10.0,
+     "player": [
+      0.782304,
+      0.367696,
+      -0.610865
+     ],
+     "opponent": [
+      0.909584,
+      0.240416,
+      2.356194
+     ],
+     "rung": 0
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.34_h-10",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.34,
+     "heading_offset_deg": -10.0,
+     "player": [
+      0.782304,
+      0.367696,
+      -0.959931
+     ],
+     "opponent": [
+      0.909584,
+      0.240416,
+      2.356194
+     ],
+     "rung": 0
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.46_h+10",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.46,
+     "heading_offset_deg": 10.0,
+     "player": [
+      0.697452,
+      0.452548,
+      -0.610865
+     ],
+     "opponent": [
+      0.824731,
+      0.325269,
+      2.356194
+     ],
+     "rung": 0
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.58_h+10",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.58,
+     "heading_offset_deg": 10.0,
+     "player": [
+      0.612599,
+      0.537401,
+      -0.610865
+     ],
+     "opponent": [
+      0.739878,
+      0.410122,
+      2.356194
+     ],
+     "rung": 0
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.58_h-10",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.58,
+     "heading_offset_deg": -10.0,
+     "player": [
+      0.612599,
+      0.537401,
+      -0.959931
+     ],
+     "opponent": [
+      0.739878,
+      0.410122,
+      2.356194
+     ],
+     "rung": 0
+    }
+   ],
+   "validation": [
+    {
+     "name": "ladder_validation_bottom_right_d0.40_h+10",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.4,
+     "heading_offset_deg": 10.0,
+     "player": [
+      0.739878,
+      0.410122,
+      -0.610865
+     ],
+     "opponent": [
+      0.867157,
+      0.282843,
+      2.356194
+     ],
+     "rung": 0
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.40_h-10",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.4,
+     "heading_offset_deg": -10.0,
+     "player": [
+      0.739878,
+      0.410122,
+      -0.959931
+     ],
+     "opponent": [
+      0.867157,
+      0.282843,
+      2.356194
+     ],
+     "rung": 0
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.52_h+10",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.52,
+     "heading_offset_deg": 10.0,
+     "player": [
+      0.655025,
+      0.494975,
+      -0.610865
+     ],
+     "opponent": [
+      0.782304,
+      0.367696,
+      2.356194
+     ],
+     "rung": 0
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.52_h-10",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.52,
+     "heading_offset_deg": -10.0,
+     "player": [
+      0.655025,
+      0.494975,
+      -0.959931
+     ],
+     "opponent": [
+      0.782304,
+      0.367696,
+      2.356194
+     ],
+     "rung": 0
+    }
+   ],
+   "reference": {
+    "validation": {
+     "always_advance": {
+      "episodes": 8,
+      "wins": 8,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": 1.23,
+      "median_turn_decisions_before_contact_in_wins": 0.0
+     },
+     "turn_then_advance_controller": {
+      "episodes": 8,
+      "wins": 8,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": 1.23,
+      "median_turn_decisions_before_contact_in_wins": 0.0
+     }
+    },
+    "train": {
+     "always_advance": {
+      "episodes": 10,
+      "wins": 10,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": 1.42,
+      "median_turn_decisions_before_contact_in_wins": 0.0
+     },
+     "turn_then_advance_controller": {
+      "episodes": 10,
+      "wins": 10,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": 1.42,
+      "median_turn_decisions_before_contact_in_wins": 0.0
+     },
+     "random": {
+      "episodes": 15,
+      "wins": 0,
+      "own_falls": 1,
+      "timeouts": 14,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     }
+    }
+   },
+   "separation_rule": "warm-up: a plain advance and the controller both win (no turn needed)",
+   "separation_verified": true
+  },
+  {
+   "index": 1,
+   "abs_heading_offset_deg": 16.0,
+   "warmup": false,
+   "train": [
+    {
+     "name": "ladder_train_bottom_right_d0.34_h+16",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.34,
+     "heading_offset_deg": 16.0,
+     "player": [
+      0.782304,
+      0.367696,
+      -0.506145
+     ],
+     "opponent": [
+      0.909584,
+      0.240416,
+      2.356194
+     ],
+     "rung": 1
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.34_h-16",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.34,
+     "heading_offset_deg": -16.0,
+     "player": [
+      0.782304,
+      0.367696,
+      -1.064651
+     ],
+     "opponent": [
+      0.909584,
+      0.240416,
+      2.356194
+     ],
+     "rung": 1
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.46_h+16",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.46,
+     "heading_offset_deg": 16.0,
+     "player": [
+      0.697452,
+      0.452548,
+      -0.506145
+     ],
+     "opponent": [
+      0.824731,
+      0.325269,
+      2.356194
+     ],
+     "rung": 1
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.46_h-16",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.46,
+     "heading_offset_deg": -16.0,
+     "player": [
+      0.697452,
+      0.452548,
+      -1.064651
+     ],
+     "opponent": [
+      0.824731,
+      0.325269,
+      2.356194
+     ],
+     "rung": 1
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.58_h-16",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.58,
+     "heading_offset_deg": -16.0,
+     "player": [
+      0.612599,
+      0.537401,
+      -1.064651
+     ],
+     "opponent": [
+      0.739878,
+      0.410122,
+      2.356194
+     ],
+     "rung": 1
+    }
+   ],
+   "validation": [
+    {
+     "name": "ladder_validation_bottom_right_d0.40_h+16",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.4,
+     "heading_offset_deg": 16.0,
+     "player": [
+      0.739878,
+      0.410122,
+      -0.506145
+     ],
+     "opponent": [
+      0.867157,
+      0.282843,
+      2.356194
+     ],
+     "rung": 1
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.40_h-16",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.4,
+     "heading_offset_deg": -16.0,
+     "player": [
+      0.739878,
+      0.410122,
+      -1.064651
+     ],
+     "opponent": [
+      0.867157,
+      0.282843,
+      2.356194
+     ],
+     "rung": 1
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.52_h+16",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.52,
+     "heading_offset_deg": 16.0,
+     "player": [
+      0.655025,
+      0.494975,
+      -0.506145
+     ],
+     "opponent": [
+      0.782304,
+      0.367696,
+      2.356194
+     ],
+     "rung": 1
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.52_h-16",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.52,
+     "heading_offset_deg": -16.0,
+     "player": [
+      0.655025,
+      0.494975,
+      -1.064651
+     ],
+     "opponent": [
+      0.782304,
+      0.367696,
+      2.356194
+     ],
+     "rung": 1
+    }
+   ],
+   "reference": {
+    "validation": {
+     "always_advance": {
+      "episodes": 8,
+      "wins": 0,
+      "own_falls": 0,
+      "timeouts": 8,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     },
+     "turn_then_advance_controller": {
+      "episodes": 8,
+      "wins": 8,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 8,
+      "median_win_seconds": 0.84,
+      "median_turn_decisions_before_contact_in_wins": 2.0
+     }
+    },
+    "train": {
+     "always_advance": {
+      "episodes": 10,
+      "wins": 0,
+      "own_falls": 0,
+      "timeouts": 10,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     },
+     "turn_then_advance_controller": {
+      "episodes": 10,
+      "wins": 10,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 10,
+      "median_win_seconds": 0.82,
+      "median_turn_decisions_before_contact_in_wins": 2.0
+     },
+     "random": {
+      "episodes": 15,
+      "wins": 1,
+      "own_falls": 1,
+      "timeouts": 13,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": 14.2,
+      "median_turn_decisions_before_contact_in_wins": 3.0
+     }
+    }
+   },
+   "separation_rule": "gated: a plain advance fails and the turn-then-advance controller wins",
+   "separation_verified": true
+  },
+  {
+   "index": 2,
+   "abs_heading_offset_deg": 24.0,
+   "warmup": false,
+   "train": [
+    {
+     "name": "ladder_train_bottom_right_d0.34_h+24",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.34,
+     "heading_offset_deg": 24.0,
+     "player": [
+      0.782304,
+      0.367696,
+      -0.366519
+     ],
+     "opponent": [
+      0.909584,
+      0.240416,
+      2.356194
+     ],
+     "rung": 2
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.46_h+24",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.46,
+     "heading_offset_deg": 24.0,
+     "player": [
+      0.697452,
+      0.452548,
+      -0.366519
+     ],
+     "opponent": [
+      0.824731,
+      0.325269,
+      2.356194
+     ],
+     "rung": 2
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.46_h-24",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.46,
+     "heading_offset_deg": -24.0,
+     "player": [
+      0.697452,
+      0.452548,
+      -1.204277
+     ],
+     "opponent": [
+      0.824731,
+      0.325269,
+      2.356194
+     ],
+     "rung": 2
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.58_h+24",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.58,
+     "heading_offset_deg": 24.0,
+     "player": [
+      0.612599,
+      0.537401,
+      -0.366519
+     ],
+     "opponent": [
+      0.739878,
+      0.410122,
+      2.356194
+     ],
+     "rung": 2
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.58_h-24",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.58,
+     "heading_offset_deg": -24.0,
+     "player": [
+      0.612599,
+      0.537401,
+      -1.204277
+     ],
+     "opponent": [
+      0.739878,
+      0.410122,
+      2.356194
+     ],
+     "rung": 2
+    }
+   ],
+   "validation": [
+    {
+     "name": "ladder_validation_bottom_right_d0.40_h+24",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.4,
+     "heading_offset_deg": 24.0,
+     "player": [
+      0.739878,
+      0.410122,
+      -0.366519
+     ],
+     "opponent": [
+      0.867157,
+      0.282843,
+      2.356194
+     ],
+     "rung": 2
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.40_h-24",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.4,
+     "heading_offset_deg": -24.0,
+     "player": [
+      0.739878,
+      0.410122,
+      -1.204277
+     ],
+     "opponent": [
+      0.867157,
+      0.282843,
+      2.356194
+     ],
+     "rung": 2
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.52_h+24",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.52,
+     "heading_offset_deg": 24.0,
+     "player": [
+      0.655025,
+      0.494975,
+      -0.366519
+     ],
+     "opponent": [
+      0.782304,
+      0.367696,
+      2.356194
+     ],
+     "rung": 2
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.52_h-24",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.52,
+     "heading_offset_deg": -24.0,
+     "player": [
+      0.655025,
+      0.494975,
+      -1.204277
+     ],
+     "opponent": [
+      0.782304,
+      0.367696,
+      2.356194
+     ],
+     "rung": 2
+    }
+   ],
+   "reference": {
+    "validation": {
+     "always_advance": {
+      "episodes": 8,
+      "wins": 0,
+      "own_falls": 0,
+      "timeouts": 8,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     },
+     "turn_then_advance_controller": {
+      "episodes": 8,
+      "wins": 8,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 8,
+      "median_win_seconds": 0.9299999999999999,
+      "median_turn_decisions_before_contact_in_wins": 4.0
+     }
+    },
+    "train": {
+     "always_advance": {
+      "episodes": 10,
+      "wins": 0,
+      "own_falls": 0,
+      "timeouts": 10,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     },
+     "turn_then_advance_controller": {
+      "episodes": 10,
+      "wins": 10,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 10,
+      "median_win_seconds": 0.88,
+      "median_turn_decisions_before_contact_in_wins": 4.0
+     },
+     "random": {
+      "episodes": 15,
+      "wins": 0,
+      "own_falls": 1,
+      "timeouts": 14,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     }
+    }
+   },
+   "separation_rule": "gated: a plain advance fails and the turn-then-advance controller wins",
+   "separation_verified": true
+  },
+  {
+   "index": 3,
+   "abs_heading_offset_deg": 34.0,
+   "warmup": false,
+   "train": [
+    {
+     "name": "ladder_train_bottom_right_d0.34_h+34",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.34,
+     "heading_offset_deg": 34.0,
+     "player": [
+      0.782304,
+      0.367696,
+      -0.191986
+     ],
+     "opponent": [
+      0.909584,
+      0.240416,
+      2.356194
+     ],
+     "rung": 3
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.34_h-34",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.34,
+     "heading_offset_deg": -34.0,
+     "player": [
+      0.782304,
+      0.367696,
+      -1.37881
+     ],
+     "opponent": [
+      0.909584,
+      0.240416,
+      2.356194
+     ],
+     "rung": 3
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.46_h-34",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.46,
+     "heading_offset_deg": -34.0,
+     "player": [
+      0.697452,
+      0.452548,
+      -1.37881
+     ],
+     "opponent": [
+      0.824731,
+      0.325269,
+      2.356194
+     ],
+     "rung": 3
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.58_h+34",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.58,
+     "heading_offset_deg": 34.0,
+     "player": [
+      0.612599,
+      0.537401,
+      -0.191986
+     ],
+     "opponent": [
+      0.739878,
+      0.410122,
+      2.356194
+     ],
+     "rung": 3
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.58_h-34",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.58,
+     "heading_offset_deg": -34.0,
+     "player": [
+      0.612599,
+      0.537401,
+      -1.37881
+     ],
+     "opponent": [
+      0.739878,
+      0.410122,
+      2.356194
+     ],
+     "rung": 3
+    }
+   ],
+   "validation": [
+    {
+     "name": "ladder_validation_bottom_right_d0.40_h+34",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.4,
+     "heading_offset_deg": 34.0,
+     "player": [
+      0.739878,
+      0.410122,
+      -0.191986
+     ],
+     "opponent": [
+      0.867157,
+      0.282843,
+      2.356194
+     ],
+     "rung": 3
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.40_h-34",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.4,
+     "heading_offset_deg": -34.0,
+     "player": [
+      0.739878,
+      0.410122,
+      -1.37881
+     ],
+     "opponent": [
+      0.867157,
+      0.282843,
+      2.356194
+     ],
+     "rung": 3
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.52_h+34",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.52,
+     "heading_offset_deg": 34.0,
+     "player": [
+      0.655025,
+      0.494975,
+      -0.191986
+     ],
+     "opponent": [
+      0.782304,
+      0.367696,
+      2.356194
+     ],
+     "rung": 3
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.52_h-34",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.52,
+     "heading_offset_deg": -34.0,
+     "player": [
+      0.655025,
+      0.494975,
+      -1.37881
+     ],
+     "opponent": [
+      0.782304,
+      0.367696,
+      2.356194
+     ],
+     "rung": 3
+    }
+   ],
+   "reference": {
+    "validation": {
+     "always_advance": {
+      "episodes": 8,
+      "wins": 0,
+      "own_falls": 0,
+      "timeouts": 8,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     },
+     "turn_then_advance_controller": {
+      "episodes": 8,
+      "wins": 8,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 8,
+      "median_win_seconds": 0.99,
+      "median_turn_decisions_before_contact_in_wins": 7.0
+     }
+    },
+    "train": {
+     "always_advance": {
+      "episodes": 10,
+      "wins": 0,
+      "own_falls": 0,
+      "timeouts": 10,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     },
+     "turn_then_advance_controller": {
+      "episodes": 10,
+      "wins": 10,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 10,
+      "median_win_seconds": 1.02,
+      "median_turn_decisions_before_contact_in_wins": 7.0
+     },
+     "random": {
+      "episodes": 15,
+      "wins": 0,
+      "own_falls": 1,
+      "timeouts": 14,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     }
+    }
+   },
+   "separation_rule": "gated: a plain advance fails and the turn-then-advance controller wins",
+   "separation_verified": true
+  },
+  {
+   "index": 4,
+   "abs_heading_offset_deg": 45.0,
+   "warmup": false,
+   "train": [
+    {
+     "name": "ladder_train_bottom_right_d0.34_h+45",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.34,
+     "heading_offset_deg": 45.0,
+     "player": [
+      0.782304,
+      0.367696,
+      0.0
+     ],
+     "opponent": [
+      0.909584,
+      0.240416,
+      2.356194
+     ],
+     "rung": 4
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.34_h-45",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.34,
+     "heading_offset_deg": -45.0,
+     "player": [
+      0.782304,
+      0.367696,
+      -1.570796
+     ],
+     "opponent": [
+      0.909584,
+      0.240416,
+      2.356194
+     ],
+     "rung": 4
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.46_h+45",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.46,
+     "heading_offset_deg": 45.0,
+     "player": [
+      0.697452,
+      0.452548,
+      0.0
+     ],
+     "opponent": [
+      0.824731,
+      0.325269,
+      2.356194
+     ],
+     "rung": 4
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.46_h-45",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.46,
+     "heading_offset_deg": -45.0,
+     "player": [
+      0.697452,
+      0.452548,
+      -1.570796
+     ],
+     "opponent": [
+      0.824731,
+      0.325269,
+      2.356194
+     ],
+     "rung": 4
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.58_h+45",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.58,
+     "heading_offset_deg": 45.0,
+     "player": [
+      0.612599,
+      0.537401,
+      0.0
+     ],
+     "opponent": [
+      0.739878,
+      0.410122,
+      2.356194
+     ],
+     "rung": 4
+    }
+   ],
+   "validation": [
+    {
+     "name": "ladder_validation_bottom_right_d0.40_h+45",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.4,
+     "heading_offset_deg": 45.0,
+     "player": [
+      0.739878,
+      0.410122,
+      0.0
+     ],
+     "opponent": [
+      0.867157,
+      0.282843,
+      2.356194
+     ],
+     "rung": 4
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.40_h-45",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.4,
+     "heading_offset_deg": -45.0,
+     "player": [
+      0.739878,
+      0.410122,
+      -1.570796
+     ],
+     "opponent": [
+      0.867157,
+      0.282843,
+      2.356194
+     ],
+     "rung": 4
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.52_h+45",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.52,
+     "heading_offset_deg": 45.0,
+     "player": [
+      0.655025,
+      0.494975,
+      0.0
+     ],
+     "opponent": [
+      0.782304,
+      0.367696,
+      2.356194
+     ],
+     "rung": 4
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.52_h-45",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.52,
+     "heading_offset_deg": -45.0,
+     "player": [
+      0.655025,
+      0.494975,
+      -1.570796
+     ],
+     "opponent": [
+      0.782304,
+      0.367696,
+      2.356194
+     ],
+     "rung": 4
+    }
+   ],
+   "reference": {
+    "validation": {
+     "always_advance": {
+      "episodes": 8,
+      "wins": 0,
+      "own_falls": 0,
+      "timeouts": 8,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     },
+     "turn_then_advance_controller": {
+      "episodes": 8,
+      "wins": 8,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 8,
+      "median_win_seconds": 1.0499999999999998,
+      "median_turn_decisions_before_contact_in_wins": 9.0
+     }
+    },
+    "train": {
+     "always_advance": {
+      "episodes": 10,
+      "wins": 0,
+      "own_falls": 0,
+      "timeouts": 10,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     },
+     "turn_then_advance_controller": {
+      "episodes": 10,
+      "wins": 10,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 10,
+      "median_win_seconds": 1.02,
+      "median_turn_decisions_before_contact_in_wins": 9.0
+     },
+     "random": {
+      "episodes": 15,
+      "wins": 0,
+      "own_falls": 2,
+      "timeouts": 13,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     }
+    }
+   },
+   "separation_rule": "gated: a plain advance fails and the turn-then-advance controller wins",
+   "separation_verified": true
+  },
+  {
+   "index": 5,
+   "abs_heading_offset_deg": 60.0,
+   "warmup": false,
+   "train": [
+    {
+     "name": "ladder_train_bottom_right_d0.34_h-60",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.34,
+     "heading_offset_deg": -60.0,
+     "player": [
+      0.782304,
+      0.367696,
+      -1.832596
+     ],
+     "opponent": [
+      0.909584,
+      0.240416,
+      2.356194
+     ],
+     "rung": 5
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.46_h+60",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.46,
+     "heading_offset_deg": 60.0,
+     "player": [
+      0.697452,
+      0.452548,
+      0.261799
+     ],
+     "opponent": [
+      0.824731,
+      0.325269,
+      2.356194
+     ],
+     "rung": 5
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.46_h-60",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.46,
+     "heading_offset_deg": -60.0,
+     "player": [
+      0.697452,
+      0.452548,
+      -1.832596
+     ],
+     "opponent": [
+      0.824731,
+      0.325269,
+      2.356194
+     ],
+     "rung": 5
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.58_h+60",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.58,
+     "heading_offset_deg": 60.0,
+     "player": [
+      0.612599,
+      0.537401,
+      0.261799
+     ],
+     "opponent": [
+      0.739878,
+      0.410122,
+      2.356194
+     ],
+     "rung": 5
+    },
+    {
+     "name": "ladder_train_bottom_right_d0.58_h-60",
+     "group": "ladder_train",
+     "pit": "bottom_right",
+     "distance_m": 0.58,
+     "heading_offset_deg": -60.0,
+     "player": [
+      0.612599,
+      0.537401,
+      -1.832596
+     ],
+     "opponent": [
+      0.739878,
+      0.410122,
+      2.356194
+     ],
+     "rung": 5
+    }
+   ],
+   "validation": [
+    {
+     "name": "ladder_validation_bottom_right_d0.40_h+60",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.4,
+     "heading_offset_deg": 60.0,
+     "player": [
+      0.739878,
+      0.410122,
+      0.261799
+     ],
+     "opponent": [
+      0.867157,
+      0.282843,
+      2.356194
+     ],
+     "rung": 5
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.40_h-60",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.4,
+     "heading_offset_deg": -60.0,
+     "player": [
+      0.739878,
+      0.410122,
+      -1.832596
+     ],
+     "opponent": [
+      0.867157,
+      0.282843,
+      2.356194
+     ],
+     "rung": 5
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.52_h+60",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.52,
+     "heading_offset_deg": 60.0,
+     "player": [
+      0.655025,
+      0.494975,
+      0.261799
+     ],
+     "opponent": [
+      0.782304,
+      0.367696,
+      2.356194
+     ],
+     "rung": 5
+    },
+    {
+     "name": "ladder_validation_bottom_right_d0.52_h-60",
+     "group": "ladder_validation",
+     "pit": "bottom_right",
+     "distance_m": 0.52,
+     "heading_offset_deg": -60.0,
+     "player": [
+      0.655025,
+      0.494975,
+      -1.832596
+     ],
+     "opponent": [
+      0.782304,
+      0.367696,
+      2.356194
+     ],
+     "rung": 5
+    }
+   ],
+   "reference": {
+    "validation": {
+     "always_advance": {
+      "episodes": 8,
+      "wins": 0,
+      "own_falls": 0,
+      "timeouts": 8,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     },
+     "turn_then_advance_controller": {
+      "episodes": 8,
+      "wins": 8,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": 1.3199999999999998,
+      "median_turn_decisions_before_contact_in_wins": 6.0
+     }
+    },
+    "train": {
+     "always_advance": {
+      "episodes": 10,
+      "wins": 0,
+      "own_falls": 0,
+      "timeouts": 10,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     },
+     "turn_then_advance_controller": {
+      "episodes": 10,
+      "wins": 10,
+      "own_falls": 0,
+      "timeouts": 0,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": 1.36,
+      "median_turn_decisions_before_contact_in_wins": 7.0
+     },
+     "random": {
+      "episodes": 15,
+      "wins": 0,
+      "own_falls": 1,
+      "timeouts": 14,
+      "draws": 0,
+      "simulation_bugs": 0,
+      "wins_with_initial_turn": 0,
+      "median_win_seconds": null,
+      "median_turn_decisions_before_contact_in_wins": null
+     }
+    }
+   },
+   "separation_rule": "gated: a plain advance fails and the turn-then-advance controller wins",
+   "separation_verified": true
+  }
+ ],
+ "holdout": [
+  {
+   "name": "ladder_holdout_top_left_d0.34_h+10",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.34,
+   "heading_offset_deg": 10.0,
+   "player": [
+    0.367696,
+    0.782304,
+    2.530727
+   ],
+   "opponent": [
+    0.240416,
+    0.909584,
+    -0.785398
+   ],
+   "holdout_kind": "combination",
+   "nearest_rung": 0
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.46_h-10",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.46,
+   "heading_offset_deg": -10.0,
+   "player": [
+    0.697452,
+    0.452548,
+    -0.959931
+   ],
+   "opponent": [
+    0.824731,
+    0.325269,
+    2.356194
+   ],
+   "holdout_kind": "combination",
+   "nearest_rung": 0
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.46_h-16",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.46,
+   "heading_offset_deg": -16.0,
+   "player": [
+    0.452548,
+    0.697452,
+    2.076942
+   ],
+   "opponent": [
+    0.325269,
+    0.824731,
+    -0.785398
+   ],
+   "holdout_kind": "combination",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.58_h+16",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.58,
+   "heading_offset_deg": 16.0,
+   "player": [
+    0.612599,
+    0.537401,
+    -0.506145
+   ],
+   "opponent": [
+    0.739878,
+    0.410122,
+    2.356194
+   ],
+   "holdout_kind": "combination",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.58_h+24",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.58,
+   "heading_offset_deg": 24.0,
+   "player": [
+    0.537401,
+    0.612599,
+    2.775074
+   ],
+   "opponent": [
+    0.410122,
+    0.739878,
+    -0.785398
+   ],
+   "holdout_kind": "combination",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.34_h-24",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.34,
+   "heading_offset_deg": -24.0,
+   "player": [
+    0.782304,
+    0.367696,
+    -1.204277
+   ],
+   "opponent": [
+    0.909584,
+    0.240416,
+    2.356194
+   ],
+   "holdout_kind": "combination",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.34_h-34",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.34,
+   "heading_offset_deg": -34.0,
+   "player": [
+    0.367696,
+    0.782304,
+    1.762783
+   ],
+   "opponent": [
+    0.240416,
+    0.909584,
+    -0.785398
+   ],
+   "holdout_kind": "combination",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.46_h+34",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.46,
+   "heading_offset_deg": 34.0,
+   "player": [
+    0.697452,
+    0.452548,
+    -0.191986
+   ],
+   "opponent": [
+    0.824731,
+    0.325269,
+    2.356194
+   ],
+   "holdout_kind": "combination",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.46_h+45",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.46,
+   "heading_offset_deg": 45.0,
+   "player": [
+    0.452548,
+    0.697452,
+    3.141593
+   ],
+   "opponent": [
+    0.325269,
+    0.824731,
+    -0.785398
+   ],
+   "holdout_kind": "combination",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.58_h-45",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.58,
+   "heading_offset_deg": -45.0,
+   "player": [
+    0.612599,
+    0.537401,
+    -1.570796
+   ],
+   "opponent": [
+    0.739878,
+    0.410122,
+    2.356194
+   ],
+   "holdout_kind": "combination",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.58_h-60",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.58,
+   "heading_offset_deg": -60.0,
+   "player": [
+    0.537401,
+    0.612599,
+    1.308997
+   ],
+   "opponent": [
+    0.410122,
+    0.739878,
+    -0.785398
+   ],
+   "holdout_kind": "combination",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.34_h+60",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.34,
+   "heading_offset_deg": 60.0,
+   "player": [
+    0.782304,
+    0.367696,
+    0.261799
+   ],
+   "opponent": [
+    0.909584,
+    0.240416,
+    2.356194
+   ],
+   "holdout_kind": "combination",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.37_h+20",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.37,
+   "heading_offset_deg": 20.0,
+   "player": [
+    0.388909,
+    0.761091,
+    2.70526
+   ],
+   "opponent": [
+    0.26163,
+    0.88837,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.37_h-20",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.37,
+   "heading_offset_deg": -20.0,
+   "player": [
+    0.388909,
+    0.761091,
+    2.007129
+   ],
+   "opponent": [
+    0.26163,
+    0.88837,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.43_h+20",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.43,
+   "heading_offset_deg": 20.0,
+   "player": [
+    0.431335,
+    0.718665,
+    2.70526
+   ],
+   "opponent": [
+    0.304056,
+    0.845944,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.43_h-20",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.43,
+   "heading_offset_deg": -20.0,
+   "player": [
+    0.431335,
+    0.718665,
+    2.007129
+   ],
+   "opponent": [
+    0.304056,
+    0.845944,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.55_h+20",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.55,
+   "heading_offset_deg": 20.0,
+   "player": [
+    0.516188,
+    0.633812,
+    2.70526
+   ],
+   "opponent": [
+    0.388909,
+    0.761091,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.55_h-20",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.55,
+   "heading_offset_deg": -20.0,
+   "player": [
+    0.516188,
+    0.633812,
+    2.007129
+   ],
+   "opponent": [
+    0.388909,
+    0.761091,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.64_h+20",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.64,
+   "heading_offset_deg": 20.0,
+   "player": [
+    0.579828,
+    0.570172,
+    2.70526
+   ],
+   "opponent": [
+    0.452548,
+    0.697452,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.64_h-20",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.64,
+   "heading_offset_deg": -20.0,
+   "player": [
+    0.579828,
+    0.570172,
+    2.007129
+   ],
+   "opponent": [
+    0.452548,
+    0.697452,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.37_h+20",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.37,
+   "heading_offset_deg": 20.0,
+   "player": [
+    0.761091,
+    0.388909,
+    -0.436332
+   ],
+   "opponent": [
+    0.88837,
+    0.26163,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.37_h-20",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.37,
+   "heading_offset_deg": -20.0,
+   "player": [
+    0.761091,
+    0.388909,
+    -1.134464
+   ],
+   "opponent": [
+    0.88837,
+    0.26163,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.43_h+20",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.43,
+   "heading_offset_deg": 20.0,
+   "player": [
+    0.718665,
+    0.431335,
+    -0.436332
+   ],
+   "opponent": [
+    0.845944,
+    0.304056,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.43_h-20",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.43,
+   "heading_offset_deg": -20.0,
+   "player": [
+    0.718665,
+    0.431335,
+    -1.134464
+   ],
+   "opponent": [
+    0.845944,
+    0.304056,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.55_h+20",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.55,
+   "heading_offset_deg": 20.0,
+   "player": [
+    0.633812,
+    0.516188,
+    -0.436332
+   ],
+   "opponent": [
+    0.761091,
+    0.388909,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.55_h-20",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.55,
+   "heading_offset_deg": -20.0,
+   "player": [
+    0.633812,
+    0.516188,
+    -1.134464
+   ],
+   "opponent": [
+    0.761091,
+    0.388909,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.64_h+20",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.64,
+   "heading_offset_deg": 20.0,
+   "player": [
+    0.570172,
+    0.579828,
+    -0.436332
+   ],
+   "opponent": [
+    0.697452,
+    0.452548,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.64_h-20",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.64,
+   "heading_offset_deg": -20.0,
+   "player": [
+    0.570172,
+    0.579828,
+    -1.134464
+   ],
+   "opponent": [
+    0.697452,
+    0.452548,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 1
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.37_h+29",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.37,
+   "heading_offset_deg": 29.0,
+   "player": [
+    0.388909,
+    0.761091,
+    2.86234
+   ],
+   "opponent": [
+    0.26163,
+    0.88837,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.37_h-29",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.37,
+   "heading_offset_deg": -29.0,
+   "player": [
+    0.388909,
+    0.761091,
+    1.850049
+   ],
+   "opponent": [
+    0.26163,
+    0.88837,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.43_h+29",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.43,
+   "heading_offset_deg": 29.0,
+   "player": [
+    0.431335,
+    0.718665,
+    2.86234
+   ],
+   "opponent": [
+    0.304056,
+    0.845944,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.43_h-29",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.43,
+   "heading_offset_deg": -29.0,
+   "player": [
+    0.431335,
+    0.718665,
+    1.850049
+   ],
+   "opponent": [
+    0.304056,
+    0.845944,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.55_h+29",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.55,
+   "heading_offset_deg": 29.0,
+   "player": [
+    0.516188,
+    0.633812,
+    2.86234
+   ],
+   "opponent": [
+    0.388909,
+    0.761091,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.55_h-29",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.55,
+   "heading_offset_deg": -29.0,
+   "player": [
+    0.516188,
+    0.633812,
+    1.850049
+   ],
+   "opponent": [
+    0.388909,
+    0.761091,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.64_h+29",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.64,
+   "heading_offset_deg": 29.0,
+   "player": [
+    0.579828,
+    0.570172,
+    2.86234
+   ],
+   "opponent": [
+    0.452548,
+    0.697452,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.64_h-29",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.64,
+   "heading_offset_deg": -29.0,
+   "player": [
+    0.579828,
+    0.570172,
+    1.850049
+   ],
+   "opponent": [
+    0.452548,
+    0.697452,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.37_h+29",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.37,
+   "heading_offset_deg": 29.0,
+   "player": [
+    0.761091,
+    0.388909,
+    -0.279253
+   ],
+   "opponent": [
+    0.88837,
+    0.26163,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.37_h-29",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.37,
+   "heading_offset_deg": -29.0,
+   "player": [
+    0.761091,
+    0.388909,
+    -1.291544
+   ],
+   "opponent": [
+    0.88837,
+    0.26163,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.43_h+29",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.43,
+   "heading_offset_deg": 29.0,
+   "player": [
+    0.718665,
+    0.431335,
+    -0.279253
+   ],
+   "opponent": [
+    0.845944,
+    0.304056,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.43_h-29",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.43,
+   "heading_offset_deg": -29.0,
+   "player": [
+    0.718665,
+    0.431335,
+    -1.291544
+   ],
+   "opponent": [
+    0.845944,
+    0.304056,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.55_h+29",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.55,
+   "heading_offset_deg": 29.0,
+   "player": [
+    0.633812,
+    0.516188,
+    -0.279253
+   ],
+   "opponent": [
+    0.761091,
+    0.388909,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.55_h-29",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.55,
+   "heading_offset_deg": -29.0,
+   "player": [
+    0.633812,
+    0.516188,
+    -1.291544
+   ],
+   "opponent": [
+    0.761091,
+    0.388909,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.64_h+29",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.64,
+   "heading_offset_deg": 29.0,
+   "player": [
+    0.570172,
+    0.579828,
+    -0.279253
+   ],
+   "opponent": [
+    0.697452,
+    0.452548,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.64_h-29",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.64,
+   "heading_offset_deg": -29.0,
+   "player": [
+    0.570172,
+    0.579828,
+    -1.291544
+   ],
+   "opponent": [
+    0.697452,
+    0.452548,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 2
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.37_h+39",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.37,
+   "heading_offset_deg": 39.0,
+   "player": [
+    0.388909,
+    0.761091,
+    3.036873
+   ],
+   "opponent": [
+    0.26163,
+    0.88837,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.37_h-39",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.37,
+   "heading_offset_deg": -39.0,
+   "player": [
+    0.388909,
+    0.761091,
+    1.675516
+   ],
+   "opponent": [
+    0.26163,
+    0.88837,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.43_h+39",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.43,
+   "heading_offset_deg": 39.0,
+   "player": [
+    0.431335,
+    0.718665,
+    3.036873
+   ],
+   "opponent": [
+    0.304056,
+    0.845944,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.43_h-39",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.43,
+   "heading_offset_deg": -39.0,
+   "player": [
+    0.431335,
+    0.718665,
+    1.675516
+   ],
+   "opponent": [
+    0.304056,
+    0.845944,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.55_h+39",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.55,
+   "heading_offset_deg": 39.0,
+   "player": [
+    0.516188,
+    0.633812,
+    3.036873
+   ],
+   "opponent": [
+    0.388909,
+    0.761091,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.55_h-39",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.55,
+   "heading_offset_deg": -39.0,
+   "player": [
+    0.516188,
+    0.633812,
+    1.675516
+   ],
+   "opponent": [
+    0.388909,
+    0.761091,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.64_h+39",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.64,
+   "heading_offset_deg": 39.0,
+   "player": [
+    0.579828,
+    0.570172,
+    3.036873
+   ],
+   "opponent": [
+    0.452548,
+    0.697452,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.64_h-39",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.64,
+   "heading_offset_deg": -39.0,
+   "player": [
+    0.579828,
+    0.570172,
+    1.675516
+   ],
+   "opponent": [
+    0.452548,
+    0.697452,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.37_h+39",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.37,
+   "heading_offset_deg": 39.0,
+   "player": [
+    0.761091,
+    0.388909,
+    -0.10472
+   ],
+   "opponent": [
+    0.88837,
+    0.26163,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.37_h-39",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.37,
+   "heading_offset_deg": -39.0,
+   "player": [
+    0.761091,
+    0.388909,
+    -1.466077
+   ],
+   "opponent": [
+    0.88837,
+    0.26163,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.43_h+39",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.43,
+   "heading_offset_deg": 39.0,
+   "player": [
+    0.718665,
+    0.431335,
+    -0.10472
+   ],
+   "opponent": [
+    0.845944,
+    0.304056,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.43_h-39",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.43,
+   "heading_offset_deg": -39.0,
+   "player": [
+    0.718665,
+    0.431335,
+    -1.466077
+   ],
+   "opponent": [
+    0.845944,
+    0.304056,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.55_h+39",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.55,
+   "heading_offset_deg": 39.0,
+   "player": [
+    0.633812,
+    0.516188,
+    -0.10472
+   ],
+   "opponent": [
+    0.761091,
+    0.388909,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.55_h-39",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.55,
+   "heading_offset_deg": -39.0,
+   "player": [
+    0.633812,
+    0.516188,
+    -1.466077
+   ],
+   "opponent": [
+    0.761091,
+    0.388909,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.64_h+39",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.64,
+   "heading_offset_deg": 39.0,
+   "player": [
+    0.570172,
+    0.579828,
+    -0.10472
+   ],
+   "opponent": [
+    0.697452,
+    0.452548,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.64_h-39",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.64,
+   "heading_offset_deg": -39.0,
+   "player": [
+    0.570172,
+    0.579828,
+    -1.466077
+   ],
+   "opponent": [
+    0.697452,
+    0.452548,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 3
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.37_h+52",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.37,
+   "heading_offset_deg": 52.0,
+   "player": [
+    0.388909,
+    0.761091,
+    -3.01942
+   ],
+   "opponent": [
+    0.26163,
+    0.88837,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.37_h-52",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.37,
+   "heading_offset_deg": -52.0,
+   "player": [
+    0.388909,
+    0.761091,
+    1.448623
+   ],
+   "opponent": [
+    0.26163,
+    0.88837,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.43_h+52",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.43,
+   "heading_offset_deg": 52.0,
+   "player": [
+    0.431335,
+    0.718665,
+    -3.01942
+   ],
+   "opponent": [
+    0.304056,
+    0.845944,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.43_h-52",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.43,
+   "heading_offset_deg": -52.0,
+   "player": [
+    0.431335,
+    0.718665,
+    1.448623
+   ],
+   "opponent": [
+    0.304056,
+    0.845944,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.55_h+52",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.55,
+   "heading_offset_deg": 52.0,
+   "player": [
+    0.516188,
+    0.633812,
+    -3.01942
+   ],
+   "opponent": [
+    0.388909,
+    0.761091,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.55_h-52",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.55,
+   "heading_offset_deg": -52.0,
+   "player": [
+    0.516188,
+    0.633812,
+    1.448623
+   ],
+   "opponent": [
+    0.388909,
+    0.761091,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.64_h+52",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.64,
+   "heading_offset_deg": 52.0,
+   "player": [
+    0.579828,
+    0.570172,
+    -3.01942
+   ],
+   "opponent": [
+    0.452548,
+    0.697452,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.64_h-52",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.64,
+   "heading_offset_deg": -52.0,
+   "player": [
+    0.579828,
+    0.570172,
+    1.448623
+   ],
+   "opponent": [
+    0.452548,
+    0.697452,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.37_h+52",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.37,
+   "heading_offset_deg": 52.0,
+   "player": [
+    0.761091,
+    0.388909,
+    0.122173
+   ],
+   "opponent": [
+    0.88837,
+    0.26163,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.37_h-52",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.37,
+   "heading_offset_deg": -52.0,
+   "player": [
+    0.761091,
+    0.388909,
+    -1.692969
+   ],
+   "opponent": [
+    0.88837,
+    0.26163,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.43_h+52",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.43,
+   "heading_offset_deg": 52.0,
+   "player": [
+    0.718665,
+    0.431335,
+    0.122173
+   ],
+   "opponent": [
+    0.845944,
+    0.304056,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.43_h-52",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.43,
+   "heading_offset_deg": -52.0,
+   "player": [
+    0.718665,
+    0.431335,
+    -1.692969
+   ],
+   "opponent": [
+    0.845944,
+    0.304056,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.55_h+52",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.55,
+   "heading_offset_deg": 52.0,
+   "player": [
+    0.633812,
+    0.516188,
+    0.122173
+   ],
+   "opponent": [
+    0.761091,
+    0.388909,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.55_h-52",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.55,
+   "heading_offset_deg": -52.0,
+   "player": [
+    0.633812,
+    0.516188,
+    -1.692969
+   ],
+   "opponent": [
+    0.761091,
+    0.388909,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.64_h+52",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.64,
+   "heading_offset_deg": 52.0,
+   "player": [
+    0.570172,
+    0.579828,
+    0.122173
+   ],
+   "opponent": [
+    0.697452,
+    0.452548,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.64_h-52",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.64,
+   "heading_offset_deg": -52.0,
+   "player": [
+    0.570172,
+    0.579828,
+    -1.692969
+   ],
+   "opponent": [
+    0.697452,
+    0.452548,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 4
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.37_h+75",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.37,
+   "heading_offset_deg": 75.0,
+   "player": [
+    0.388909,
+    0.761091,
+    -2.617994
+   ],
+   "opponent": [
+    0.26163,
+    0.88837,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.37_h-75",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.37,
+   "heading_offset_deg": -75.0,
+   "player": [
+    0.388909,
+    0.761091,
+    1.047198
+   ],
+   "opponent": [
+    0.26163,
+    0.88837,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.43_h+75",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.43,
+   "heading_offset_deg": 75.0,
+   "player": [
+    0.431335,
+    0.718665,
+    -2.617994
+   ],
+   "opponent": [
+    0.304056,
+    0.845944,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.43_h-75",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.43,
+   "heading_offset_deg": -75.0,
+   "player": [
+    0.431335,
+    0.718665,
+    1.047198
+   ],
+   "opponent": [
+    0.304056,
+    0.845944,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.55_h+75",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.55,
+   "heading_offset_deg": 75.0,
+   "player": [
+    0.516188,
+    0.633812,
+    -2.617994
+   ],
+   "opponent": [
+    0.388909,
+    0.761091,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.55_h-75",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.55,
+   "heading_offset_deg": -75.0,
+   "player": [
+    0.516188,
+    0.633812,
+    1.047198
+   ],
+   "opponent": [
+    0.388909,
+    0.761091,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.64_h+75",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.64,
+   "heading_offset_deg": 75.0,
+   "player": [
+    0.579828,
+    0.570172,
+    -2.617994
+   ],
+   "opponent": [
+    0.452548,
+    0.697452,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.64_h-75",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.64,
+   "heading_offset_deg": -75.0,
+   "player": [
+    0.579828,
+    0.570172,
+    1.047198
+   ],
+   "opponent": [
+    0.452548,
+    0.697452,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.37_h+75",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.37,
+   "heading_offset_deg": 75.0,
+   "player": [
+    0.761091,
+    0.388909,
+    0.523599
+   ],
+   "opponent": [
+    0.88837,
+    0.26163,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.37_h-75",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.37,
+   "heading_offset_deg": -75.0,
+   "player": [
+    0.761091,
+    0.388909,
+    -2.094395
+   ],
+   "opponent": [
+    0.88837,
+    0.26163,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.43_h+75",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.43,
+   "heading_offset_deg": 75.0,
+   "player": [
+    0.718665,
+    0.431335,
+    0.523599
+   ],
+   "opponent": [
+    0.845944,
+    0.304056,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.43_h-75",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.43,
+   "heading_offset_deg": -75.0,
+   "player": [
+    0.718665,
+    0.431335,
+    -2.094395
+   ],
+   "opponent": [
+    0.845944,
+    0.304056,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.55_h+75",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.55,
+   "heading_offset_deg": 75.0,
+   "player": [
+    0.633812,
+    0.516188,
+    0.523599
+   ],
+   "opponent": [
+    0.761091,
+    0.388909,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.55_h-75",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.55,
+   "heading_offset_deg": -75.0,
+   "player": [
+    0.633812,
+    0.516188,
+    -2.094395
+   ],
+   "opponent": [
+    0.761091,
+    0.388909,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.64_h+75",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.64,
+   "heading_offset_deg": 75.0,
+   "player": [
+    0.570172,
+    0.579828,
+    0.523599
+   ],
+   "opponent": [
+    0.697452,
+    0.452548,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.64_h-75",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.64,
+   "heading_offset_deg": -75.0,
+   "player": [
+    0.570172,
+    0.579828,
+    -2.094395
+   ],
+   "opponent": [
+    0.697452,
+    0.452548,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.37_h+120",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.37,
+   "heading_offset_deg": 120.0,
+   "player": [
+    0.388909,
+    0.761091,
+    -1.832596
+   ],
+   "opponent": [
+    0.26163,
+    0.88837,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.37_h-120",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.37,
+   "heading_offset_deg": -120.0,
+   "player": [
+    0.388909,
+    0.761091,
+    0.261799
+   ],
+   "opponent": [
+    0.26163,
+    0.88837,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.43_h+120",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.43,
+   "heading_offset_deg": 120.0,
+   "player": [
+    0.431335,
+    0.718665,
+    -1.832596
+   ],
+   "opponent": [
+    0.304056,
+    0.845944,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.43_h-120",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.43,
+   "heading_offset_deg": -120.0,
+   "player": [
+    0.431335,
+    0.718665,
+    0.261799
+   ],
+   "opponent": [
+    0.304056,
+    0.845944,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.55_h+120",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.55,
+   "heading_offset_deg": 120.0,
+   "player": [
+    0.516188,
+    0.633812,
+    -1.832596
+   ],
+   "opponent": [
+    0.388909,
+    0.761091,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.55_h-120",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.55,
+   "heading_offset_deg": -120.0,
+   "player": [
+    0.516188,
+    0.633812,
+    0.261799
+   ],
+   "opponent": [
+    0.388909,
+    0.761091,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.64_h+120",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.64,
+   "heading_offset_deg": 120.0,
+   "player": [
+    0.579828,
+    0.570172,
+    -1.832596
+   ],
+   "opponent": [
+    0.452548,
+    0.697452,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_top_left_d0.64_h-120",
+   "group": "ladder_holdout",
+   "pit": "top_left",
+   "distance_m": 0.64,
+   "heading_offset_deg": -120.0,
+   "player": [
+    0.579828,
+    0.570172,
+    0.261799
+   ],
+   "opponent": [
+    0.452548,
+    0.697452,
+    -0.785398
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.37_h+120",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.37,
+   "heading_offset_deg": 120.0,
+   "player": [
+    0.761091,
+    0.388909,
+    1.308997
+   ],
+   "opponent": [
+    0.88837,
+    0.26163,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.37_h-120",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.37,
+   "heading_offset_deg": -120.0,
+   "player": [
+    0.761091,
+    0.388909,
+    -2.879793
+   ],
+   "opponent": [
+    0.88837,
+    0.26163,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.43_h+120",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.43,
+   "heading_offset_deg": 120.0,
+   "player": [
+    0.718665,
+    0.431335,
+    1.308997
+   ],
+   "opponent": [
+    0.845944,
+    0.304056,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.43_h-120",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.43,
+   "heading_offset_deg": -120.0,
+   "player": [
+    0.718665,
+    0.431335,
+    -2.879793
+   ],
+   "opponent": [
+    0.845944,
+    0.304056,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.55_h+120",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.55,
+   "heading_offset_deg": 120.0,
+   "player": [
+    0.633812,
+    0.516188,
+    1.308997
+   ],
+   "opponent": [
+    0.761091,
+    0.388909,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.55_h-120",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.55,
+   "heading_offset_deg": -120.0,
+   "player": [
+    0.633812,
+    0.516188,
+    -2.879793
+   ],
+   "opponent": [
+    0.761091,
+    0.388909,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.64_h+120",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.64,
+   "heading_offset_deg": 120.0,
+   "player": [
+    0.570172,
+    0.579828,
+    1.308997
+   ],
+   "opponent": [
+    0.697452,
+    0.452548,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  },
+  {
+   "name": "ladder_holdout_bottom_right_d0.64_h-120",
+   "group": "ladder_holdout",
+   "pit": "bottom_right",
+   "distance_m": 0.64,
+   "heading_offset_deg": -120.0,
+   "player": [
+    0.570172,
+    0.579828,
+    -2.879793
+   ],
+   "opponent": [
+    0.697452,
+    0.452548,
+    2.356194
+   ],
+   "holdout_kind": "level",
+   "nearest_rung": 5
+  }
+ ],
+ "reference_seeds": [
+  60017,
+  61017
+ ],
+ "separation": {
+  "advance_max_win_rate": 0.25,
+  "controller_min_win_rate": 0.9
+ },
+ "config": "runs/ppo-curriculum-overnight/effective_sim.yaml"
+}

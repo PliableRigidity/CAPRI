@@ -1,0 +1,82 @@
+{
+  "profile_kind": "historical",
+  "profile": "historical_bristol_2026_03_22",
+  "approximate": true,
+  "do_not_use_for_live_camera": "made from recorded footage shot from another camera position",
+  "source_video": "YTDown.com_YouTube_Media_uTfeeH8uWP8_Bristol-University-Antweight-Robot-Wars-22-March-2026_004_360p.mp4",
+  "reference_time_s": 438.0,
+  "points_obtained_by": "intersections of floor edges traced on a median frame (see footage_reference.py); hints in source.yaml were picked by eye",
+  "lens": {
+    "model": "fisheye",
+    "matrix": [
+      [
+        348.1848464206866,
+        0.0,
+        320.0
+      ],
+      [
+        0.0,
+        348.1848464206866,
+        180.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "distortion": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "lens_fit": {
+    "model": "fisheye (equidistant), principal point at the image centre",
+    "focal_px": 348.1848464206866,
+    "straightness_rms_px": 0.538278207928199,
+    "straightness_rms_px_uncorrected": 1.3332856170672387,
+    "focal_range_within_0.1px_rms": [
+      325.16390288674575,
+      387.5871415884948
+    ],
+    "at_search_limit": false
+  },
+  "drawing": "candidate layout from config/arena_overlay.yaml (not measured on this arena)",
+  "image_size": [
+    640,
+    360
+  ],
+  "saved_at": "2026-11-18T21:20:13.731787+00:00",
+  "source": "YTDown.com_YouTube_Media_uTfeeH8uWP8_Bristol-University-Antweight-Robot-Wars-22-March-2026_004_360p.mp4 @ 438 s (median frame)",
+  "roles": {
+    "pitA_rim_x0_wall": "fit",
+    "pitA_rim_ymax_wall": "fit",
+    "flipper_edge_ymax_wall": "check",
+    "flipper_edge_xmax_wall": "fit",
+    "pitB_rim_xmax_wall": "fit"
+  },
+  "points": {
+    "pitA_rim_x0_wall": [
+      161.77,
+      67.91
+    ],
+    "pitA_rim_ymax_wall": [
+      243.56,
+      18.62
+    ],
+    "flipper_edge_ymax_wall": [
+      386.97,
+      10.39
+    ],
+    "flipper_edge_xmax_wall": [
+      503.99,
+      71.06
+    ],
+    "pitB_rim_xmax_wall": [
+      577.5,
+      232.22
+    ]
+  }
+}

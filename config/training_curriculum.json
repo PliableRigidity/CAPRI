@@ -1,0 +1,27 @@
+{
+  "seed": 7,
+  "description": "Outcome-only curriculum: verified near-pit starts widen into mixed ordinary starts.",
+  "stages": [
+    {"name":"near_pit","until_episode":100,"group_weights":{"near_pit_easy":0.65,"near_pit_offset":0.35}},
+    {"name":"widening","until_episode":500,"group_weights":{"near_pit_easy":0.30,"near_pit_offset":0.45,"ordinary":0.25}},
+    {"name":"mixed","until_episode":null,"group_weights":{"near_pit_easy":0.15,"near_pit_offset":0.35,"ordinary":0.50}}
+  ],
+  "groups": {
+    "near_pit_easy": [
+      {"name":"train_top_left_easy","player":[0.353553,0.796447,2.356194],"opponent":[0.226274,0.923726,2.356194]},
+      {"name":"train_bottom_right_easy","player":[0.796447,0.353553,-0.785398],"opponent":[0.923726,0.226274,-0.785398]}
+    ],
+    "near_pit_offset": [
+      {"name":"train_top_left_offset_a","player":[0.374767,0.775233,2.286194],"opponent":[0.233345,0.916655,2.336194]},
+      {"name":"train_top_left_offset_b","player":[0.360624,0.789376,2.426194],"opponent":[0.233345,0.916655,2.376194]},
+      {"name":"train_bottom_right_offset_a","player":[0.775233,0.374767,-0.715398],"opponent":[0.916655,0.233345,-0.765398]},
+      {"name":"train_bottom_right_offset_b","player":[0.789376,0.360624,-0.855398],"opponent":[0.916655,0.233345,-0.805398]}
+    ],
+    "ordinary": [
+      {"name":"train_default","player":[0.575,0.180,1.570796],"opponent":[0.575,0.970,-1.570796]},
+      {"name":"train_ordinary_left","player":[0.380,0.240,1.350000],"opponent":[0.720,0.900,-1.780000]},
+      {"name":"train_ordinary_right","player":[0.760,0.260,1.800000],"opponent":[0.430,0.890,-1.330000]},
+      {"name":"train_ordinary_diagonal","player":[0.330,0.370,0.900000],"opponent":[0.800,0.780,-2.250000]}
+    ]
+  }
+}

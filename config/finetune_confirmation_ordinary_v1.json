@@ -1,0 +1,722 @@
+[
+ {
+  "name": "pilot_confirm_default_spawn_0",
+  "group": "ordinary_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.591,
+   0.1218,
+   1.7318
+  ],
+  "opponent": [
+   0.6295,
+   0.9939,
+   -1.3565
+  ]
+ },
+ {
+  "name": "pilot_confirm_default_spawn_1",
+  "group": "ordinary_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.6189,
+   0.1714,
+   1.7849
+  ],
+  "opponent": [
+   0.6066,
+   1.0135,
+   -1.5347
+  ]
+ },
+ {
+  "name": "pilot_confirm_default_spawn_2",
+  "group": "ordinary_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.624,
+   0.1526,
+   1.5382
+  ],
+  "opponent": [
+   0.5542,
+   0.9163,
+   -1.6457
+  ]
+ },
+ {
+  "name": "pilot_confirm_default_spawn_3",
+  "group": "ordinary_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.5194,
+   0.1848,
+   1.3782
+  ],
+  "opponent": [
+   0.5989,
+   0.9994,
+   -1.4868
+  ]
+ },
+ {
+  "name": "pilot_confirm_default_spawn_4",
+  "group": "ordinary_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.5634,
+   0.2234,
+   1.7256
+  ],
+  "opponent": [
+   0.6096,
+   0.9384,
+   -1.7058
+  ]
+ },
+ {
+  "name": "pilot_confirm_default_spawn_5",
+  "group": "ordinary_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.5334,
+   0.2257,
+   1.6383
+  ],
+  "opponent": [
+   0.5722,
+   0.973,
+   -1.7272
+  ]
+ },
+ {
+  "name": "pilot_confirm_default_spawn_6",
+  "group": "ordinary_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.5766,
+   0.2002,
+   1.7203
+  ],
+  "opponent": [
+   0.6109,
+   0.9807,
+   -1.7389
+  ]
+ },
+ {
+  "name": "pilot_confirm_default_spawn_7",
+  "group": "ordinary_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.5291,
+   0.1955,
+   1.681
+  ],
+  "opponent": [
+   0.5654,
+   0.9669,
+   -1.4365
+  ]
+ },
+ {
+  "name": "pilot_confirm_default_spawn_8",
+  "group": "ordinary_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.5949,
+   0.166,
+   1.4099
+  ],
+  "opponent": [
+   0.6115,
+   0.9294,
+   -1.7431
+  ]
+ },
+ {
+  "name": "pilot_confirm_default_spawn_9",
+  "group": "ordinary_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.5562,
+   0.1334,
+   1.5409
+  ],
+  "opponent": [
+   0.5583,
+   1.0252,
+   -1.3343
+  ]
+ },
+ {
+  "name": "pilot_confirm_default_spawn_10",
+  "group": "ordinary_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.5351,
+   0.1741,
+   1.3328
+  ],
+  "opponent": [
+   0.5922,
+   1.0269,
+   -1.7492
+  ]
+ },
+ {
+  "name": "pilot_confirm_default_spawn_11",
+  "group": "ordinary_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.554,
+   0.1316,
+   1.3957
+  ],
+  "opponent": [
+   0.5448,
+   0.9301,
+   -1.405
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_left_opponent_right_0",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.3541,
+   0.2677,
+   1.1906
+  ],
+  "opponent": [
+   0.7348,
+   0.9328,
+   -1.638
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_left_opponent_right_1",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.4299,
+   0.1607,
+   1.2103
+  ],
+  "opponent": [
+   0.735,
+   0.926,
+   -1.5941
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_left_opponent_right_2",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.4265,
+   0.1793,
+   1.3186
+  ],
+  "opponent": [
+   0.7872,
+   0.9198,
+   -1.6296
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_left_opponent_right_3",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.4346,
+   0.1605,
+   1.5787
+  ],
+  "opponent": [
+   0.7969,
+   0.9206,
+   -1.7973
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_left_opponent_right_4",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.3523,
+   0.2184,
+   1.2565
+  ],
+  "opponent": [
+   0.7141,
+   0.9749,
+   -1.5095
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_left_opponent_right_5",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.3668,
+   0.2097,
+   1.2895
+  ],
+  "opponent": [
+   0.6936,
+   0.9557,
+   -1.982
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_left_opponent_right_6",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.432,
+   0.2554,
+   1.3504
+  ],
+  "opponent": [
+   0.7132,
+   0.9484,
+   -1.8274
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_left_opponent_right_7",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.4302,
+   0.2654,
+   1.6139
+  ],
+  "opponent": [
+   0.6806,
+   0.8753,
+   -1.5015
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_left_opponent_right_8",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.4452,
+   0.1928,
+   1.2697
+  ],
+  "opponent": [
+   0.7516,
+   0.944,
+   -1.9296
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_left_opponent_right_9",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.4153,
+   0.2104,
+   1.392
+  ],
+  "opponent": [
+   0.7337,
+   0.9552,
+   -1.7487
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_left_opponent_right_10",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.3976,
+   0.1748,
+   1.1857
+  ],
+  "opponent": [
+   0.7978,
+   0.8862,
+   -1.6939
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_left_opponent_right_11",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.4698,
+   0.1892,
+   1.2622
+  ],
+  "opponent": [
+   0.7165,
+   0.9346,
+   -1.834
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_right_opponent_left_0",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7312,
+   0.2418,
+   1.5307
+  ],
+  "opponent": [
+   0.4368,
+   0.8818,
+   -1.6323
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_right_opponent_left_1",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7806,
+   0.2335,
+   1.5787
+  ],
+  "opponent": [
+   0.4135,
+   0.8978,
+   -1.3217
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_right_opponent_left_2",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7976,
+   0.2537,
+   1.8369
+  ],
+  "opponent": [
+   0.4064,
+   0.8948,
+   -1.1616
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_right_opponent_left_3",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7841,
+   0.1601,
+   1.7642
+  ],
+  "opponent": [
+   0.4179,
+   0.9008,
+   -1.6017
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_right_opponent_left_4",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.6907,
+   0.1608,
+   1.6884
+  ],
+  "opponent": [
+   0.4069,
+   0.8837,
+   -1.5016
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_right_opponent_left_5",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7764,
+   0.1886,
+   1.5511
+  ],
+  "opponent": [
+   0.374,
+   0.9012,
+   -1.5513
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_right_opponent_left_6",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7215,
+   0.2348,
+   1.6722
+  ],
+  "opponent": [
+   0.3931,
+   0.9109,
+   -1.5917
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_right_opponent_left_7",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7104,
+   0.2417,
+   1.7441
+  ],
+  "opponent": [
+   0.3847,
+   0.9204,
+   -1.361
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_right_opponent_left_8",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7012,
+   0.1755,
+   1.5565
+  ],
+  "opponent": [
+   0.4297,
+   0.9038,
+   -1.2111
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_right_opponent_left_9",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7397,
+   0.198,
+   1.5272
+  ],
+  "opponent": [
+   0.4143,
+   0.9326,
+   -1.3699
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_right_opponent_left_10",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7471,
+   0.1773,
+   1.5147
+  ],
+  "opponent": [
+   0.3603,
+   0.8874,
+   -1.3543
+  ]
+ },
+ {
+  "name": "pilot_confirm_player_right_opponent_left_11",
+  "group": "ordinary_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7054,
+   0.1926,
+   1.8124
+  ],
+  "opponent": [
+   0.4617,
+   0.8718,
+   -1.3387
+  ]
+ },
+ {
+  "name": "pilot_confirm_opposed_diagonal_0",
+  "group": "ordinary_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.4011,
+   0.3349,
+   0.7283
+  ],
+  "opponent": [
+   0.8204,
+   0.838,
+   -2.1795
+  ]
+ },
+ {
+  "name": "pilot_confirm_opposed_diagonal_1",
+  "group": "ordinary_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.3832,
+   0.3832,
+   0.9956
+  ],
+  "opponent": [
+   0.7705,
+   0.838,
+   -2.229
+  ]
+ },
+ {
+  "name": "pilot_confirm_opposed_diagonal_2",
+  "group": "ordinary_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.3565,
+   0.3279,
+   0.6489
+  ],
+  "opponent": [
+   0.8227,
+   0.8157,
+   -2.4675
+  ]
+ },
+ {
+  "name": "pilot_confirm_opposed_diagonal_3",
+  "group": "ordinary_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.3146,
+   0.3007,
+   0.7095
+  ],
+  "opponent": [
+   0.7549,
+   0.8487,
+   -2.5414
+  ]
+ },
+ {
+  "name": "pilot_confirm_opposed_diagonal_4",
+  "group": "ordinary_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.4004,
+   0.339,
+   0.5814
+  ],
+  "opponent": [
+   0.7818,
+   0.8355,
+   -2.4545
+  ]
+ },
+ {
+  "name": "pilot_confirm_opposed_diagonal_5",
+  "group": "ordinary_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.3722,
+   0.3656,
+   0.8975
+  ],
+  "opponent": [
+   0.798,
+   0.8509,
+   -2.2474
+  ]
+ },
+ {
+  "name": "pilot_confirm_opposed_diagonal_6",
+  "group": "ordinary_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.3036,
+   0.4012,
+   0.9333
+  ],
+  "opponent": [
+   0.7808,
+   0.8194,
+   -2.3565
+  ]
+ },
+ {
+  "name": "pilot_confirm_opposed_diagonal_7",
+  "group": "ordinary_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.3992,
+   0.3534,
+   0.8993
+  ],
+  "opponent": [
+   0.787,
+   0.8346,
+   -2.4985
+  ]
+ },
+ {
+  "name": "pilot_confirm_opposed_diagonal_8",
+  "group": "ordinary_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.3293,
+   0.4,
+   0.556
+  ],
+  "opponent": [
+   0.8093,
+   0.7413,
+   -2.2842
+  ]
+ },
+ {
+  "name": "pilot_confirm_opposed_diagonal_9",
+  "group": "ordinary_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.3617,
+   0.4091,
+   0.8949
+  ],
+  "opponent": [
+   0.7933,
+   0.8513,
+   -2.1996
+  ]
+ },
+ {
+  "name": "pilot_confirm_opposed_diagonal_10",
+  "group": "ordinary_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.3632,
+   0.3234,
+   0.5583
+  ],
+  "opponent": [
+   0.78,
+   0.7981,
+   -2.3799
+  ]
+ },
+ {
+  "name": "pilot_confirm_opposed_diagonal_11",
+  "group": "ordinary_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.3816,
+   0.4042,
+   0.5573
+  ],
+  "opponent": [
+   0.7562,
+   0.8301,
+   -2.2623
+  ]
+ }
+]

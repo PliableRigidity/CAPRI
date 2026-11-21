@@ -1,0 +1,92 @@
+# AutoBot MuJoCo preview configuration. Values marked ASSUMPTION need physical validation.
+simulation:
+  timestep_s: 0.002
+  control_hz: 50
+  episode_seconds: 120.0
+  seed: 7
+arena:
+  width_m: 1.150
+  height_m: 1.150
+  pit_radius_m: 0.250
+  pit_centres_m: [[0.0, 1.150], [1.150, 0.0]]
+  flipper_vertices_m: [[0.815, 1.150], [1.150, 1.150], [1.150, 0.815]]
+  # Pits are physical floor openings; flipper remains a static non-pit region.
+  spawn_inset_m: 0.180
+  pit_rim_width_m: 0.006                 # visual only; non-colliding
+  pit_arc_segments: 20
+  floor_thickness_m: 0.020
+  wall_thickness_m: 0.020
+  wall_height_m: 0.100
+  fall_height_m: -0.010                  # chassis centre below floor top => fell
+  wall_breach_margin_m: 0.020            # beyond wall outer face => simulation bug
+opponent:
+  mode: scripted
+  align_tolerance_deg: 12.0
+  turn_command: 0.40
+  forward_command: 0.40                  # lower authority than the player's full command
+  contact_yield_distance_m: 0.150        # manual-play baseline stops thrust before contact
+models:
+  player: autobot
+  opponent: last_year
+robots:
+  autobot:
+    label: Current Autobot
+    visual_mesh:
+      path: assets/BattleBot v3.2.stl
+      units: mm                          # verified from 162 x 135 x 33 mm bounds
+      scale: [0.001, 0.001, 0.001]
+      euler_deg: [0.0, 0.0, 90.0]       # STL -y nose -> MuJoCo +x
+      centre_offset_m: [-0.0256712, 0.0, -0.0335132]
+      includes_wheels: true
+    mesh_bounds_mm: [162.0, 135.3424, 33.4868]
+    chassis_size_m: [0.135, 0.115, 0.0335] # simple collider; review in overlay
+    rear_axle_offset_m: -0.026           # inferred from STL; behind centre/opposite nose
+    wheel_diameter_m: 0.0335             # physically measured
+    wheel_spacing_m: 0.132               # approximately physically measured
+    mass_kg: 0.150                        # PLACEHOLDER
+    wheel_mass_kg: 0.012                  # PLACEHOLDER per wheel
+    max_wheel_rpm: 390.0                  # no-slip estimate, not measured motor RPM
+    drive_gain: 0.010                     # PLACEHOLDER
+    outline_m: [[0.0675,-0.0575],[0.0675,0.0575],[0.025,0.0575],[-0.0675,0.045],[-0.0675,-0.045],[0.025,-0.0575]]
+  last_year:
+    label: Last year's opponent
+    visual_mesh:
+      path: assets/Opp_Chassis.stl
+      units: mm                          # verified from 110 x 125 x 34 mm bounds
+      scale: [0.001, 0.001, 0.001]
+      euler_deg: [0.0, 0.0, 90.0]       # STL -y nose -> MuJoCo +x
+      centre_offset_m: [0.0149829, 0.0, -0.0338843]
+      includes_wheels: true
+    mesh_bounds_mm: [110.0, 125.1623, 34.0601]
+    chassis_size_m: [0.125, 0.090, 0.034] # simple collider; inferred from STL
+    rear_axle_offset_m: -0.060            # inferred from visible STL wheel axis
+    wheel_diameter_m: 0.034               # PLACEHOLDER inferred from STL
+    wheel_spacing_m: 0.090                # PLACEHOLDER inferred from STL wheel centres
+    mass_kg: 0.150                        # PLACEHOLDER
+    wheel_mass_kg: 0.012                  # PLACEHOLDER per wheel
+    max_wheel_rpm: 390.0                  # PLACEHOLDER until old drive is measured
+    drive_gain: 0.010                     # PLACEHOLDER
+    outline_m: [[0.0625,0.0],[0.052,0.035],[0.025,0.045],[-0.0625,0.045],[-0.0625,-0.045],[0.025,-0.045],[0.052,-0.035]]
+physics:
+  friction: [1.2, 0.01, 0.001]           # PLACEHOLDER shared contact model
+imu:
+  sample_rate_hz: 100
+  mounting_euler_deg: [0.0, 0.0, 0.0]   # sensor frame relative to chassis
+  gyro_noise_std_rad_s: 0.01
+  gyro_bias_rad_s: [0.0, 0.0, 0.0]
+  gyro_range_rad_s: 34.9
+  accel_noise_std_m_s2: 0.08
+  accel_bias_m_s2: [0.0, 0.0, 0.0]
+  accel_range_m_s2: 39.2
+training:
+  device: cpu
+  n_envs: 1
+  seed: 7
+  total_timesteps: 100000
+  checkpoint_freq: 10000
+  eval_episodes: 10
+  reward_profiles:
+    outcome_only:
+      own_pit_fall: -1.0
+      opponent_pit_fall: 1.0
+      simultaneous_pit_fall: 0.0     # provisional draw convention; not an official rule

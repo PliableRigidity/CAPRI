@@ -8,6 +8,8 @@ import math
 import cv2
 import numpy as np
 
+from control_center.backend.marker_settings import build_detector
+
 
 @dataclass(slots=True)
 class TagDetection:
@@ -30,9 +32,10 @@ class AprilTagTracker:
     def __init__(self, family: str, self_tag_id: int, tag_size_m: float | None = None,
                  camera_matrix: list | None = None,
                  distortion_coefficients: list | None = None) -> None:
-        dictionary_id = self.FAMILY_MAP.get(family, cv2.aruco.DICT_APRILTAG_36h11)
-        dictionary = cv2.aruco.getPredefinedDictionary(dictionary_id)
-        self._detector = cv2.aruco.ArucoDetector(dictionary, cv2.aruco.DetectorParameters())
+        # Any cv2.aruco DICT_* name is accepted and an unknown one RAISES: it used to fall back to 36h11 without a word, which
+        # made a mistyped or 4X4 family look for markers that were never printed. The parameters are the repository's one set.
+        self._detector = build_detector(family)
+        self.dictionary = family
         self.self_tag_id = self_tag_id
         self.tag_size_m = tag_size_m
         self.camera_matrix = (np.asarray(camera_matrix, np.float64)

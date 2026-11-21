@@ -1,0 +1,24 @@
+# How the LSM6DS3 is mounted on the robot. Used by the read-only live shadow tools on the PC:
+#   python -m control_center.tools.live_shadow --imu-check
+#
+# The controller sends the IMU in the SENSOR's own axes. The policy expects the robot BODY frame:
+#   x toward the nose, y to the robot's left, z up   (right-handed)
+# body = sensor_to_body @ sensor, for the accelerometer and the gyro alike.
+#
+# Each row says which sensor axis a body axis is, and with which sign. Examples:
+#   sensor mounted flat, its x toward the nose, its z up:      [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+#   flat, turned 90 deg so sensor x points to the LEFT:         [[0, -1, 0], [1, 0, 0], [0, 0, 1]]
+#   upside down, sensor x toward the nose (z pointing down):    [[1, 0, 0], [0, -1, 0], [0, 0, -1]]
+# It must be a rotation (rows at right angles, determinant +1); a mirrored matrix is refused.
+#
+# NOT MEASURED. The identity below is a placeholder, not a claim about your robot. Live shadow stays
+# blocked while `verified` is false. Set it to true only after the axis check passes on the real bot
+# (docs/autobots-test-playbook.md, test IMU-2):
+#   1. flat and still:               accel body z about +9.8, x and y about 0, gyro about 0
+#   2. turn it left by hand:         gyro body +z (counter-clockwise seen from above)
+#   3. lift the nose:                gyro body -y while moving; accel body +x once held nose-up
+#   4. lift the left side:           gyro body +x while moving; accel body +y once held left-side-up
+imu:
+  verified: false
+  sensor_to_body: [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+  note: "placeholder identity; mounting orientation has not been measured"

@@ -1,23 +1,19 @@
 import cv2
 import time
 
+from control_center.backend.marker_settings import build_detector, project_dictionary
+
 # --------------------------------------------------
-# AprilTag setup
+# Marker setup
 # --------------------------------------------------
 
-# Change this if your tags use a different family.
-# Common options:
-# DICT_APRILTAG_16h5
-# DICT_APRILTAG_25h9
-# DICT_APRILTAG_36h10
-# DICT_APRILTAG_36h11
+# The robot's markers are ArUco DICT_4X4_50. The dictionary is NOT chosen here any more: it is the project dictionary
+# (bot.dictionary in config/arena_overlay.yaml), so this script, the legacy window and the Command Centre always agree.
+# (This file used to hard-code DICT_APRILTAG_36h11, which cannot decode the printed markers.)
+# Run it from the repository root:  python april_test.py
 
-dictionary = cv2.aruco.getPredefinedDictionary(
-    cv2.aruco.DICT_APRILTAG_36h11
-)
-
-detector_params = cv2.aruco.DetectorParameters()
-detector = cv2.aruco.ArucoDetector(dictionary, detector_params)
+print("Marker dictionary:", project_dictionary())
+detector = build_detector(project_dictionary())
 
 # --------------------------------------------------
 # Webcam

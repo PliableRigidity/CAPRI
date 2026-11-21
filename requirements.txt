@@ -4,3 +4,13 @@ opencv-contrib-python>=4.10,<5
 PyYAML>=6.0,<7
 torch>=2.2,<3
 matplotlib>=3.8,<4
+
+# Offline simulator/training (GUI remains optional and out of the training path).
+mujoco>=3.2,<4
+gymnasium>=1.0,<2
+stable-baselines3>=2.4,<3
+pygame>=2.6,<3
+tensorboard>=2.18,<3
+
+# Controller status over USB serial (dashboard listens only) and scripts/handoff_bench_client.py.
+pyserial>=3.5,<4

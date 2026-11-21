@@ -12,6 +12,7 @@ import cv2
 import numpy as np
 from PySide6.QtCore import QThread, Signal
 
+from control_center.backend.marker_settings import legacy_dictionary
 from control_center.backend.vision import AprilTagTracker, TagDetection
 from control_center.backend.arena_vision import ArenaVisionProcessor, ArenaVisionResult
 from control_center.models.state import VisionState
@@ -158,9 +159,13 @@ class VisionWorker(QThread):
     def run(self) -> None:
         try:
             april = self.config.get("april_tag", {})
+            # The dictionary is the project's (bot.dictionary of config/arena_overlay.yaml); an old april_tag_family key in
+            # config/control_center.yaml can no longer pick another one, it is only compared with it and reported.
+            family, mismatch = legacy_dictionary(self.config)
+            if mismatch:
+                self._log.warning(mismatch)
             tracker = AprilTagTracker(
-                str(april.get("family", self.config.get("april_tag_family", "DICT_APRILTAG_36h11"))),
-                int(self.config.get("self_tag_id", 0)), tag_size_m=april.get("tag_size_m"),
+                family, int(self.config.get("self_tag_id", 0)), tag_size_m=april.get("tag_size_m"),
                 camera_matrix=april.get("camera_matrix"),
                 distortion_coefficients=april.get("distortion_coefficients"))
         except Exception as exc:

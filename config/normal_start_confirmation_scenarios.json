@@ -1,0 +1,182 @@
+[
+ {
+  "name": "confirm_default_spawn_0",
+  "group": "normal_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.6236,
+   0.1993,
+   1.4199
+  ],
+  "opponent": [
+   0.5892,
+   0.9458,
+   -1.5342
+  ]
+ },
+ {
+  "name": "confirm_default_spawn_1",
+  "group": "normal_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.52,
+   0.1781,
+   1.6574
+  ],
+  "opponent": [
+   0.5663,
+   1.0218,
+   -1.3711
+  ]
+ },
+ {
+  "name": "confirm_default_spawn_2",
+  "group": "normal_confirmation",
+  "derived_from": "default_spawn",
+  "player": [
+   0.5525,
+   0.1639,
+   1.6695
+  ],
+  "opponent": [
+   0.5542,
+   0.993,
+   -1.8108
+  ]
+ },
+ {
+  "name": "confirm_player_left_opponent_right_0",
+  "group": "normal_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.3622,
+   0.2474,
+   1.5592
+  ],
+  "opponent": [
+   0.6828,
+   0.9701,
+   -1.8997
+  ]
+ },
+ {
+  "name": "confirm_player_left_opponent_right_1",
+  "group": "normal_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.3794,
+   0.2051,
+   1.5934
+  ],
+  "opponent": [
+   0.7157,
+   0.9564,
+   -1.6905
+  ]
+ },
+ {
+  "name": "confirm_player_left_opponent_right_2",
+  "group": "normal_confirmation",
+  "derived_from": "player_left_opponent_right",
+  "player": [
+   0.3768,
+   0.1953,
+   1.3429
+  ],
+  "opponent": [
+   0.7794,
+   0.8967,
+   -1.522
+  ]
+ },
+ {
+  "name": "confirm_player_right_opponent_left_0",
+  "group": "normal_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7464,
+   0.2496,
+   1.6391
+  ],
+  "opponent": [
+   0.3501,
+   0.8748,
+   -1.4661
+  ]
+ },
+ {
+  "name": "confirm_player_right_opponent_left_1",
+  "group": "normal_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7308,
+   0.179,
+   1.8409
+  ],
+  "opponent": [
+   0.4165,
+   0.9576,
+   -1.2725
+  ]
+ },
+ {
+  "name": "confirm_player_right_opponent_left_2",
+  "group": "normal_confirmation",
+  "derived_from": "player_right_opponent_left",
+  "player": [
+   0.7923,
+   0.2055,
+   1.6305
+  ],
+  "opponent": [
+   0.3791,
+   0.8852,
+   -1.5657
+  ]
+ },
+ {
+  "name": "confirm_opposed_diagonal_0",
+  "group": "normal_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.3462,
+   0.3481,
+   0.9557
+  ],
+  "opponent": [
+   0.8298,
+   0.7551,
+   -2.362
+  ]
+ },
+ {
+  "name": "confirm_opposed_diagonal_1",
+  "group": "normal_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.3612,
+   0.3742,
+   0.705
+  ],
+  "opponent": [
+   0.7873,
+   0.8543,
+   -2.1531
+  ]
+ },
+ {
+  "name": "confirm_opposed_diagonal_2",
+  "group": "normal_confirmation",
+  "derived_from": "opposed_diagonal",
+  "player": [
+   0.3297,
+   0.3261,
+   0.9417
+  ],
+  "opponent": [
+   0.833,
+   0.7765,
+   -2.2784
+  ]
+ }
+]

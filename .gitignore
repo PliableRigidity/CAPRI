@@ -1,9 +1,29 @@
+# Generated simulator/training artifacts
+runs/
+MUJOCO_LOG.TXT
 __pycache__/
 *.py[cod]
 logs/*.log
+logs/*.txt
 .pytest_cache/
 config/arena_calibration.npz
 config/arena_background.png
 config/arena_background.json
 runs/trajectory_predictor/
 *.pt
+# Recorded rounds (video + telemetry) from the Command Centre
+rounds/
+
+# Command Centre per-machine state (remembered calibration context, reference picture, session logs, Wi-Fi acceptance record)
+logs/sessions/
+config/profile_settings/
+config/wifi_acceptance.json
+config/command_centre_state.json
+config/home_test_overlay.yaml
+config/overlay_profiles/home_test/
+config/arena_overlay_arena.json
+config/arena_overlay_clicks.json
+
+# Generated analysis output, local captures, and timestamped editor backups
+artifacts/
+*.bak-*

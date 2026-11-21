@@ -1,0 +1,46 @@
+# CANONICAL COMPETITION ARENA GEOMETRY (the LIVE arena). One source of truth for the camera overlay and the
+# Command Centre's arena calibration. The operator never types these numbers: they click WHERE things are,
+# the software already knows HOW BIG they are (this file). Measured differences go in the ARENA tab's
+# "Advanced overrides" and are stored in the profile's arena file, never here.
+#
+# Source: "Arena Floor Technical Drawing.pdf", Fusion Drawings, Rev. 1, created by Alex Chung 11/11/2025,
+# Units millimetres, Scale 1/1. Dimensions read from the drawing: floor 1150 x 1150, two R250 quarter-circle
+# pit cut-outs on opposite corners (the 900 dimension is the straight edge left on each side, 1150 - 250), and
+# one 135 degree chamfer (the flipper corner) with 335 legs on a third corner.
+#
+# Frame (the simulator's frame, also the frame the policy's observation uses): origin at the plain corner,
+# +x along the floor toward pit 2's corner, +y toward pit 1's corner. Pits are centred on their corners at
+# (0, H) and (W, 0), the flipper corner is (W, H). Metres.
+design:
+  source_file: "Arena Floor Technical Drawing.pdf"
+  source_sha256: "c6f59bdf4c9359351b8b3cce2e846d8ff8b52c677edce6813d96aaf9112aeda0"
+  revision: "1"
+  created_by: "Alex Chung"
+  created: "2025-11-11"
+  units_in_drawing: "mm"
+  drawing_shows_walls: false       # the drawing is the floor outline only; wall dimensions come from the rules, not from it
+
+floor:
+  width_m: 1.150
+  height_m: 1.150
+
+pits:
+  radius_m: 0.250                  # R250 on the drawing
+  # pit_1 at (0, H) and pit_2 at (W, 0): opposite corners
+  corners: ["x0_ymax", "xmax_y0"]
+
+flipper:
+  leg_m: 0.335                     # both legs of the 135 degree chamfer, measured along the two walls
+  corner: "xmax_ymax"              # opposite the plain corner at (0, 0)
+
+# Simulator-only extras that are NOT in the drawing (kept here so the two stay visibly separate).
+simulator_only:
+  wall_thickness_m: 0.020
+  wall_height_m: 0.100
+
+# Possible measured difference between the drawing and the real arena as set up on the day. 0 = none.
+# The earlier draft in the Command Centre said 1130 mm; the drawing says 1150 mm. 1130 would be explained by a
+# 10 mm inset per side (e.g. walls standing on the floor edge) but that was never measured, so the default is
+# the drawing and any inset has to be entered deliberately as an advanced override with a reason.
+default_overrides:
+  inset_per_side_m: 0.0
