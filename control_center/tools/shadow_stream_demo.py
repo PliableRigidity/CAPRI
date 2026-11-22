@@ -55,7 +55,7 @@ HISTORICAL_PROFILE = "historical_bristol_2026_03_22"
 FOOTAGE_ENV = "AUTOBOTS_FOOTAGE_MP4"
 CLIP_START_S, CLIP_DURATION_S = 433.0, 24.0
 REFERENCE_AT_S, REFERENCE_FRAMES = 330.0, 30       # one second of frames, 102 s before the clip starts
-WINDOW = "AutoBots shadow stream (read-only)"
+WINDOW = "Capri shadow stream (read-only)"
 
 FIXTURE_SHADOW = "FIXTURE SHADOW (synthetic frames + synthetic IMU)"
 FOOTAGE_SOURCE = "recorded footage: Bristol 22 March 2026 (historical profile, approximate map)"

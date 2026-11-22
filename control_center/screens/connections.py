@@ -248,7 +248,7 @@ def step_rows(snapshot: Any) -> tuple[list[tuple[str, ...]], list[str]]:
 
 def diagnostics_text(snapshot: Any, readiness: Readiness, events: tuple[str, ...]) -> str:
     """Everything a person needs to read over the phone: copied by the Copy diagnostics button."""
-    lines = [f"AutoBots Command Centre - CONNECTIONS diagnostics ({datetime.now().isoformat(timespec='seconds')})"]
+    lines = [f"Capri Command Centre - CONNECTIONS diagnostics ({datetime.now().isoformat(timespec='seconds')})"]
     if snapshot is None:
         lines += ["No link service is attached to this window.", "", f"Readiness: {readiness.level} - {readiness.headline}"]
         return "\n".join(lines)

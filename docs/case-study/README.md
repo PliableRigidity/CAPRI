@@ -1,8 +1,12 @@
-# AutoBots: an antweight combat robot, a simulator that learned to chase, and a camera that maps the arena
+# Capri V1: an antweight combat robot, a simulator that learned to chase, and a camera that maps the arena
 
-**Status as of 20 November 2026** (second edition, written the night before the competition) · Competition day: 21 November 2026 (not yet happened) · [Changelog](CHANGELOG.md)
+**Status as of 22 November 2026** (third edition, written the day after the competition) · Competition day: 21 November 2026, [section 10](#10-competition-day-21-november-2026) · [Changelog](CHANGELOG.md)
 
-AutoBots is my antweight (150 g class) combat robot project. It is three working pieces. On 20 November the first connection between them was made, a laptop driving the motors, and the first attempt to make that connection wireless failed along with the robot's power supply ([section 7](#7-20-november-2026-wi-fi-integration-failures-and-the-decision-to-reuse-elrs)). The policy and the camera are still **not connected to the robot**:
+> **The name.** The robot is called **Capri**, and the prototype this document describes is **Capri V1**. Until 22 November 2026 the project was called AutoBots. That name survives in the repository name, in code identifiers such as the `autobot` package, in firmware identifiers, and in file names quoted below; those were left alone so that nothing breaks. "The robot" and "my robot" in the earlier sections mean Capri V1.
+>
+> **The outcome, in one paragraph.** Capri V1 competed on 21 November 2026 under manual control from the RadioMaster. Its passive wedge worked well. It did not operate autonomously: the camera mapped the arena, but the robot's markers could not be tracked reliably at arena distance, so I drove by hand. The learned policy was never deployed on the robot, so the competition says nothing about how it would have performed. Sections 1 to 9 below are the record as it stood before the competition, with dated updates; [section 10](#10-competition-day-21-november-2026) is the day itself.
+
+Capri is my antweight (150 g class) combat robot project. It is three working pieces. On 20 November the first connection between them was made, a laptop driving the motors, and the first attempt to make that connection wireless failed along with the robot's power supply ([section 7](#7-20-november-2026-wi-fi-integration-failures-and-the-decision-to-reuse-elrs)). The policy and the camera are still **not connected to the robot**:
 
 | | What exists | How far it is verified |
 |---|---|---|
@@ -11,6 +15,8 @@ AutoBots is my antweight (150 g class) combat robot project. It is three working
 | **Vision** | A read-only tool that turns an angled camera view into a top-down arena map and tracks robots on it | **Historical footage only:** tested on a public recording of a March event. My own camera has not been pointed at the arena yet. |
 
 The learned policy has never controlled the physical robot, and nothing in this document claims it has. Only a keyboard has driven it from the laptop.
+
+**Update, 22 November.** The table above is the state on 20 November and is left as written. Since then: the robot competed under manual control; my own camera was pointed at the arena and the arena mapping worked; marker tracking of my robot did not. The sentence above still holds after the competition.
 
 ![CAD renders of the current chassis and last year's chassis](figures/cad-chassis.png)
 
@@ -28,6 +34,13 @@ The learned policy has never controlled the physical robot, and nothing in this 
 4. **Show the arena overlay** running on the March footage, with robots tracked on a top-down map. *Historical footage.*
 5. **Drive the robot from the laptop keyboard over a USB cable**, and hand control between laptop and RadioMaster with a switch. *Hardware, tethered, demonstrated on 20 November.* Repeating it with the battery connected waits on a power question raised that day ([7.3](#73-the-measurements-and-what-they-do-and-do-not-show)).
 
+**Added after the competition (22 November):**
+
+6. **Map the arena from my own camera.** *Hardware camera, logged on 21 November;* accuracy not independently checked ([10.3](#103-the-camera-calibration-worked)).
+7. **Get under an opponent with the wedge and move it.** *Reported from the competition;* there is no photo or video ([10.6](#106-the-wedge)).
+
+What I still cannot demonstrate is the robot acting on anything the laptop sees.
+
 The most interesting engineering is in items 2 and 3: [how the blue policy came to exist](#5-teaching-blue-to-push-what-failed-and-what-worked), and [how one live round exposed a failure that 774 scripted benchmark rounds had not](#6-the-debugging-story-blue-spun-when-i-drove-away). The most recent, and the least comfortable, is [the day the hardware integration failed and the plan changed](#7-20-november-2026-wi-fi-integration-failures-and-the-decision-to-reuse-elrs).
 
 ## Contents
@@ -41,12 +54,12 @@ The most interesting engineering is in items 2 and 3: [how the blue policy came 
 7. [20 November 2026: Wi-Fi integration failures and the decision to reuse ELRS](#7-20-november-2026-wi-fi-integration-failures-and-the-decision-to-reuse-elrs)
 8. [What is verified, and where](#8-what-is-verified-and-where)
 9. [Who did what](#9-who-did-what)
-10. [Competition day (21 November)](#10-competition-day-21-november)
+10. [Competition day (21 November 2026)](#10-competition-day-21-november-2026)
 11. [Lessons so far](#11-lessons-so-far)
 
 Appendices: [A. Dated timeline](#appendix-a-dated-timeline) · [B. Experiment record](#appendix-b-experiment-record) · [C. Evidence index](#appendix-c-evidence-index) · [D. Demo commands](#appendix-d-demo-commands) · [E. Not yet documented](#appendix-e-not-yet-documented) · [F. Rebuilding the figures](#appendix-f-rebuilding-the-figures)
 
-**Evidence labels used throughout.** *Hardware*: seen on the real robot. *Simulation*: MuJoCo only. *Fixed-input replay*: a recorded command stream played back, so the recorded robot cannot react. *Historical footage*: the March recording, not my camera. *Synthetic*: rendered test images. *Planned*: not built or not tested. Section 7 adds four words of its own for the integration work: *demonstrated on hardware*, *tested in software*, *proposed*, and *blocked / unverified*.
+**Evidence labels used throughout.** *Hardware*: seen on the real robot. *Simulation*: MuJoCo only. *Fixed-input replay*: a recorded command stream played back, so the recorded robot cannot react. *Historical footage*: the March recording, not my camera. *Synthetic*: rendered test images. *Planned*: not built or not tested. Section 7 adds four words of its own for the integration work: *demonstrated on hardware*, *tested in software*, *proposed*, and *blocked / unverified*. Section 10 adds two for the competition: *reported* (what I saw at the event, with no log, photo or video saved) and *logged* (recorded by the laptop that morning).
 
 ---
 
@@ -64,7 +77,7 @@ In plain terms:
 
 **Update, 20 November.** Figure 3 shows the state on 18 November and is left as it was. Since then lane A has gained one input from the laptop: keyboard commands through firmware that leaves arming and override with the RadioMaster, demonstrated over USB and, briefly, over Wi-Fi. There is still no arrow from the simulator's policy or from the camera to the robot. The architecture that was attempted and the one that replaced it as the target are both drawn in [section 7](#7-20-november-2026-wi-fi-integration-failures-and-the-decision-to-reuse-elrs).
 
-Joining them (camera positions in, radio commands out) is the long-term goal. The [original architecture plan](../../autobot-command-control-architecture.png) from October shows that intended loop. This case study documents the three pieces as they stand, and is explicit about the gaps between them.
+Joining them (camera positions in, radio commands out) is the long-term goal. The [original architecture plan](../images/planned-architecture-command-control-2026-10.png) from October shows that intended loop. This case study documents the three pieces as they stand, and is explicit about the gaps between them.
 
 ## 2. The physical robot
 
@@ -87,7 +100,7 @@ After the wheel incident I set working rules for firmware: nothing is flashed by
 
 **Update, 20 November.** The paragraph above describes 18 November. The merged sketch it mentions was not flashed; it was replaced on 19 November by a smaller standalone sketch, `ELRS-Handoff-Bench`, with the same drive code plus an ARM switch and a RADIO/PC switch and no IMU. That sketch has now been flashed and driven, and since the night of 20 November it is the firmware on the robot. The original drive sketch is unchanged on disk as the fallback behind it. The left wheel moved at reset again on 20 November; the strapping-pin explanation is still unmeasured. The stop-path question is also still open: the bench step written for it has not been run. What happened when the robot first ran new firmware on its own battery is [section 7](#7-20-november-2026-wi-fi-integration-failures-and-the-decision-to-reuse-elrs).
 
-Evidence: [firmware review](../../artifacts/firmware-handoff-review-2026-11-18.md) · [drive sketch](../../ELRS-Control/ELRS-Control.ino) · [handoff sketch](../../ELRS-Handoff-Bench/ELRS-Handoff-Bench.ino) · [run sheet](../../artifacts/run-sheet-2026-11-19.md)
+Evidence: local `artifacts/firmware-handoff-review-2026-11-18.md` · [drive sketch](../../ELRS-Control/ELRS-Control.ino) · [handoff sketch](../../ELRS-Handoff-Bench/ELRS-Handoff-Bench.ino) · local `artifacts/run-sheet-2026-11-19.md`
 
 ## 3. The simulator
 
@@ -119,7 +132,7 @@ Evidence: [firmware review](../../artifacts/firmware-handoff-review-2026-11-18.m
 
 **Known gap to the real robot.** On the calibration command the simulated robot covers 1.64 m where the real one covered 2.03 m, and makes 3.43 turns where the real one made 8.25. The physics has not been tuned to close that gap. The simulator is a place to study behaviour, not yet a model of my robot's speed.
 
-Evidence: [frozen config](../../runs/ppo-curriculum-overnight/effective_sim.yaml) · [repository README, simulator section](../../README.md) · [real-time play notes](../../artifacts/realtime-play-changes.md) · [discount and calibration handoff](../../artifacts/gamma-comparison-handoff.md)
+Evidence: local `runs/ppo-curriculum-overnight/effective_sim.yaml` · [simulator guide](../simulator.md) (the repository README's simulator section until 22 November) · local `artifacts/realtime-play-changes.md` · local `artifacts/gamma-comparison-handoff.md`
 
 ## 4. Vision
 
@@ -159,9 +172,11 @@ Evidence: [frozen config](../../runs/ppo-curriculum-overnight/effective_sim.yaml
 
 **Update, 20 November.** Markers are now on the robot: four on top, four underneath, and one on the rear face that I believe is ID 8. None of that is in the config yet: dictionary, IDs, sizes, heights and offsets are still placeholders, and Figure 6 is still the proposal, not a record of what was fitted. In the current camera view individual markers are detected only now and then. Three pieces of software were written that night in response, and so far they have only seen rendered frames: a tracker that fuses whichever markers agree in each frame, rejects one that disagrees, carries the pose forward for at most a fifth of a second, and then says *stale* and *lost* instead of holding an old position; a way to click an unmarked opponent in the picture and follow it, which reports *ambiguous* with no position during contact and needs a new click once it is lost; and a survey tool that reports which dictionary and IDs the camera actually sees and how often. *Synthetic only.*
 
+**Update, 21 November.** My own camera was used at the competition. The floor mapping worked: four corners clicked, hazards placed from the design drawing, alignment confirmed. Marker tracking of my robot did not work at arena distance, and the marker sizes and positions were still the placeholders described above. What happened, and what the laptop logged, is [section 10](#10-competition-day-21-november-2026). The "planned" column of the table at the top of this section is therefore half done: the calibration was clicked fresh on the day, and the tracking it was meant to support was not achieved.
+
 **Earlier vision work.** In September the desktop control centre showed a Logitech C525 feed at 1280 × 720 and 30 frames per second with AprilTag detection running in about 5 ms per frame. In October I added a small recurrent network that predicts an opponent's path from synthetic motion data; it has only had smoke-test runs and is not part of anything described above.
 
-Evidence: [overlay handoff](../../artifacts/vision-overlay-handoff.md) · [footage handoff](../../artifacts/vision-footage-handoff.md) · [calibration report](../../artifacts/vision-footage/historical_bristol_2026_03_22/report.json) · [September logs](../../logs/)
+Evidence: local `artifacts/vision-overlay-handoff.md` · local `artifacts/vision-footage-handoff.md` · local `artifacts/vision-footage/historical_bristol_2026_03_22/report.json` · local `logs/`
 
 ---
 
@@ -364,7 +379,7 @@ In the two rounds where red fell, blue was in contact during the final half seco
 - **Two live sessions are an observation, not a benchmark.**
 - **It is not a robot controller.** It reads simulator truth.
 
-Evidence: [spin diagnosis](../../artifacts/live-spin-diagnosis-2026-11-18.md) · [recovery handoff](../../artifacts/reactive-recovery-handoff-2026-11-18.md) · [comparison data](../../artifacts/reactive-recovery-comparison.json) · [regression case](../../config/regression_cases/live_spin_2026_11_18.json)
+Evidence: local `artifacts/live-spin-diagnosis-2026-11-18.md` · local `artifacts/reactive-recovery-handoff-2026-11-18.md` · local `artifacts/reactive-recovery-comparison.json` · [regression case](../../config/regression_cases/live_spin_2026_11_18.json)
 
 ## 7. 20 November 2026: Wi-Fi integration failures and the decision to reuse ELRS
 
@@ -580,13 +595,15 @@ The routes, in the order I will try them:
 | Live shadow from real camera and real IMU | | Fixture runs only | | **Blocked**: baseline firmware sends no IMU data; markers unmeasured; no calibration saved |
 | Learned policy driving the real robot | | | | **Blocked.** No verified untethered command path, no verified real observation, no hardware-tested takeover with the policy in the loop |
 
-Evidence: [measurements, build cache and log analysis for 20 November](../../artifacts/integration-2026-11-20/evidence.md) · [log summary](../../artifacts/integration-2026-11-20/wifi-session-log-summary.txt) · [Wi-Fi client log](../../logs/handoff-wifi.txt) · [relay feasibility note](../elrs-relay-feasibility.md) · [bench sketch](../../ELRS-Handoff-Bench/ELRS-Handoff-Bench.ino) and [its README](../../ELRS-Handoff-Bench/README.md) · [Wi-Fi sketch](../../ELRS-Handoff-WiFi/ELRS-Handoff-WiFi.ino) and [its README](../../ELRS-Handoff-WiFi/README.md) · [movement check](../../scripts/motion_check.py) · [test playbook](../autobots-test-playbook.md)
+**After the competition (22 November).** This table is the state on the night of 20 November and is left as written. Three rows moved on 21 November, and none of the blocked rows was unblocked. *RadioMaster drive, battery only:* the robot was driven through the competition this way. *Multi-marker chassis tracking:* it met the real camera for the first time and did not hold a track; the markers are still unmeasured. *Live shadow* and *learned policy driving the real robot:* still blocked, now with a logged example of an incomplete observation. None of the 20 November electrical questions (the restarts, the recovery, the left wheel) was investigated further. See [section 10](#10-competition-day-21-november-2026).
+
+Evidence: the tracked [competition evidence note](../competition-2026-11-21-evidence.md) preserves the later machine-recorded context; the 20 November source records remain local at `artifacts/integration-2026-11-20/evidence.md`, `artifacts/integration-2026-11-20/wifi-session-log-summary.txt`, and `logs/handoff-wifi.txt` · [relay feasibility note](../elrs-relay-feasibility.md) · [bench sketch](../../ELRS-Handoff-Bench/ELRS-Handoff-Bench.ino) and [its README](../../ELRS-Handoff-Bench/README.md) · [Wi-Fi sketch](../../ELRS-Handoff-WiFi/ELRS-Handoff-WiFi.ino) and [its README](../../ELRS-Handoff-WiFi/README.md) · [movement check](../../scripts/motion_check.py) · [test playbook](../autobots-test-playbook.md)
 
 ---
 
 ## 8. What is verified, and where
 
-These are separate milestones. None of them is evidence for any other. Rows marked *20 Nov* were added or changed in the second edition; the integration work has its own, finer table in [7.8](#78-where-each-piece-stands).
+These are separate milestones. None of them is evidence for any other. Rows marked *20 Nov* were added or changed in the second edition; the integration work has its own, finer table in [7.8](#78-where-each-piece-stands). Rows and notes marked *21 Nov* were added in the third edition, after the competition. For those rows the "Hardware" column includes what I saw at the event without recording it; each says which.
 
 | Milestone | Hardware | Simulation | Historical footage | Synthetic / mocked | Planned |
 |---|---|---|---|---|---|
@@ -604,7 +621,14 @@ These are separate milestones. None of them is evidence for any other. Rows mark
 | Tracking unmarked robots | | | **Yes**, offline, 24 s clip | Rule tests | Live version needs an empty-arena image |
 | ArUco pose with height correction | | | No markers present | **Yes**. *20 Nov:* plus multi-marker tracking with explicit states and a clicked-opponent tracker, 27 tests | *20 Nov:* markers fitted; measure them, then the real camera |
 | Camera + IMU together | | | | | Not built |
-| Learned policy driving the real robot | | | | | **Blocked.** A tethered keyboard link exists; no verified untethered path, no verified live observation |
+| Learned policy driving the real robot | | | | | **Blocked.** A tethered keyboard link exists; no verified untethered path, no verified live observation. *21 Nov:* not attempted at the competition |
+| *21 Nov:* competing under manual control | **Yes**, reported: driven from the RadioMaster through the competition. No match record, photo or video | | | | |
+| *21 Nov:* arena mapping from my own camera at the event | **Yes**, logged: four corners clicked, hazards placed, alignment confirmed by me. Graded WEAK for want of a check point | | | | A check point; a tape-check of the arena |
+| *21 Nov:* detecting my robot's markers at arena distance | **No**, reported: unreliable on the arena floor, possible at 20 to 30 cm from the camera. Logged: intermittent decodes | | | Works on rendered frames | Measure pixel size and detection rate against distance |
+| *21 Nov:* pose and continuous localisation of my robot | **No**, logged: decoded markers rejected (placeholder size), markers disagreeing by about 155 mm (placeholder positions), no track held | | | Works on rendered frames | Measure the markers into the configuration |
+| *21 Nov:* passive wedge gets under opponents and displaces them | **Yes**, reported. Not recorded | | | | |
+| *21 Nov:* wedge takes impact damage in place of the electronics | **Yes**, reported, at least one engagement with a spinner. Not photographed | | | | A replaceable wedge |
+| *21 Nov:* robot stays mobile on a cluttered floor | **Not always**, reported: occasionally stuck with something trapped underneath. Cause unknown | | | | Investigate the underside |
 
 ## 9. Who did what
 
@@ -617,52 +641,158 @@ I directed this project and used coding agents heavily for implementation and ex
 | Driving the physical robot | Me | Firmware review refers to the sketch I drive with; no log or video |
 | Setting each experiment's question, constraints and stopping rules; the firmware safety rules | Me | The handoff reports answer briefs I wrote and note where an agent went beyond them |
 | Supplying the arena floor drawing and choosing the test footage | Me | Footage handoff |
-| Every upload to the robot, all bench and battery testing on 19 and 20 November, the multimeter readings, fitting the markers, and the decision to drop Wi-Fi as the default | Me | My brief of 20 November; [evidence note](../../artifacts/integration-2026-11-20/evidence.md) |
+| Every upload to the robot, all bench and battery testing on 19 and 20 November, the multimeter readings, fitting the markers, and the decision to drop Wi-Fi as the default | Me | My brief of 20 November; local evidence: `artifacts/integration-2026-11-20/evidence.md` |
 | Simulator code, training and evaluation scripts, the experiments in section 5, the diagnosis and fix in section 6 | Coding agents, under my direction | Dated handoff reports in `artifacts/`, each with a code patch |
 | Vision overlay tool, footage calibration, tracker | Coding agents, under my direction | Vision handoffs |
 | Merged firmware, host tests, firmware review (nothing flashed) | Coding agent | Firmware review |
 | Handoff sketches (USB, Wi-Fi, telemetry), their host tests, the PC client, the movement check, the log summary, the transmitter relay investigation (no agent flashed, powered or drove the robot) | Coding agents, under my direction | Sketch READMEs; `tests/`; [relay note](../elrs-relay-feasibility.md) |
-| Section 7 and the second edition's updates | Drafted by a coding agent from my brief of 20 November, the client log and the files on disk | [Evidence note](../../artifacts/integration-2026-11-20/evidence.md) |
+| Section 7 and the second edition's updates | Drafted by a coding agent from my brief of 20 November, the client log and the files on disk | Local evidence: `artifacts/integration-2026-11-20/evidence.md` |
 | This document's first edition and its figures | Drafted by a coding agent from the evidence in Appendix C | `tools/` in this folder |
+| Setting up the camera, calibrating the arena, deciding to drive manually, and driving every match on 21 November | Me | My account of the day; [the laptop's log](../competition-2026-11-21-evidence.md) for the calibration and tracking |
+| The Command Centre used that morning | Coding agents, under my direction, in the two nights before | [Changelog](CHANGELOG.md), entries for 21 November |
+| Section 10 and the third edition's updates; the reading of the 21 November log and the marker-size estimate | Drafted by a coding agent from my written account of the competition and the files on the laptop. The agent was not at the event and measured nothing | [Evidence note](../competition-2026-11-21-evidence.md) |
 
 **Not recorded in the repository, so not claimed here:** the chassis design history (the CAD file is present; how it was designed, printed and assembled is not documented), who wrote the 10 November drive sketch and how, and how the physical timing measurements were taken. I will fill these in from my own records.
 
-## 10. Competition day (21 November)
+## 10. Competition day (21 November 2026)
 
-**Nothing in this section has happened yet.** It lists what to capture so the next edition can add results without rewriting anything above.
+Capri V1 took part in the BEEES antweight competition on 21 November 2026. I drove it by hand. This section records what the day showed, what it did not, and what is still unexplained.
 
-**Before the first match**
+**How to read this section.** Almost nothing was recorded at the event. There are no photographs, no videos and no match notes, so most of what follows is *reported*: my own account, written afterwards. The exception is the laptop: the Command Centre logged a fifteen-minute session that morning, and that log is quoted in full in the [evidence note](../competition-2026-11-21-evidence.md). Where a statement rests on the log it is marked *logged*. Match results, rankings and placements were not written down, so there are none here, and none have been reconstructed.
 
-- [ ] Photo of the robot as built, top and underside, with a scale reference
-- [ ] Photo of the camera on its stand showing where it sits relative to the arena
-- [ ] Tape-check the arena against the drawing: 1150 mm sides, R250 pits, flipper boundary at 815 mm along each wall
-- [ ] Fresh camera calibration: which landmarks were clicked, how many were fit and check points, the tool's grade (OK / WEAK / INSUFFICIENT), and the error at each check point
-- [ ] Whether the camera lens bends straight edges (the live profile has no lens model)
-- [ ] If markers are used: dictionary, printed size, height above floor, position on the chassis
-- [ ] Which firmware is on the robot (on 20 November: `ELRS-Handoff-Bench`; behind it, the RadioMaster-only sketch)
-- [ ] Battery voltage at rest before the first match, written down with the time and which pack it is
-- [ ] A drive check on battery alone, USB unplugged, before leaving the pits
+### 10.1 What the day showed
 
-**During**
+| | Result | Basis |
+|---|---|---|
+| **Demonstrated at the competition** | | |
+| Arena mapping | The Command Centre established the arena geometry from the overhead camera | Logged, reported |
+| Manual ELRS operation | The robot competed, driven from the RadioMaster Pocket | Reported |
+| Passive wedge effectiveness | The wedge got underneath many opponents and lifted or displaced them | Reported |
+| Sacrificial wedge | In at least one engagement with a spinner the wedge took the damage and the electronics did not | Reported |
+| **Not achieved or not demonstrated** | | |
+| Reliable full-arena ArUco localisation | Markers were not reliably detected with the robot on the arena floor, and no pose was held | Reported, logged |
+| Physical autonomous operation with the learned policy | Not attempted in any match | Reported; repository state |
+| Wi-Fi motor control with the policy in the loop | Not attempted. The Wi-Fi build was not on the robot | Repository state |
+| **Unresolved** | | |
+| Why marker detection was poor at distance | A likely explanation exists (10.4); it was not measured | Hypothesis |
+| Why the robot occasionally became immobilised | Not investigated yet | Reported |
+| The Wi-Fi and electrical instability of 20 November | Not investigated further; section 7 stands as written | |
 
-- [ ] Each match: opponent, result, how it ended, duration
-- [ ] Whether the camera or stand was bumped, and whether the overlay outline still sat on the floor edges before each match
-- [ ] Overlay screenshots from my own camera
-- [ ] Any IMU log, saved to a file this time
-- [ ] Anything that broke, and when
-- [ ] Any restart of the robot or loss of the receiver, with the battery voltage straight afterwards
+### 10.2 The original ambition, and what replaced it
 
-**After**
+The aim for this competition was to run the robot autonomously: camera, tracking, the learned policy, and a command link to the motors. That did not happen. On the day I chose not to attempt it and drove with the RadioMaster Pocket over the existing ExpressLRS link.
 
-- [ ] What the robot did well and badly as a pusher
-- [ ] Whether real opponents behaved like any of the scripted reds
-- [ ] What I would change first
+That was a decision, made because the tracking was unreliable. It was not the result of trying the policy on the robot and watching it fail. The policy has still never controlled the physical robot, in a match or anywhere else, so the competition is not evidence about the policy in either direction.
+
+One clarification about the policy itself, which matters for anyone reading this as "the reinforcement learning did not work on the day". The checkpoint that would have been used is not a PPO-trained policy. As section 5 describes, PPO never learned the pushing task; the working simulator policy is a behaviour-cloned copy of a scripted pursuit controller, saved in a PPO container ([audit](../policy-observation-schema.md)). It also reads positions that only the simulator can supply exactly. So even with perfect tracking, autonomy on the day would have needed the remaining gaps closed too: a live inertial source, a measured command mapping, and a command link that had been proven on battery.
+
+### 10.3 The camera calibration worked
+
+*Logged and reported.* At the event the camera was placed so that it could see the whole arena. In the Command Centre I clicked the four arena corners on the 1280 × 720 picture, placed the two pits and the flipper, and saved the calibration at 10:35. The arena sizes came from the design drawing (1150 mm square, R250 pits), not from typed measurements. The tool compared the live picture with the stored one, I checked that the drawn outline sat on the floor edges, and confirmed the alignment at 10:35:42.
+
+This is a real, positive result: the first time the arena mapping ran on my own camera at a real arena, and it did what it was built to do.
+
+Two limits on that claim, both from the log:
+
+- The tool graded the fit **WEAK**, because I did not click a fifth point for it to check against. Four points always fit exactly, so nothing independent confirms how accurate the mapping was. The outline looked right to me; that is a visual check, not a measurement.
+- The live profile has no lens model, and I did not tape-check the arena against the drawing.
+
+**Mapping the arena is not the same as locating the robot.** The calibration turns a pixel into a floor position. It says nothing about whether the software can find my robot in the picture. That is the next subsection, and it is where the day went wrong.
+
+### 10.4 Marker tracking failed at arena distance
+
+*Reported.* During development the camera detected the ArUco markers when I held the robot fairly close to it. At the competition the camera had to be further away to take in the arena. With Capri on the arena floor, the software could no longer reliably identify its markers. When I picked the robot up and held it about 20 to 30 cm from the camera, detection came back. At the distance that mattered, it did not work.
+
+*Logged.* The Command Centre's log for 10:31 to 10:46 that morning fills in some of what the tracker was doing. It does not record where the robot was at each moment, so it cannot be lined up with "on the floor" or "in my hand".
+
+- Marker IDs 0, 1, 2, 3 and 5 were each decoded at some point. Detection was intermittent, not absent.
+- Decoded markers were then **rejected as the wrong size**: "measures 17 mm but is configured as 40 mm". The 40 mm in the configuration is the placeholder that section 4 describes. The markers were never measured.
+- When more than one marker was accepted, they **disagreed about where the robot's centre was** by about 155 mm, against a limit of 20 mm. The marker positions on the chassis are placeholders too.
+- The tracker never held a pose. It was reacquired after gaps of 15 s, 118 s and 253 s and lost again within about a second each time.
+- The one round I started from the Command Centre lasted 1.4 s in MANUAL and recorded "no observation" six times: IMU missing, own pose missing, opponent missing.
+
+So there were two problems stacked on each other, and they should be kept apart:
+
+| Stage | What happened | Basis |
+|---|---|---|
+| Camera calibration | Succeeded | 10.3 |
+| Raw marker detection at arena distance | Failed to be reliable | Reported; consistent with the log |
+| Pose estimation from the markers that were decoded | Not established: the marker configuration was unmeasured | Logged |
+| Continuous localisation | Not established | Logged |
+
+**The most likely explanation for the detection failure** is that the printed markers occupied too few pixels in the image, together with the limits of the Logitech C525 and its optics. I believe this is right. It is a diagnosis, not a measured root cause: I did not record marker pixel dimensions, exposure, focus, or the detector's raw output.
+
+One estimate can be made after the fact from the saved calibration. The 1150 mm arena edges span between 577 and 760 pixels in the calibrated picture, which is 0.50 to 0.66 pixels per millimetre at floor level. The printed marker size was never recorded; the tracker's own estimates for the markers it decoded were 17 to 28 mm. A marker of that size would be roughly 9 to 19 pixels across, or 1.5 to 3 pixels for each of its six cells. That is very little for a detector to work with, and it is consistent with the diagnosis. It does not prove it, because the estimate leaves out marker height, lens distortion, focus, exposure and blur. The working is in the [evidence note](../competition-2026-11-21-evidence.md#3-how-large-a-marker-was-in-the-picture).
+
+What I would want before calling the cause settled is in [the roadmap](../roadmap.md#2-close-out-the-v1-unknowns-first): markers of known sizes at measured distances, with pixel size and detection rate written down.
+
+The consequence was simple. Without a dependable position for my own robot, the autonomy pipeline had no trustworthy observation of the real world, and there was nothing sound for the policy to act on.
+
+### 10.5 What else stood between the robot and autonomy
+
+Tracking was the failure I met on the day. It was not the only gap, and removing it would not have been enough. These were all open before the competition and are still open:
+
+- The left wheel moving at reset and under an IMU-only sketch, unexplained (sections 2 and 7).
+- The ESP32 and receiver restarts during the Wi-Fi tests of 20 November, with a supply collapse whose root cause is not identified. Wi-Fi was running at the time; it has not been shown to be the cause, and I am not claiming it was.
+- An intermittent Wi-Fi control link in those same tests.
+- A power path that is not understood, including USB reaching the battery side of the converter.
+- No verified transmission of an autonomous command from the laptop to the robot. A keyboard over USB is the only PC input the motors have ever followed.
+- No real-world validation of the 19-value observation the policy expects. The firmware on the robot sends no IMU data.
+
+### 10.6 The wedge
+
+*Reported.* The passive wedge was the best thing on the robot.
+
+Its leading edge sits very low. That let Capri get underneath many of the robots it met. Once under, driving forward was enough to lift them partly off their wheels or shove them aside, with no active lifting mechanism at all. I consider the wedge geometry the strongest design feature Capri V1 demonstrated.
+
+In at least one engagement with a spinner, the front-left of the wedge took most of the impact damage. The wedge behaved as a sacrificial part, a crumple zone, and the electronics behind it were not damaged. That is an argument for making the wedge deliberately replaceable in a future design. It is not a claim that the wedge is tough: it was damaged, and it would not survive that indefinitely.
+
+There are no photographs of the wedge in action or of the damage. How many opponents it got under, and how many it did not, was not counted.
+
+### 10.7 Mechanical limitations
+
+*Reported.* The low clearance that made the wedge work also cost something. Capri occasionally became stuck or immobilised when something was trapped or wedged beneath it.
+
+I have not worked out the mechanical cause. The things I intend to look at are the geometry of the underside, how the clearance is distributed behind the wedge, wheel placement and traction, how the robot can recover once it is stuck, and how the wedge is mounted. None of these has been examined yet, and none of the possible fixes exists.
+
+I have no failure of the manual-drive firmware or the radio link to report from the event, and nothing was logged either way. I did not record which sketch was on the robot on the day; `ELRS-Handoff-Bench` was the one on it the night before. Battery voltages, restarts and link losses during the event were not logged.
+
+### 10.8 What was captured, against the list I wrote the night before
+
+The second edition of this document ended with a list of things to capture on the day. The repository holds evidence for one of them.
+
+| Planned capture | In the repository? |
+|---|---|
+| Fresh camera calibration: landmarks clicked, fit and check points, the tool's grade | **Yes**: four corners, no check points, graded WEAK ([evidence note](../competition-2026-11-21-evidence.md#2-the-arena-calibration)) |
+| Overlay screenshots from my own camera | One reference picture stored with the calibration on the laptop; not added to this document |
+| Photo of the robot as built, top and underside, with a scale reference | No |
+| Photo of the camera on its stand and where it sat relative to the arena | No |
+| Tape-check of the arena against the drawing | No |
+| Whether the camera lens bends straight edges | No |
+| Marker dictionary, printed size, height above floor, position on the chassis | Dictionary only (`DICT_4X4_50`); the rest unmeasured |
+| Which firmware was on the robot | No |
+| Battery voltage at rest before the first match | No |
+| Each match: opponent, result, how it ended, duration | No |
+| Whether the camera or stand was bumped | No |
+| Any IMU log | No |
+| Anything that broke, and when | Wedge damage, front-left, against a spinner: reported only |
+| Any restart of the robot or loss of the receiver | No |
+| What the robot did well and badly as a pusher | 10.6 and 10.7, reported |
+| Whether real opponents behaved like any of the scripted reds | Not assessed |
+
+"No" means there is nothing in the repository. Some of these may exist in my own photos or notes; if so they have not been added.
 
 | Match | Opponent | Result | How it ended | Notes |
 |---|---|---|---|---|
-| | | | | |
+| *No match records were kept. This table is left empty deliberately.* | | | | |
 
-**Lessons from the day:** *to be written.*
+### 10.9 What the day means for the project
+
+Capri V1 was partly successful. As a machine and as something to drive, it worked: it ran on its battery, it answered the transmitter, it competed, and its wedge did real work against other robots. Against the objective it was built for, operating autonomously, it was unsuccessful. It is neither a complete success nor a failure without value.
+
+The lesson I take from it is the distance between software and synthetic testing and the conditions of a real competition. Every part of the autonomy pipeline had passing tests: on rendered frames, on a mocked board, in the simulator. The camera at arena distance, the battery under load and the arena floor each behaved differently from their stand-ins, and each was met for the first time within about a day of the event.
+
+That is what the next iteration is for. What I am considering is in the [roadmap](../roadmap.md), and what is known to be wrong with V1 is collected in [known issues](../known-issues.md).
 
 ## 11. Lessons so far
 
@@ -680,6 +810,18 @@ I directed this project and used coding agents heavily for implementation and ex
 12. **Change one thing at a time when recovering.** A new battery and different firmware went in together, so the fix cannot be attributed to either.
 13. **Write measurements down when they are taken.** Four voltages typed from memory, without the conditions, are enough to show a collapse and not enough to find its cause.
 14. **Keep the failed branch.** The Wi-Fi build, its tests and its log are still in the repository. They are the only record of how it failed.
+
+Added after the competition (third edition):
+
+15. **Test perception at the distance it will be used.** Markers that decoded in my hand did not decode across the arena. Everything in the autonomy pipeline sat downstream of that, and it was the last thing checked against reality.
+16. **A placeholder in a configuration file is a failure waiting for its day.** The tracker rejected real markers because their size and positions had never been measured in. The code was doing its job.
+17. **Calibrating the arena, detecting a marker and locating the robot are three results.** The first worked. It would have been easy to report the day as "vision worked" or "vision failed"; neither is true.
+18. **Synthetic passes do not add up to a working system.** Rendered frames, a mocked board and a simulator each passed their tests. The camera, the battery and the arena each differed from their stand-in.
+19. **The independent fallback is what competed.** Manual ELRS control was kept intact through every experiment, and it is the only reason the robot fought.
+20. **The best feature was the simplest.** A low passive wedge did more in the arena than any of the software.
+21. **A strength can be the same thing as a weakness.** The low clearance that got under opponents also trapped the robot on debris.
+22. **Design the part that gets hit to be replaced.** The wedge absorbed a spinner hit and protected the electronics; it should be a consumable by design.
+23. **Take a record-keeper, or be one.** No photos, no videos and no match notes came back from the event. Most of section 10 is memory.
 
 ---
 
@@ -703,21 +845,24 @@ Dates come from git commits and file timestamps in the repository. The timeline 
 | 14 Nov | Simulator | MuJoCo arena with CAD meshes; first PPO runs; policy reverses into the wall; outcome reward makes no difference | `runs/ppo-debug-10k`, `runs/ppo-outcome-10k` |
 | 14–15 Nov | Simulator | Curriculum; 8-hour, 5.25M-step run; jitter | `runs/ppo-curriculum-overnight` |
 | 15 Nov | Simulator | First recorded human rounds; action-space, previous-action and discount comparisons; alignment sweep; heading ladder; behaviour cloning works; one-pit finding; a runaway calibration job found and fixed | Handoffs dated 15 Nov |
-| 16 Nov | Simulator | PPO fine-tuning from the clone loses the skill | [Clone fine-tune handoff](../../artifacts/clone-finetune-handoff.md) |
-| 17 Nov | Simulator | Combined clone with DAgger; harder scripted reds; decision not to train; real-time live play | [Combined clone](../../artifacts/combined-clone-handoff.md), [overnight](../../artifacts/overnight-2026-11-17-handoff.md) |
-| 17 Nov | Robot | Merged firmware written and host-tested (not flashed); IMU found on I2C; left-wheel incident | [Firmware review](../../artifacts/firmware-handoff-review-2026-11-18.md) |
+| 16 Nov | Simulator | PPO fine-tuning from the clone loses the skill | Local evidence: `artifacts/clone-finetune-handoff.md` |
+| 17 Nov | Simulator | Combined clone with DAgger; harder scripted reds; decision not to train; real-time live play | Local evidence: `artifacts/combined-clone-handoff.md`, `artifacts/overnight-2026-11-17-handoff.md` |
+| 17 Nov | Robot | Merged firmware written and host-tested (not flashed); IMU found on I2C; left-wheel incident | Local evidence: `artifacts/firmware-handoff-review-2026-11-18.md` |
 | 18 Nov, 00:00 | Simulator | Live round against the reference clone: blue spins | `runs/overnight-2026-11-17/live/` |
-| 18 Nov | Simulator | Spin diagnosed; regression case; recovery challenger trained and selected | [Diagnosis](../../artifacts/live-spin-diagnosis-2026-11-18.md), [recovery](../../artifacts/reactive-recovery-handoff-2026-11-18.md) |
-| 18 Nov | Robot | Firmware review, pin table, bench sequence, fallback sketch verified by hash | [Firmware review](../../artifacts/firmware-handoff-review-2026-11-18.md) |
+| 18 Nov | Simulator | Spin diagnosed; regression case; recovery challenger trained and selected | Local evidence: `artifacts/live-spin-diagnosis-2026-11-18.md`, `artifacts/reactive-recovery-handoff-2026-11-18.md` |
+| 18 Nov | Robot | Firmware review, pin table, bench sequence, fallback sketch verified by hash | Local evidence: `artifacts/firmware-handoff-review-2026-11-18.md` |
 | 18 Nov | Vision | Overlay tool on synthetic frames; then calibrated and tracked on the March footage | Vision handoffs |
 | 18 Nov, 09:58 and 20:26 | Simulator | Live sessions against the recovery challenger | `runs/reactive-recovery-2026-11-18/live/` |
 | 19 Nov | Robot | Standalone handoff sketch (ARM and RADIO/PC switches) and keyboard client written and tested on a mocked board | `ELRS-Handoff-Bench/`, `tests/test_handoff_bench.py` |
 | 20 Nov, early | Robot | Handoff sketch uploaded; laptop keyboard drives the robot over USB; control handed over in both directions | My report; `artifacts/code-snapshots/handoff-usb-tested-2026-11-20/` |
 | 20 Nov, 12:48–14:48 | Robot | Wi-Fi handoff sketch on the robot: untethered keyboard driving, then stale-command latches, dropouts and three logged restarts | `logs/handoff-wifi.txt` |
-| 20 Nov, afternoon and evening | Robot | Restart loop on battery; left wheel moving at reset; supply measured at 3.0 V in and 1.0 V out of the converter in one failing condition; batteries and a converter swapped | My report; [evidence note](../../artifacts/integration-2026-11-20/evidence.md) |
+| 20 Nov, afternoon and evening | Robot | Restart loop on battery; left wheel moving at reset; supply measured at 3.0 V in and 1.0 V out of the converter in one failing condition; batteries and a converter swapped | My report; local evidence: `artifacts/integration-2026-11-20/evidence.md` |
 | 20 Nov, about 21:57 | Robot | Battery changed and `ELRS-Handoff-Bench` uploaded again; robot drives from the RadioMaster on battery alone | My report; IDE build cache |
 | 20 Nov, night | All | Decision to prefer relaying PC commands through the ELRS transmitter; relay investigated on paper; movement check and log summary written; second edition of this document | [Section 7](#7-20-november-2026-wi-fi-integration-failures-and-the-decision-to-reuse-elrs) |
-| 21 Nov | All | Competition day | *not yet happened* |
+| 20–21 Nov, overnight | Vision | Command Centre made the single application: click-only arena calibration, remembered settings, policy audit, operating modes with the autonomous gate closed. Two real-camera marker surveys decode the markers as `DICT_4X4_50` | [Changelog](CHANGELOG.md); [ArUco audit](../aruco-tracking-audit.md) |
+| 21 Nov, 10:31–10:46 | Vision | Command Centre session on my camera, LIVE profile: arena calibrated at 10:35 and alignment confirmed; marker tracking intermittent, decoded markers rejected, no pose held | [Evidence note](../competition-2026-11-21-evidence.md) |
+| 21 Nov | Robot | BEEES antweight competition. Capri V1 driven manually over ELRS; autonomy not attempted; wedge effective; wedge damaged front-left by a spinner; occasional immobilisation | My account ([section 10](#10-competition-day-21-november-2026)); no match records |
+| 22 Nov | All | Project named Capri; repository tidied; third edition of this document | [Development changelog](../../CHANGELOG.md) |
 
 ## Appendix B. Experiment record
 
@@ -725,38 +870,38 @@ All simulation. "Normal starts" are the four ordinary evaluation spawns. Unless 
 
 | # | Date | Question | Setup | Result | Verdict | Data |
 |---|---|---|---|---|---|---|
-| 1 | 14 Nov | Does PPO learn anything with a fall penalty only? | Reward −1 for own pit fall | `reverse` at 1,000 of 1,000 decisions; 974 stationary against the wall | Learned to avoid the arena | [old_checkpoint_diagnostics.json](../../artifacts/old_checkpoint_diagnostics.json) |
-| 2 | 14 Nov | Does an outcome reward fix it? | +1 red falls, −1 blue falls | `reverse` at 4,000 of 4,000 decisions over four normal starts | No change | [comparison.json](../../runs/ppo-outcome-10k/comparison.json) |
-| 3 | 14–15 Nov | Does a near-pit curriculum bootstrap wins? | 8 h, 5,253,633 steps | 0 of 12 normal-start wins; about 35 tactic switches per second; 8 ordinary training wins of 3,685, all in the first million steps | Wins near pits only; jitter | [metrics.jsonl](../../runs/ppo-curriculum-overnight/metrics.jsonl), [gamma handoff](../../artifacts/gamma-comparison-handoff.md) |
-| 4 | 15 Nov | What does the jitter look like against a person? | Two recorded human rounds (1,000 + 913 steps) | 63.5% of decisions inside A-B-A-B runs, the longest 3.8 s | Self-sustaining oscillation | [previous-action-cycle-analysis.json](../../artifacts/previous-action-cycle-analysis.json) |
-| 5 | 15 Nov | Does holding each tactic for 100 ms help? | Same checkpoint, hold on / off | Switches fall from 35 to 8 per second; still a timeout | Treats the symptom | [jitter-tactic-hold-ab.json](../../artifacts/jitter-tactic-hold-ab.json) |
-| 6 | 15 Nov | Does a 7-tactic action space help? | 5 vs 7 tactics, seed 17, 100k steps | 0 of 4 normal wins for both; 7-tactic final switches 34 times per second | No | [action-space-comparison.json](../../artifacts/action-space-comparison.json) |
-| 7 | 15 Nov | Is previous-action feedback driving the jitter? | One-hot vs zeroed, 3 seeds, 100k steps | Zeroed: at most 0.05 switches per second, but single-tactic policies; 0 wins | Jitter explained, task not solved | [handoff](../../artifacts/previous-action-mask-handoff.md) |
-| 8 | 15 Nov | Is the discount horizon the blocker? | 0.99 vs 0.999, 2 seeds, 1M steps | 0 of 12 normal wins in every run; 12 wins in 2,302 ordinary training episodes | No | [handoff](../../artifacts/gamma-comparison-handoff.md) |
-| 9 | 15 Nov | What separates winnable from unwinnable pushes? | 252-case alignment sweep | Always-Advance 72 of 72 aligned, 0 of 180 misaligned; scripted controller 174 of 180 | Turning is the missing skill | [ordinary-start-diagnostic.json](../../artifacts/ordinary-start-diagnostic.json) |
-| 10 | 15 Nov | Can PPO learn to turn if every episode needs it? | Heading ladder, 9 runs | No gated rung cleared; 23, 0 and 7 wins of 324 held-out starts; 97 to 99.99% `advance` | No: exploration collapses | [handoff](../../artifacts/heading-ladder-handoff.md) |
-| 11 | 15 Nov | Is it an observation problem? | Same network, supervised copy of the controller | 317, 312, 315 of 324; linear model 0 | No: a learning problem | [controller-imitation.json](../../artifacts/controller-imitation.json) |
-| 12 | 15 Nov | Why one pit only? | Tactic preferences at mirrored states | PPO finals −0.44 to −1.00 (reversed); clones +0.93 to +0.97 | Mirror-image inputs flip the preference | [pit-symmetry-probe.json](../../artifacts/pit-symmetry-probe.json) |
-| 13 | 16 Nov | Does PPO keep a cloned skill? | Fine-tune from clone, 3 seeds, 348,160 steps, with and without critic warm-up | 96–98% of held-out starts at the start; 0%, 44%, 26% at the end | No checkpoint recommended | [handoff](../../artifacts/clone-finetune-handoff.md) |
-| 14 | 17 Nov | Can one clone do the drill and ordinary starts? | Three recipes, 3 seeds, chosen on validation | Balanced + DAgger: 320, 314, 322 of 324; 40, 44, 45 of 204; 0 own falls in 612 | Kept as reference | [handoff](../../artifacts/combined-clone-handoff.md) |
-| 15 | 17 Nov | Is the teacher good enough against harder reds to clone again? | Five red styles; rule fixed first | Teacher 39 of 256, clone 24 of 256; rule not met | No training run | [handoff](../../artifacts/overnight-2026-11-17-handoff.md) |
-| 16 | 17 Nov | Does live play run at real time? | Wall-clock pacing | A 20 s round takes 20.0 s at 16 to 82 rendered frames per second | Fixed | [notes](../../artifacts/realtime-play-changes.md) |
-| 17 | 18 Nov | Why did blue spin? | Replay, input check, 291-position probe | Inputs correct; teacher also fails; states outside the training data | Teacher is the cause | [diagnosis](../../artifacts/live-spin-diagnosis-2026-11-18.md) |
-| 18 | 18 Nov | Does a pursuit teacher fix it? | Gate, then two challengers | First fails from the saved pre-spin state; second passes all 13 checks | Recovery challenger recommended | [handoff](../../artifacts/reactive-recovery-handoff-2026-11-18.md) |
+| 1 | 14 Nov | Does PPO learn anything with a fall penalty only? | Reward −1 for own pit fall | `reverse` at 1,000 of 1,000 decisions; 974 stationary against the wall | Learned to avoid the arena | Local evidence: `artifacts/old_checkpoint_diagnostics.json` |
+| 2 | 14 Nov | Does an outcome reward fix it? | +1 red falls, −1 blue falls | `reverse` at 4,000 of 4,000 decisions over four normal starts | No change | Local evidence: `runs/ppo-outcome-10k/comparison.json` |
+| 3 | 14–15 Nov | Does a near-pit curriculum bootstrap wins? | 8 h, 5,253,633 steps | 0 of 12 normal-start wins; about 35 tactic switches per second; 8 ordinary training wins of 3,685, all in the first million steps | Wins near pits only; jitter | Local evidence: `runs/ppo-curriculum-overnight/metrics.jsonl`, `artifacts/gamma-comparison-handoff.md` |
+| 4 | 15 Nov | What does the jitter look like against a person? | Two recorded human rounds (1,000 + 913 steps) | 63.5% of decisions inside A-B-A-B runs, the longest 3.8 s | Self-sustaining oscillation | Local evidence: `artifacts/previous-action-cycle-analysis.json` |
+| 5 | 15 Nov | Does holding each tactic for 100 ms help? | Same checkpoint, hold on / off | Switches fall from 35 to 8 per second; still a timeout | Treats the symptom | Local evidence: `artifacts/jitter-tactic-hold-ab.json` |
+| 6 | 15 Nov | Does a 7-tactic action space help? | 5 vs 7 tactics, seed 17, 100k steps | 0 of 4 normal wins for both; 7-tactic final switches 34 times per second | No | Local evidence: `artifacts/action-space-comparison.json` |
+| 7 | 15 Nov | Is previous-action feedback driving the jitter? | One-hot vs zeroed, 3 seeds, 100k steps | Zeroed: at most 0.05 switches per second, but single-tactic policies; 0 wins | Jitter explained, task not solved | Local evidence: `artifacts/previous-action-mask-handoff.md` |
+| 8 | 15 Nov | Is the discount horizon the blocker? | 0.99 vs 0.999, 2 seeds, 1M steps | 0 of 12 normal wins in every run; 12 wins in 2,302 ordinary training episodes | No | Local evidence: `artifacts/gamma-comparison-handoff.md` |
+| 9 | 15 Nov | What separates winnable from unwinnable pushes? | 252-case alignment sweep | Always-Advance 72 of 72 aligned, 0 of 180 misaligned; scripted controller 174 of 180 | Turning is the missing skill | Local evidence: `artifacts/ordinary-start-diagnostic.json` |
+| 10 | 15 Nov | Can PPO learn to turn if every episode needs it? | Heading ladder, 9 runs | No gated rung cleared; 23, 0 and 7 wins of 324 held-out starts; 97 to 99.99% `advance` | No: exploration collapses | Local evidence: `artifacts/heading-ladder-handoff.md` |
+| 11 | 15 Nov | Is it an observation problem? | Same network, supervised copy of the controller | 317, 312, 315 of 324; linear model 0 | No: a learning problem | Local evidence: `artifacts/controller-imitation.json` |
+| 12 | 15 Nov | Why one pit only? | Tactic preferences at mirrored states | PPO finals −0.44 to −1.00 (reversed); clones +0.93 to +0.97 | Mirror-image inputs flip the preference | Local evidence: `artifacts/pit-symmetry-probe.json` |
+| 13 | 16 Nov | Does PPO keep a cloned skill? | Fine-tune from clone, 3 seeds, 348,160 steps, with and without critic warm-up | 96–98% of held-out starts at the start; 0%, 44%, 26% at the end | No checkpoint recommended | Local evidence: `artifacts/clone-finetune-handoff.md` |
+| 14 | 17 Nov | Can one clone do the drill and ordinary starts? | Three recipes, 3 seeds, chosen on validation | Balanced + DAgger: 320, 314, 322 of 324; 40, 44, 45 of 204; 0 own falls in 612 | Kept as reference | Local evidence: `artifacts/combined-clone-handoff.md` |
+| 15 | 17 Nov | Is the teacher good enough against harder reds to clone again? | Five red styles; rule fixed first | Teacher 39 of 256, clone 24 of 256; rule not met | No training run | Local evidence: `artifacts/overnight-2026-11-17-handoff.md` |
+| 16 | 17 Nov | Does live play run at real time? | Wall-clock pacing | A 20 s round takes 20.0 s at 16 to 82 rendered frames per second | Fixed | Local evidence: `artifacts/realtime-play-changes.md` |
+| 17 | 18 Nov | Why did blue spin? | Replay, input check, 291-position probe | Inputs correct; teacher also fails; states outside the training data | Teacher is the cause | Local evidence: `artifacts/live-spin-diagnosis-2026-11-18.md` |
+| 18 | 18 Nov | Does a pursuit teacher fix it? | Gate, then two challengers | First fails from the saved pre-spin state; second passes all 13 checks | Recovery challenger recommended | Local evidence: `artifacts/reactive-recovery-handoff-2026-11-18.md` |
 | 19 | 18 Nov | What happens live against the challenger? | Two sessions, 11 round segments | See section 6.7 | Observation only | `runs/reactive-recovery-2026-11-18/live/` |
 
 Vision and firmware checks:
 
 | Date | What | Result | Data |
 |---|---|---|---|
-| 18 Nov | Overlay on a synthetic fixture | Held-out mapping error under 0.05 mm with exact clicks; marker height correction 21–41 mm → under 0.3 mm | [handoff](../../artifacts/vision-overlay-handoff.md) |
-| 18 Nov | Calibration on the March footage | 23 mm at the held-out landmark; leave-one-out 23–80 mm; graded WEAK; camera steady to about 3 px over 45 minutes | [report.json](../../artifacts/vision-footage/historical_bristol_2026_03_22/report.json) |
-| 18 Nov | Blob tracker on a 24 s clip | Two moving robots and one parked; no position for 482 of 719 frames while two overlapped; one false track for 0.5 s | [clip report](../../artifacts/vision-footage/historical_bristol_2026_03_22/clip_433s_report.json) |
-| 17–18 Nov | Merged firmware, host tests | 104–108 checks per variant, 0 failed; five deliberately broken copies fail as they should | [firmware review](../../artifacts/firmware-handoff-review-2026-11-18.md) |
-| 18 Nov | Test suite | 172 tests reported passing at the last vision handoff (not re-run for this document) | [footage handoff](../../artifacts/vision-footage-handoff.md) |
+| 18 Nov | Overlay on a synthetic fixture | Held-out mapping error under 0.05 mm with exact clicks; marker height correction 21–41 mm → under 0.3 mm | Local evidence: `artifacts/vision-overlay-handoff.md` |
+| 18 Nov | Calibration on the March footage | 23 mm at the held-out landmark; leave-one-out 23–80 mm; graded WEAK; camera steady to about 3 px over 45 minutes | Local evidence: `artifacts/vision-footage/historical_bristol_2026_03_22/report.json` |
+| 18 Nov | Blob tracker on a 24 s clip | Two moving robots and one parked; no position for 482 of 719 frames while two overlapped; one false track for 0.5 s | Local evidence: `artifacts/vision-footage/historical_bristol_2026_03_22/clip_433s_report.json` |
+| 17–18 Nov | Merged firmware, host tests | 104–108 checks per variant, 0 failed; five deliberately broken copies fail as they should | Local evidence: `artifacts/firmware-handoff-review-2026-11-18.md` |
+| 18 Nov | Test suite | 172 tests reported passing at the last vision handoff (not re-run for this document) | Local evidence: `artifacts/vision-footage-handoff.md` |
 | 19–20 Nov | Handoff sketches on a mocked board | 133 tests pass (60 for the USB sketch, 73 for the Wi-Fi sketch), re-run the night of 20 Nov; deliberately broken copies of each sketch fail as they should | `tests/test_handoff_bench.py`, `tests/test_handoff_wifi.py` |
-| 20 Nov | Wi-Fi handoff on the robot | Drove untethered; 12 stale-command latches, 56 status dropouts and 3 restarts in two hours of logging; then a restart loop | [log summary](../../artifacts/integration-2026-11-20/wifi-session-log-summary.txt) |
-| 20 Nov | Supply voltage in a failing condition | 5.4 V battery unloaded; 3.0 V converter input; 1.0 V converter output; 4.8 V on both converter terminals from USB alone | [evidence note](../../artifacts/integration-2026-11-20/evidence.md) (reported, conditions not recorded) |
+| 20 Nov | Wi-Fi handoff on the robot | Drove untethered; 12 stale-command latches, 56 status dropouts and 3 restarts in two hours of logging; then a restart loop | Local evidence: `artifacts/integration-2026-11-20/wifi-session-log-summary.txt` |
+| 20 Nov | Supply voltage in a failing condition | 5.4 V battery unloaded; 3.0 V converter input; 1.0 V converter output; 4.8 V on both converter terminals from USB alone | Local evidence: `artifacts/integration-2026-11-20/evidence.md` (reported, conditions not recorded) |
 | 20 Nov | Movement check, software only | Simulator reference: advance +0.127 m, turn left +38.5°, turn right −37.0°, reverse −0.076 m at 40 % command; 53 tests pass, including five interlock checks against the real sketch on a mocked board | `scripts/motion_check.py`, `tests/test_motion_check.py` |
 
 ## Appendix C. Evidence index
@@ -789,6 +934,11 @@ Where each significant claim comes from. Paths are relative to the repository ro
 | What the transmitter can accept from a PC | `docs/elrs-relay-feasibility.md` | Read from EdgeTX and ExpressLRS source and documentation; nothing tried on the transmitter |
 | Movement check figures | `scripts/motion_check.py sim`, `tests/test_motion_check.py` | Run for this edition (simulator and mocked board only) |
 | Multi-marker tracker and clicked-opponent figures | `tests/test_chassis_tracker.py`, `tests/test_opponent_select.py` | Run for this edition (rendered frames only) |
+| Competition outcome: manual control, autonomy not attempted, wedge performance, spinner damage, immobilisation, detection at 20 to 30 cm but not on the arena floor | My written account of 21 November | Recorded as reported. No log, photo, video or match record exists in the repository |
+| Arena calibration on 21 November: time, corner clicks, design source, WEAK grade, operator confirmation | `logs/control_center_20261121_103055.log`, `config/arena_overlay_arena.json`, `config/arena_overlay_clicks.json`, `config/profile_settings/live.json` (all git-ignored) | Read for the third edition; quoted in [`docs/competition-2026-11-21-evidence.md`](../competition-2026-11-21-evidence.md) |
+| Marker rejections, centre disagreement, reacquisition gaps, the 1.4 s round with no observation | The same log; `logs/sessions/20261121-103058-live/` | Read and counted for the third edition; the log is quoted in full in the evidence note |
+| Pixels per millimetre and the marker pixel estimate (10.4) | The four saved corner clicks | Computed for the third edition. An estimate with stated omissions, not a measurement |
+| What the candidate checkpoint is (behaviour clone in a PPO container) | `docs/policy-observation-schema.md` | Read; written during the 21 November audit |
 
 ## Appendix D. Demo commands
 
@@ -828,7 +978,7 @@ python scripts\handoff_log_summary.py logs\handoff-wifi.txt
 
 Commands that involve the robot are in the [test playbook](../autobots-test-playbook.md), not here.
 
-The full run sheet, including the firmware fallback and bench sequence, is in [`artifacts/run-sheet-2026-11-19.md`](../../artifacts/run-sheet-2026-11-19.md).
+The full run sheet, including the firmware fallback and bench sequence, is local evidence at `artifacts/run-sheet-2026-11-19.md`.
 
 ## Appendix E. Not yet documented
 
@@ -849,6 +999,12 @@ Things this edition leaves out because the evidence is not in the repository.
 | Photos of my camera setup and the markers as fitted, with each marker's ID, size and position measured | The marker layout in section 4 is my description, not a record | Section 4 |
 | A screen recording of a live simulator round | The filmstrip is drawn from replayed state | Section 6 |
 | My own notes on the 18 November live sessions | The logs cannot say what I was attempting | Section 6.7 |
+| Match records from 21 November: opponents, results, how each ended | Section 10 has no results at all | Section 10.8 |
+| Photos or video from the competition: the robot, the camera position, the wedge under an opponent, the spinner damage | The wedge findings are the most important mechanical result and rest on my account alone | Sections 10.6, 10.7 |
+| Marker pixel size, printed marker size, exposure, focus and per-frame detector output at arena distance | The detection failure has a likely cause and no measurement | Section 10.4 |
+| The distance and angle of the camera from the arena on the day | Needed to reproduce the detection failure | Section 10.4 |
+| What trapped the robot, and how often | The immobilisation has no cause | Section 10.7 |
+| Which firmware was on the robot during the competition, and battery voltages through the day | The link between the 20 November fault and the day is unknown | Section 10.7 |
 
 ## Appendix F. Rebuilding the figures
 
@@ -878,4 +1034,6 @@ python docs/case-study/tools/make_figures.py
 | `spin-diagnosis-round2.png`, `spin-red-position-probe.png`, `fixed-input-paths-and-gap.png` | Copied unchanged from `runs/` |
 | `timeline.png` | Dates in Appendix A |
 
-To add the competition-day edition: fill in section 10, add photos to `figures/`, update the status line and the tables in sections 7.8, 8 and Appendix E, and add an entry to the [changelog](CHANGELOG.md). Sections 1 to 7 should not need rewriting. (The second edition inserted section 7 and moved the old sections 7 to 10 down by one.)
+The third edition (22 November) filled in section 10, updated the status line and the tables in sections 7.8, 8 and Appendix E, and added an entry to the [changelog](CHANGELOG.md). It added no figures: there are no photographs from the competition, and the figures above were not redrawn, so the system diagram (Figure 3) and the timeline (Figure 14) still show the state on 18 November, and the system diagram's title still carries the old project name. Sections 1 to 7 were not rewritten. (The second edition inserted section 7 and moved the old sections 7 to 10 down by one.)
+
+For a later edition: add photographs to `figures/` if any exist, and record the answers to the open questions in section 10 as they are measured.

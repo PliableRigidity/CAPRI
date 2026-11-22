@@ -1,4 +1,4 @@
-"""The AutoBots Command Centre window: one application for the whole competition-day workflow.
+"""The Capri Command Centre window: one application for the whole competition-day workflow.
 
     GUIDED SETUP    the checklist: camera, arena, tracking, hardware and safety, live monitoring
     OPERATE         camera or map, control source, robot link, recording
@@ -52,7 +52,7 @@ class DashboardWindow(QMainWindow):
                  review_folder: Path | None = None) -> None:
         super().__init__()
         self.hub = OperationsHub(config, options, self)
-        self.setWindowTitle("AutoBots Command Centre" + ("  —  MOCK (not hardware)" if options.mock else ""))
+        self.setWindowTitle("Capri Command Centre" + ("  —  MOCK (not hardware)" if options.mock else ""))
         self.resize(1600, 950)
         self.setMinimumSize(1180, 720)
 
@@ -62,7 +62,7 @@ class DashboardWindow(QMainWindow):
         root.setSpacing(4)
         banner = QHBoxLayout()
         banner.setContentsMargins(12, 0, 12, 0)
-        title = QLabel("AUTOBOTS COMMAND CENTRE")
+        title = QLabel("CAPRI COMMAND CENTRE")
         title.setObjectName("appTitle")
         banner.addWidget(title)
         banner.addSpacing(16)

@@ -1,21 +1,38 @@
-# Generated simulator/training artifacts
-runs/
-MUJOCO_LOG.TXT
+# Python
 __pycache__/
 *.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+.venv/
+venv/
+
+# Editors and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Simulator and training output (large, regenerable)
+runs/
+*.pt
+MUJOCO_LOG.TXT
+
+# Generated analysis output, local captures and handoff notes.
+# The case study links into this folder; those links only work on the development machine.
+artifacts/
+
+# Logs (logs/.gitkeep keeps the folder)
 logs/*.log
 logs/*.txt
-.pytest_cache/
-config/arena_calibration.npz
-config/arena_background.png
-config/arena_background.json
-runs/trajectory_predictor/
-*.pt
-# Recorded rounds (video + telemetry) from the Command Centre
+logs/sessions/
+
+# Recorded rounds (video and telemetry) from the Command Centre
 rounds/
 
-# Command Centre per-machine state (remembered calibration context, reference picture, session logs, Wi-Fi acceptance record)
-logs/sessions/
+# Command Centre per-machine state: remembered calibration, reference picture, Wi-Fi acceptance record
 config/profile_settings/
 config/wifi_acceptance.json
 config/command_centre_state.json
@@ -23,7 +40,9 @@ config/home_test_overlay.yaml
 config/overlay_profiles/home_test/
 config/arena_overlay_arena.json
 config/arena_overlay_clicks.json
+config/arena_calibration.npz
+config/arena_background.png
+config/arena_background.json
 
-# Generated analysis output, local captures, and timestamped editor backups
-artifacts/
+# Timestamped backups written by the Command Centre and by editors
 *.bak-*

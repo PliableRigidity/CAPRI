@@ -1237,7 +1237,7 @@ def main(argv: list[str] | None = None) -> int:
     except Exception:  # the look is optional for stand-alone review
         log.warning("dashboard stylesheet not available; using the default look")
     screen = ReviewScreen()
-    screen.setWindowTitle("AutoBots Command Centre · Round review (recorded data)")
+    screen.setWindowTitle("Capri Command Centre · Round review (recorded data)")
     screen.resize(1500, 900)
     if arguments:
         ok, message = screen.open_round(arguments[0])

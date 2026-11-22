@@ -25,7 +25,7 @@ def load_config(path: Path) -> dict:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="AutoBots Command Centre")
+    parser = argparse.ArgumentParser(description="Capri Command Centre")
     parser.add_argument("--config", type=Path, default=ROOT / "config" / "control_center.yaml")
     parser.add_argument("--camera-index", type=int, help="Override the configured OpenCV camera index")
     parser.add_argument("--mock", action="store_true",
@@ -94,7 +94,7 @@ def run(argv: list[str] | None = None) -> int:
         config["camera_index"] = args.camera_index
     apply_saved_camera_settings(args, config)
     app = QApplication(sys.argv[:1])
-    app.setApplicationName("AutoBots Command Centre")
+    app.setApplicationName("Capri Command Centre")
     app.setStyle("Fusion")
     app.setStyleSheet(STYLESHEET)
     if args.legacy:

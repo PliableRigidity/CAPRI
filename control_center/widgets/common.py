@@ -11,10 +11,7 @@ STATUS_COLORS = {
     "DISCONNECTED": "#ef6b73", "UNAVAILABLE": "#7f8996", "FAILSAFE": "#ef6b73",
     "ERROR": "#ef6b73", "LOST": "#ef6b73", "INVALID": "#ef6b73",
     "CONNECTING": "#e8b85b", "OPENING": "#e8b85b", "WIP": "#6fa8dc",
-    "LOCAL ONLY": "#6fa8dc", "NO DATA": "#7f8996",
-    "TRACKED": "#55c889", "PREDICTED": "#e8b85b", "LOST": "#7f8996",
-    "VALID": "#55c889", "INVALID": "#ef6b73",
-    "LOADED": "#55c889", "NOT LOADED": "#7f8996",
+    "LOCAL ONLY": "#6fa8dc", "NO DATA": "#7f8996", "NOT LOADED": "#7f8996",
     "DETECTED": "#55c889", "CALIBRATED": "#55c889",
 }
 

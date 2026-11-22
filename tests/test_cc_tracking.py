@@ -1071,7 +1071,7 @@ def test_the_own_robot_panel_ages_into_stale_and_lost_when_no_new_result_arrives
     screen.update_warnings(now=result.done_at + 1.0)
     assert "OWN ROBOT STALE" in screen.banner.text()
     screen._paint_live(result.done_at + 2.5)
-    assert rows()["State"] == "LOST" and rows()["Position x, y"] == "-" and not any(m.label.startswith("AutoBot") for m in screen.map.markers)
+    assert rows()["State"] == "LOST" and rows()["Position x, y"] == "-" and not any(m.label.startswith("Capri") for m in screen.map.markers)
     assert screen.readiness_for(result, own=screen._own_display).level == WARNING and "LOST" in screen.readiness_for(result, own=screen._own_display).headline.upper()
 
     # a new result brings it straight back

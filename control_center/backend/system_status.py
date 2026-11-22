@@ -129,7 +129,7 @@ def round_summary(components: list[Component]) -> Readiness:
 
 def report_text(components: list[Component], profile: str, safe_state: str = "") -> str:
     """Plain text of the whole table, for 'Copy report' and the session log."""
-    lines = [f"AutoBots system readiness (profile {profile})"]
+    lines = [f"Capri system readiness (profile {profile})"]
     if safe_state:
         lines.append(safe_state)
     lines.append("PASS here means a SOFTWARE check passed unless the row says HARDWARE; software is never hardware verification.")

@@ -533,7 +533,7 @@ def age_own_report(own: Mapping[str, Any] | None, elapsed_s: float, predict_hold
 
 
 def own_rows(own: Mapping[str, Any] | None) -> list[tuple[str, str, str]]:
-    """[(name, value, level)] for the AutoBot panel: state and age first, then pose, orientation and the markers behind it."""
+    """[(name, value, level)] for the own-robot (Capri) panel: state and age first, then pose, orientation and the markers behind it."""
     if own is None:
         return [("State", "NO TRACKER REPORT", "off")]
     state = own["state"]

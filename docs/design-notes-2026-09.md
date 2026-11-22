@@ -2,6 +2,14 @@
 
 2026-09-19 · @Someone
 
+> **Status (added 22 November 2026).** This is the original planning handbook for the robot now called **Capri**,
+> written in September 2026 at the start of the project. It is kept as a design record and has not been updated since.
+> Where it differs from the robot as built, it is superseded: Capri V1 has no ESP-NOW base station, its markers are
+> ArUco 4x4 and not AprilTags, its IMU is on I2C and not SPI, and the autonomy it plans was not achieved. For the
+> current state see the [README](../README.md), the [hardware reference](../hardware/README.md) and the
+> [case study](case-study/README.md). This file was `Notes.md` in the repository root until 22 November 2026, and the
+> procurement list it calls `list.md` is [`hardware/list.md`](../hardware/list.md).
+
 ## 0. How to read this handbook
 
 This is a working reference, not a finished specification. Nothing here is presented as settled unless it genuinely is.

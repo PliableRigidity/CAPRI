@@ -10,7 +10,7 @@ local function run(event)
     end
 
     lcd.clear()
-    lcd.drawText(2, 2, "AutoBots USB Test", 0)
+    lcd.drawText(2, 2, "Capri USB Test", 0)
     lcd.drawText(2, 20, string.sub(lastMessage, 1, 20), 0)
 
     return 0

@@ -51,7 +51,7 @@ class MainWindow(QMainWindow):
         self._connect_signals()
         self.resize(1600, 950)
         self.setMinimumSize(1200, 720)
-        self.setWindowTitle("AutoBot Control Center")
+        self.setWindowTitle("Capri Control Center")
         self.event_log.add_event("Control Center started")
         if demo:
             self.event_log.add_event("DEMO MODE enabled — displayed telemetry is simulated")
@@ -73,7 +73,7 @@ class MainWindow(QMainWindow):
         root.setContentsMargins(10, 8, 10, 10)
         root.setSpacing(8)
         banner = QHBoxLayout()
-        title = QLabel("AUTOBOT CONTROL CENTER")
+        title = QLabel("CAPRI CONTROL CENTER")
         title.setObjectName("appTitle")
         banner.addWidget(title)
         banner.addStretch()

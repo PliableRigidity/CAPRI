@@ -35,7 +35,7 @@ from control_center.tools.stream_adapter import CameraPipeline, CameraSample, fi
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OUT = REPO_ROOT / "artifacts" / "live-track"
-WINDOW = "AutoBots LIVE TRACK (read-only, nothing is sent)"
+WINDOW = "Capri LIVE TRACK (read-only, nothing is sent)"
 PANEL_WIDTH = 620
 
 _OWN_LEVEL = {"measured": "ok", "predicted": "note", "stale": "bad", "lost": "bad"}

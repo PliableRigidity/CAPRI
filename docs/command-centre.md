@@ -1,4 +1,4 @@
-# AutoBots Command Centre
+# Capri Command Centre
 
 One application for the whole competition-day workflow: camera, arena calibration, robot tracking,
 hardware and safety checks, live monitoring. You do not need to run any other Python command.
@@ -163,7 +163,7 @@ is no size limit and nothing to configure; the old 280 mm limit and the YAML thr
 - **Select Opponent / Draw Box** arms a crosshair; **drag a rectangle** around the object and release. Dragging
   works at any time. A plain click only reminds you to drag (a click cannot say how big the object is).
 - **Reselect Opponent**: drag a new box. The current track stays until the new box is accepted. **Clear Opponent**
-  drops the selection. None of this restarts the camera, the calibration or the AutoBot's marker tracking.
+  drops the selection. None of this restarts the camera, the calibration or Capri's marker tracking.
 - A box is refused only when it is empty (under 4 pixels a side), not a number, entirely outside the picture, or
   centred on our own tagged robot. A box partly outside the picture is cut to the picture.
 - **Tracking status** and **Tracking confidence** are shown under the picture, beside the box and the centre cross.
@@ -231,3 +231,36 @@ At 720p the default MJPG video is about 3 MB per second.
   gated as described above.
 - Nothing in this document is a hardware result. See the [test playbook](autobots-test-playbook.md) for what has
   and has not been run on the real camera and robot.
+
+## Appendix: the first dashboard (`--legacy`)
+
+The September 2026 dashboard is still available, unchanged, with `python main_control_center.py --legacy`. These notes
+were in the repository README until 22 November 2026. They describe that first window, not the Command Centre above.
+
+It is a local PySide6 application that shows the Logitech C525 feed, runs marker detection off the UI thread, exposes
+operator request controls and shows honest placeholders for hardware that is not connected. It is not a command
+authority for the robot. `--demo` (legacy window only) shows clearly labelled simulated telemetry; normal mode never
+invents telemetry. ESP-NOW, state fusion and command acknowledgement were the September plan and were never built.
+TDOA code is retained only as optional legacy code and is not part of the active UI or runtime state. Logs are written
+to `logs/`.
+
+**Camera start-up.** If the C525 is not camera index 0, edit `config/control_center.yaml` or pass `--camera-index 1`.
+The C525 is configured to use DirectShow because measured first-frame start-up is under one second, against roughly
+7 to 9 seconds for MSMF on the development machine. Only the configured backend is tried initially; the default
+backend is a single fallback if that attempt genuinely fails. After publishing the first default frame, the camera
+performs one controlled same-backend reopen for the configured mode. For this C525, DirectShow requires width, height
+and FPS to be requested before MJPG; placing MJPG first silently falls back to 720p YUY2 at roughly 10 FPS. If
+validation fails, the application restores the same-backend default mode instead of losing the feed.
+
+**Arena vision workflow in the legacy window.**
+
+1. Press **RECALIBRATE ARENA** and click the four arena corners in the order shown in the event log: near-left,
+   near-right, far-right, far-left. The transform is validated and persisted.
+2. With an empty arena, press **CAPTURE BACKGROUND**. Capture runs on the vision thread and the panel shows progress.
+3. Place the marked robot and the opponent in the arena. Press **AUTO ACQUIRE OPPONENT**, or press **SELECT OPPONENT**
+   and drag a rectangle around it.
+4. Use **DEBUG VIEW** to cycle through raw, rectified, foreground, candidate and self-exclusion views. Press
+   **CLEAR TRACK** to discard the current opponent track.
+
+Pit and flipper coordinates remain `null` or empty in `config/control_center.yaml` until physically measured. The
+automatic landmark detector reports candidates only and never replaces a valid manual homography.

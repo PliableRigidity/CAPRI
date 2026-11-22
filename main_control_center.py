@@ -1,4 +1,4 @@
-"""Run the AutoBot desktop control center."""
+"""Run the Capri Command Centre (desktop application)."""
 
 from control_center.app import run
 

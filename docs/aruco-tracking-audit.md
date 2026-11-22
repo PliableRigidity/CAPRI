@@ -15,7 +15,7 @@ The Command Centre live path was **already** DICT_4X4_50. The mismatch was in th
 | `config/home_test_overlay.yaml` `bot.dictionary` | `DICT_4X4_50`, comment claimed 36h11 | same value, comment fixed, a test fails if the two files ever differ |
 | `config/control_center.yaml` `april_tag_family`, `april_tag.family` | `DICT_APRILTAG_36h11` | **removed**; `camera_worker` (legacy window) asks `legacy_dictionary()`: the overlay key wins, a stale legacy key only logs a warning |
 | `backend/vision.py` `AprilTagTracker` | any unknown family **silently became 36h11** | any `DICT_*` name works, an unknown name raises |
-| `april_test.py` (standalone script) | hard-coded 36h11 | project dictionary (not run: it opens a camera) |
+| `april_test.py` (standalone script; since 22 November `scripts/aruco_camera_check.py`) | hard-coded 36h11 | project dictionary (not run: it opens a camera) |
 | detectors built in `overlay_core.MarkerDetector`, `marker_survey`, `AprilTagTracker` | three separate `ArucoDetector(...)` constructions | all via `marker_settings.build_detector()`; a test scans the source so no other place can build one |
 | `profile_settings` `markers.aruco_dictionary` | a saved slot nothing reads | unchanged; a test fails if any code starts reading it |
 

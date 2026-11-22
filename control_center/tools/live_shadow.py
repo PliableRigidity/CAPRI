@@ -46,7 +46,7 @@ from control_center.tools.stream_adapter import CameraPipeline, CameraSample, Ch
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OUT = REPO_ROOT / "artifacts" / "live-shadow"
 LIVE_LABEL = "LIVE SHADOW"
-WINDOW = "AutoBots LIVE SHADOW (read-only, nothing is sent)"
+WINDOW = "Capri LIVE SHADOW (read-only, nothing is sent)"
 PLAUSIBLE_SPEED_M_S = 2.0
 
 

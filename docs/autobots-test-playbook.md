@@ -1,4 +1,12 @@
-# AutoBots test playbook
+# Capri test playbook
+
+> **Read this first (added 22 November 2026).** This playbook was written for Capri V1 on 20 and 21 November 2026,
+> before the competition, when the project was still called AutoBots. It is kept as written: the procedures are
+> still the right ones to run, and the status statements in it ("not yet run", "the night of 20 November") describe
+> that date. The [COMPETITION DAY](#competition-day) section is the procedure as planned; what actually happened on
+> 21 November is [section 10 of the case study](case-study/README.md#10-competition-day-21-november-2026).
+> The Wi-Fi network name `AutoBot-Handoff`, the firmware identifiers `autobot-handoff-*` and the environment
+> variables `AUTOBOT_SKIP_SLOW` and `AUTOBOTS_FOOTAGE_MP4` are real identifiers and keep the old name.
 
 A development and bench-testing guide. **Start with [What to test next](#next)**: it is the main test table, in
 dependency order. After changing something, find it in [the index](#index) and rerun the tests it points to.
@@ -56,7 +64,7 @@ override that, and the application always starts in MANUAL, **not transmitting**
    - Row says *Recalibrate*, or the outline is off → **Recalibrate camera** (four corners) or **New set-up**: four corners,
      centre of pit 1, centre of pit 2, one click on the flipper. Sizes come from the design drawing; you type nothing.
      Read *Calibration accuracy* and Save. If the real arena measures differently from the drawing, use *Advanced* once.
-4. **Own robot.** Put the AutoBot in view. TRACKING tab: marker IDs seen, position, heading, state MEASURED / PREDICTED / STALE /
+4. **Own robot.** Put Capri in view. TRACKING tab: marker IDs seen, position, heading, state MEASURED / PREDICTED / STALE /
    LOST with its age. A stale or lost pose is never shown as current. Marker sizes and offsets still to be measured:
    [aruco-tracking-audit.md](aruco-tracking-audit.md) (checklist at the end).
 5. **Opponent, every round.** TRACKING tab: **Select Opponent**, drag a box around it. Tracked / uncertain / lost is shown; the
@@ -131,7 +139,9 @@ camera yet; the software column says what was checked without one.
 6. The preferred way to get PC commands to the robot is now through the existing ELRS link
    ([relay](#rly)), if the transmitter can accept them. Wi-Fi stays in the repository as route D.
 
-Evidence and what it does and does not show: [artifacts\integration-2026-11-20\evidence.md](../artifacts/integration-2026-11-20/evidence.md).
+Evidence and what it does and does not show is summarised in the tracked
+[case study](case-study/README.md#7-20-november-2026-wi-fi-integration-failures-and-the-decision-to-reuse-elrs).
+The underlying local record is `artifacts/integration-2026-11-20/evidence.md` and is intentionally git-ignored.
 The narrative is section 7 of the [case study](case-study/README.md).
 
 ### Command routes, in the order to pursue them
@@ -182,8 +192,8 @@ No robot link, no firmware. Close every other program that uses the camera. All 
 
 | Test ID | Prerequisite | Command or physical action | Pass condition | If it fails | State |
 | --- | --- | --- | --- | --- | --- |
-| [CAM-2](#cam-2) | C525 mounted where you will use it | `python april_test.py`, hold a tag at the near edge, centre and far corner | whole area in view with margin; tag sharp and decoding at all positions | lower or move the camera; fix focus in the Logitech / Windows camera settings | NOT RUN |
-| [CAM-1](#cam-1) | CAM-2 running | show the attached tags **one at a time**, then all together, then all covered | each ID correct and steady for 10 s; `Tags:` equals the number visible; none when covered | wrong dictionary first (line 16 of `april_test.py`), then glare or a missing white border | NOT RUN |
+| [CAM-2](#cam-2) | C525 mounted where you will use it | `python scriptsruco_camera_check.py`, hold a tag at the near edge, centre and far corner | whole area in view with margin; tag sharp and decoding at all positions | lower or move the camera; fix focus in the Logitech / Windows camera settings | NOT RUN |
+| [CAM-1](#cam-1) | CAM-2 running | show the attached tags **one at a time**, then all together, then all covered | each ID correct and steady for 10 s; `Tags:` equals the number visible; none when covered | wrong dictionary first (printed when `scriptsruco_camera_check.py` starts), then glare or a missing white border | NOT RUN |
 | [TAG-0](#cam-3) | CAM-1 passed | measure each tag: black-square side, height above the floor, offset and rotation from the bot centre; enter them in `bot:` of `config\home_test_overlay.yaml` and set `bot.measured: true` | the config holds your numbers, not the placeholders | without this, CAM-3 reports a size conflict or a wrong centre | NOT RUN |
 | [CAL-1](#cal-1) | camera fixed; A4 sheet on the test area | `python -m control_center.tools.arena_overlay --camera 1 --config config\home_test_overlay.yaml --profile home_test --calibrate` | `saved 5 point(s)`; `FIT:` is not INSUFFICIENT; outline sits on the sheet | `mapping is mirrored` → click order; redo after any camera move | NOT RUN |
 | [CAL-2](#cal-2) | CAL-1 saved; a taped cross measured from the sheet corner | `… --profile home_test --truth X,Y` | held-out check and `truth error` both ≤ 10 mm | error toward or away from the camera → tag height; otherwise redo CAL-1 | NOT RUN |
@@ -353,12 +363,12 @@ python -m pip install -r requirements.txt
 | Value | Used in this guide | Where it is set |
 | --- | --- | --- |
 | Robot serial port | `COM5` (example) | find yours with `python scripts\handoff_bench_client.py --list` |
-| C525 camera index | `1` | `config\control_center.yaml` → `camera_index`; `--camera N` / `--camera-index N` on the tools; hard-coded on line 26 of `april_test.py` |
+| C525 camera index | `1` | `config\control_center.yaml` → `camera_index`; `--camera N` / `--camera-index N` on the tools; `CAMERA_INDEX` at the top of `scriptsruco_camera_check.py` |
 | Camera resolution | 1280×720, MJPG, dshow | `config\control_center.yaml` (`camera_width`, `camera_height`, `camera_fps`, `camera_backend`); `--width --height --fps --backend` on the overlay tools |
 | Wi-Fi network / robot address | `AutoBot-Handoff`, `192.168.4.1`, UDP `4210` | `WIFI_AP_SSID`, `WIFI_AP_PASSWORD`, `WIFI_AP_CHANNEL`, `WIFI_UDP_PORT` near the top of `ELRS-Handoff-WiFi\ELRS-Handoff-WiFi.ino` |
 | ARM / MODE switches | CH5 / CH6, HIGH = armed, HIGH = PC (defaults, see HO-USB-0) | `ARM_CHANNEL`, `MODE_CHANNEL`, `ARM_WHEN_HIGH`, `PC_WHEN_HIGH` in both handoff sketches |
 | PC drive strength | 80 forward/back, 70 turn (of 255); firmware clamps to 128 | `--speed`, `--turn` on the client; `PC_COMMAND_LIMIT` in the sketch |
-| Tag dictionary | `DICT_4X4_50` everywhere (arena and home configs; the real camera decoded the printed markers as this). One key, `bot.dictionary`; see `docs/aruco-tracking-audit.md` | `bot.dictionary` in the overlay config you pass (`april_test.py` and the legacy window read it from `config/arena_overlay.yaml`); `--dictionary` on the shadow demo only overrides it for one run |
+| Tag dictionary | `DICT_4X4_50` everywhere (arena and home configs; the real camera decoded the printed markers as this). One key, `bot.dictionary`; see `docs/aruco-tracking-audit.md` | `bot.dictionary` in the overlay config you pass (`scriptsruco_camera_check.py` and the legacy window read it from `config/arena_overlay.yaml`); `--dictionary` on the shadow demo only overrides it for one run |
 | Tag black-square size | 40 mm placeholder | `bot.marker_size_m` (metres) in the overlay config; `--tag-size-mm` on the shadow demo |
 | Tag layout on the bot | placeholders | `bot.markers` and `bot.marker_height_m` in the overlay config |
 | Home test area | 0.50 × 0.40 m patch with one A4 sheet | `config\home_test_overlay.yaml`, profile `home_test` |
@@ -1219,7 +1229,7 @@ None of these tools opens the robot link. None has been run on the real camera y
 ### CAM-1 · Uncalibrated detection
 
 ```powershell
-python april_test.py
+python scriptsruco_camera_check.py
 ```
 
 - Camera index is hard-coded on line 26 (`cv2.VideoCapture(1, cv2.CAP_DSHOW)`). The dictionary is no longer hard-coded: it is the
@@ -1241,7 +1251,7 @@ white border round the tag. Wrong IDs → a different family is being matched.
 <a id="cam-2"></a>
 ### CAM-2 · Focus and field of view at working distance
 
-Mount the C525 where you intend to use it. Keep `april_test.py` running.
+Mount the C525 where you intend to use it. Keep `scriptsruco_camera_check.py` running.
 
 | Position of the tag | Distance from the lens (measure it) | Decodes steadily? | Sharp? |
 | --- | --- | --- | --- |
@@ -1993,7 +2003,7 @@ time, and write down which one fixed it. Rows 6–7 only limit what you use.
 
 **Commands that opened nothing real when checked (parsed with `--help` or read in code, never run on hardware):**
 
-- Every `--camera 1` command, `april_test.py`, and `main_control_center.py` against the real camera. That
+- Every `--camera 1` command, `scriptsruco_camera_check.py`, and `main_control_center.py` against the real camera. That
   includes `marker_survey`, `live_track` and the `--multi-marker` / `--click-opponent` options: synthetic
   frames only.
 - Every `--port COM5` command against the real robot, including all of `motion_check.py checks` and `run`.

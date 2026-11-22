@@ -113,7 +113,7 @@ D,<tok>,<throttle>,<steer>\n
   endings, wrong tokens and lines over 39 characters are ignored and do not keep the link alive.
 
 There was no serial protocol in the repo to reuse (`control_center/backend/robot_link.py` is a stub, and
-Notes.md §10.4 is a design for the ESP-NOW link). The line format and token idea come from the earlier
+docs/design-notes-2026-09.md §10.4 is a design for the ESP-NOW link). The line format and token idea come from the earlier
 prototype in `Documents\Arduino\ELRS_Control` (`drive_handoff.h`, `pc_drive.py`), reworked without the IMU.
 
 ## Stop path: what the core source says
@@ -262,7 +262,7 @@ Multimeter on the driver inputs: AIN1 (GPIO3), AIN2 (GPIO2), BIN1 (GPIO4), BIN2 
 ### B. Motors connected, wheels off the ground
 
 Only after A is clean. Reconnect the motors with the board unpowered. Power cut-off in reach. The PC steps
-need USB and the motor battery together: Notes.md §7 warns against that if the ESP32 is fed 3.3 V
+need USB and the motor battery together: docs/design-notes-2026-09.md §7 warns against that if the ESP32 is fed 3.3 V
 directly without a diode, so check how your board is powered first.
 
 | # | Do | Expect |

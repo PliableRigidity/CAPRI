@@ -346,7 +346,7 @@ def preview(args):
         args.resolved_input_log=str(input_log); print(f"Input log for this session: {input_log}")
     pygame.init()
     screen=pygame.display.set_mode((args.width,args.height),pygame.RESIZABLE)
-    pygame.display.set_caption("AutoBot MuJoCo top-down preview")
+    pygame.display.set_caption("Capri MuJoCo top-down preview")
     clock=pygame.time.Clock(); font=pygame.font.SysFont(None,21)
     drive=(0,0); paused=True; just_reset=True; round_end=None; reset_held=False; current_tactic="stop"
     # Simulated time follows wall time: the fixed control step is unchanged, the number of steps per frame varies.

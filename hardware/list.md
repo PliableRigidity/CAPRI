@@ -1,4 +1,10 @@
-# Procurement Checklist — Autonomous Antweight Combat Robot
+# Procurement checklist (September 2026 plan)
+
+> **Status (added 22 November 2026).** This is the parts plan for the robot now called **Capri**, as written on
+> 23 September 2026. It is kept as a record and has not been updated: the OWNED / ORDERED / REQUIRED labels are the
+> state on that date, and "Phase" and "Gate" refer to the [September design notes](../docs/design-notes-2026-09.md).
+> It differs from Capri V1 as built (for example the IMU is on I2C, not SPI, and no base-station ESP32 or custom PCB
+> was made). For the as-built configuration see the [hardware reference](README.md).
 
 Status labels:
 - **OWNED** — In hand now

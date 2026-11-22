@@ -34,7 +34,9 @@ Software record only; nothing below has been run on the real camera, arena or ro
   operator confirms alignment each run. Tested through a full restart and a simulated camera disconnect.
 - **Policy audit.** `final_model.zip` is behaviour cloning plus DAgger of a pursuit controller saved as an SB3 PPO object, not a
   PPO-trained policy. The verified 19-value schema is in [docs/policy-observation-schema.md](../policy-observation-schema.md); the
-  baseline firmware sends no IMU, so live inference is blocked and nothing is invented.
+  baseline firmware sends no IMU, so live inference is blocked and nothing is invented. This older checkpoint does not
+  embed its observation-encoding metadata: it must remain beside `effective_config.json`, or the loader can silently
+  fall back to the legacy previous-action encoding while retaining the same vector shape.
 - **Command mapping.** One runtime tactic-to-throttle/steer mapping with a conservative default cap (60 of 255), slew limiting,
   neutral-first on reversals and stale-decision stops. The 40 % motion-check values are the supervised scale only.
 - **Wi-Fi.** One link manager, three operator modes (MANUAL / AI SHADOW / AUTONOMOUS) with an autonomous gate that is closed in the
@@ -57,8 +59,8 @@ The first day of hardware integration went wrong, and this edition records it.
 
 New evidence this edition points to:
 
-- [`artifacts/integration-2026-11-20/evidence.md`](../../artifacts/integration-2026-11-20/evidence.md): the reported observations and readings, the firmware baseline hash and build time, and what the Wi-Fi client log shows. Reported items are labelled as reported; no agent measured, flashed or drove anything.
-- [`artifacts/integration-2026-11-20/wifi-session-log-summary.txt`](../../artifacts/integration-2026-11-20/wifi-session-log-summary.txt), made by `scripts/handoff_log_summary.py` from [`logs/handoff-wifi.txt`](../../logs/handoff-wifi.txt): 3 logged restarts, 56 status dropouts, 12 latched stale-command faults, link quality 98 to 100 % while linked.
+- Local `artifacts/integration-2026-11-20/evidence.md`: the reported observations and readings, the firmware baseline hash and build time, and what the Wi-Fi client log shows. Reported items are labelled as reported; no agent measured, flashed or drove anything.
+- Local `artifacts/integration-2026-11-20/wifi-session-log-summary.txt`, made by `scripts/handoff_log_summary.py` from local `logs/handoff-wifi.txt`: 3 logged restarts, 56 status dropouts, 12 latched stale-command faults, link quality 98 to 100 % while linked.
 - [`docs/elrs-relay-feasibility.md`](../elrs-relay-feasibility.md): what the RadioMaster Pocket and EdgeTX can and cannot accept from a PC. Desk investigation only.
 - [`scripts/motion_check.py`](../../scripts/motion_check.py) and [`tests/test_motion_check.py`](../../tests/test_motion_check.py): the movement check. 53 tests pass on the simulator and a mocked board. Not run on the robot.
 - [`docs/autobots-test-playbook.md`](../autobots-test-playbook.md): reordered after the session. Power checks first, the wired movement check next, the relay as proposed, Wi-Fi as experimental, closed-loop prerequisites listed and blocked.
@@ -68,10 +70,44 @@ Not in this edition, because it does not exist: any measurement of the supply ra
 
 Pre-edit copies of the four documents changed tonight are in `artifacts/code-snapshots/pre-integration-docs-2026-11-20/`.
 
-## Next edition (planned for 21 November)
+## 2026-11-22: third edition, the day after the competition
 
-To add, without rewriting sections 1 to 7:
+The competition happened on 21 November. This edition records it and renames the project.
 
-- Section 10: camera placement, calibration checks, photos, match results, lessons.
-- Sections 7.8, 8 and Appendix E: move anything newly verified or documented.
-- The status line at the top of the README.
+- **The name.** The robot is Capri and this prototype is Capri V1. The title and opening now say so, with a note on
+  where the old name (AutoBots) survives. Sections 1 to 9 were not reworded: "the robot" there means Capri V1.
+- **Section 10, "Competition day (21 November 2026)", is now the account of the day**, replacing the capture checklist.
+  It covers the outcome (manual control; autonomy not attempted), the camera calibration that worked, the marker
+  tracking that did not, the decision to drive manually, the wedge, the mechanical limitations, and a table setting
+  the planned captures against what is actually in the repository. Its opening table separates *demonstrated*,
+  *not achieved or not demonstrated* and *unresolved*.
+- **Two new evidence words**, *reported* and *logged*, because almost nothing from the event was recorded. No match
+  results, rankings or placements appear, because none were written down.
+- **What the laptop logged is preserved** in [`docs/competition-2026-11-21-evidence.md`](../competition-2026-11-21-evidence.md):
+  the Command Centre's log for 10:31 to 10:46 quoted in full, the saved calibration, and an estimate of how many pixels
+  a marker covered. The log files themselves are git-ignored.
+- **A finding the log adds to the account:** besides poor detection at distance, the markers that were decoded were
+  rejected because the marker size and positions in the configuration were still placeholders. Detection, pose
+  estimation and continuous localisation are reported as three separate results.
+- **A clarification about the policy** (10.2): the checkpoint that would have run is a behaviour clone stored in a PPO
+  container, not a PPO-trained policy, as the 21 November audit found. It was never deployed, so the competition is
+  not evidence about it.
+- **Dated updates, not rewrites, elsewhere:** the opening status, "what I can demonstrate", section 4, a note under
+  the table in 7.8, seven new rows in section 8, three in section 9, nine new lessons in section 11, the timeline,
+  the evidence index and the missing-evidence list.
+- **Links corrected** after the repository tidy: the October architecture diagram is now under `docs/images/`, and
+  the simulator text that was in the repository README is now `docs/simulator.md`.
+
+Not in this edition, because it does not exist: any photograph or video from the competition; match records; a
+measurement of marker pixel size or detection rate against distance; the cause of the immobilisation; any further
+work on the 20 November electrical faults. No figure was added or redrawn.
+
+## Next edition
+
+No date set. To add as they are measured, without rewriting sections 1 to 10:
+
+- Answers to the open questions in section 10 (marker detection against distance, the cause of the immobilisation).
+- Photographs of Capri V1 as it finished the competition, if any are taken before it is repaired or dismantled.
+- Anything in Appendix E that becomes documented.
+
+Capri V2 is not part of this case study. If it is built it gets its own document.

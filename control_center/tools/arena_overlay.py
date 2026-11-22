@@ -47,7 +47,7 @@ from control_center.tools.overlay_core import (
     fit_floor_mapping, flipper_boundary, load_clicks, load_config, pit_arcs, profile_points_path,
     resolve_camera, save_clicks, topdown_pixel, topdown_view)
 
-WINDOW = "AutoBots arena overlay (read-only, no motor commands)"
+WINDOW = "Capri arena overlay (read-only, no motor commands)"
 CONTROL_CENTER_CONFIG = REPO_ROOT / "config" / "control_center.yaml"
 SNAPSHOT_DIR = REPO_ROOT / "artifacts" / "vision-overlay-snapshots"
 

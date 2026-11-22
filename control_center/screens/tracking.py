@@ -275,7 +275,7 @@ class TrackingScreen(QWidget):
         column.setContentsMargins(0, 0, 6, 0)
         column.setSpacing(8)
 
-        panel, box = _panel("AUTOBOT (OWN ROBOT)")
+        panel, box = _panel("CAPRI (OWN ROBOT)")
         self.own_grid = KeyValueGrid()
         box.addWidget(self.own_grid)
         self.confidence_label = _label("", "headline")
@@ -603,7 +603,7 @@ class TrackingScreen(QWidget):
             colour = {"measured": "#55c889", "predicted": "#e8b85b"}.get(own["state"], "#ef6b73")
             age = own.get("age_s")
             markers.append(Marker(own_xy[0], own_xy[1], own.get("heading_deg"), colour,
-                                  "AutoBot " + own["state"].upper() + ("" if age is None or own["state"] == "measured" else f" {1000 * age:.0f} ms"),
+                                  "Capri " + own["state"].upper() + ("" if age is None or own["state"] == "measured" else f" {1000 * age:.0f} ms"),
                                   hollow=own["state"] != "measured"))
         if usable and opp_xy is not None:
             markers.append(Marker(opp_xy[0], opp_xy[1], None, "#ef6b73", "opponent"))

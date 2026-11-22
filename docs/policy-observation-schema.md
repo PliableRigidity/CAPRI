@@ -14,7 +14,7 @@ Machine-readable twin: `python -m control_center.tools.observation_contract` (fi
 | Not PPO-trained | "SUPERVISED imitation of a simple reactive baseline (turn toward red, advance when aligned) ... Not trained by PPO. Simulation-only: the observation contains simulator truth." Behaviour cloning, then 4 DAgger rounds; value head untouched. Stored as an SB3 PPO object so `PPO.load` works. | `runs/recovery-challenger-v2-seed1/effective_config.json:3`, `training.json` (`history`, `value_head_untouched`), `autobot/sim/cli.py:129` |
 | Teacher | turn toward the opponent, advance when within 12 deg; reads only the pose channels 13-18 | `scripts/reactive_recovery.py:120-133` |
 | Architecture | `mlp_64_64` | `effective_config.json:7` |
-| Profiles | `observation_profile` = `sim_debug`, `action_profile` = `experimental5_v1`, `previous_action_encoding` = `masked_zero_v1` | `effective_config.json:10-12`; embedded in the zip `data` record key `autobot_observation` |
+| Profiles | `observation_profile` = `sim_debug`, `action_profile` = `experimental5_v1`, `previous_action_encoding` = `masked_zero_v1` | Adjacent `effective_config.json:10-12`. This checkpoint predates embedded `autobot_observation` metadata and does **not** carry these values in its zip. |
 | Observation space | `Box(-1, 1, (19,), float32)` | zip `data`.`observation_space`; `autobot/sim/env.py:120-121` |
 | Action space | `Discrete(5)` | zip `data`.`action_space`; `env.py:118` |
 | Normalisation wrapper | none: no `VecNormalize` file in the run folder (only `effective_config.json`, `final_model.zip`, `training.json`); `load_checkpoint` is a bare `PPO.load`; replays feed the raw env vector | `autobot/sim/cli.py:127-135`, `scripts/reactive_recovery.py:376` |
@@ -29,9 +29,13 @@ Machine-readable twin: `python -m control_center.tools.observation_contract` (fi
 | torch | 2.15.0+cpu | 2.15.0+cpu |
 | gymnasium / numpy / python | 1.4.0 / 2.4.2 / 3.13.7 | 1.4.0 / 2.4.2 / 3.13.7 |
 
-`sha256 = 92e0c190ae8f6e90145e76474a98dda74df05e8a2dc572596a6f28cf5d699d17`, size 64 426 bytes. Verdict: **compatible** (loads
-via `PPO.load`, 19 inputs, 5 actions, previous-action encoding agrees between the zip and the sidecar). A different SB3 major
-version is reported as a problem, a different minor/patch as a warning (`policy_engine.inspect_model`).
+`sha256 = 92e0c190ae8f6e90145e76474a98dda74df05e8a2dc572596a6f28cf5d699d17`, size 64 426 bytes. Verdict: **compatible in its
+original run directory**: it loads via `PPO.load` and has 19 inputs and 5 actions. Its required
+`previous_action_encoding=masked_zero_v1` comes only from the adjacent `effective_config.json`; the zip has no embedded
+`autobot_observation` record. The checkpoint and sidecar must therefore be copied together. If the zip is separated from
+that sidecar, `resolve_previous_action_encoding` falls back to the legacy `onehot_v1` encoding. The shape remains valid,
+so a plain `PPO.load` cannot detect the semantic mismatch; behavior may be wrong without a load error. A different SB3
+major version is reported as a problem, a different minor/patch as a warning (`policy_engine.inspect_model`).
 
 ## 2. The 19 observation values (index order is the vector order)
 

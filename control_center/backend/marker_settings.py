@@ -1,4 +1,4 @@
-"""The ONE place that says which ArUco dictionary the AutoBot uses and how the marker detector is configured.
+"""The ONE place that says which ArUco dictionary the robot (Capri) uses and how the marker detector is configured.
 
 Pure OpenCV and PyYAML: no Qt, no camera, no serial port, no socket.
 
